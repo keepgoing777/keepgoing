@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지및멀티미디어태그</title>
+  </head>
+  <body>
+    <h2>이미지 태그</h2>
+    <img
+      src="assets/e12a88c9-354e-4667-913f-875e366e71d6.jpg.png"
+      alt="고양이 이미지"
+      width="600"
+      height="400"
+      loading="lazy"
+    />
+
+    <!-- ./이미지 주소는 동일 선상에 있을 때(그냥 이미지 클릭해도 됨)
+        ../이미지 주소는 이미지가 상위 폴더에 위치해 있을 때 -->
+
+    <!-- width와 height는 함께 쓰지 않는다. 이미지 비율 때문에. CSS가 보완 -->
+
+    <!-- loading lazy 사용자가 화면을 내릴 때 성능 최적화 -->
+
+    <h3>고정 크기 (픽셀 단위)</h3>
+    <p>화면 크기와 관계없이 고정된 크기</p>
+    <img
+      src="assets/mikhail-vasilyev-IFxjDdqK_0U-unsplash.jpg"
+      alt="고양이 이미지"
+      width="400"
+      height="300"
+    />
+    <img
+      src="assets/uriel-soberanes-xadzcCQZ_Xc-unsplash.jpg"
+      alt="고양이 이미지"
+      width="400"
+      height="300"
+    />
+
+    <h3>가변 크기 (퍼센트 단위)</h3>
+    <p>부모태그(body)의 너비에 따라 크기가 자동으로 조절</p>
+    <img
+      src="assets/mikhail-vasilyev-IFxjDdqK_0U-unsplash.jpg"
+      alt="고양이 이미지"
+      width="49%"
+      height="120"
+    />
+
+    <img
+      src="assets/uriel-soberanes-xadzcCQZ_Xc-unsplash.jpg"
+      alt="고양이 이미지"
+      width="49%"
+      height="120"
+    />
+    <!-- 결국 사진의 여백 등 CSS에서 보완해줘야함 -->
+
+    <h3>반응형 이미지</h3>
+    <p>디바이스 너비에 따라서 최적의 이미지를 자동 선택</p>
+    <img
+      src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200"
+      srcset="
+        https://images.unsplash.com/photo-1518770660439-4636190af475?w=480   480w,
+        https://images.unsplash.com/photo-1518770660439-4636190af475?w=800   800w,
+        https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200 1200w
+      "
+      sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px"
+      alt="반도체 이미지"
+      width="100%"
+    />
+
+    <h2>오디오 태그</h2>
+    <!-- controls : 재생 컨트롤러 표시 -->
+    <!-- loop : 반복 재생 -->
+    <!-- 다운로드 가능하게 만들기 = a href -->
+    <audio src="assets/audio.mp3" controls loop></audio>
+    <a href="assets/audio.mp3" download>오디오 다운로드</a>
+  </body>
+</html>
