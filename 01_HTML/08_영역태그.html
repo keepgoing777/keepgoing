@@ -1,0 +1,44 @@
+sa<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영역태그</title>
+    <style>
+      div,
+      span {
+        border: 1px solid;
+      }
+      /* display:inline, display:blcok {}안에 넣으면 모두 변함  */
+    </style>
+  </head>
+  <body>
+    <h1>div와 span</h1>
+
+    <p>
+      <span style="color: blueviolet">div</span>와 span은 HTML에서 가장 기본적인
+      레이아웃
+    </p>
+    - div : block 요소 (한 줄 전체를 차지, width:100%)
+    <br />
+    - span : inline 요소 (컨텐츠만큼만 차지)
+
+    <h2>1. 줄바꿈</h2>
+    <div>1번째 div 영역</div>
+    <div>2번째 div 영역</div>
+    <div>3번째 div 영역</div>
+    <span>1번째 span 영역</span><span>2번째 span 영역</span
+    ><span>3번째 span 영역</span>
+    <h2>2. 영역 지정 방식</h2>
+    <h3>div</h3>
+    <div>
+      동해물과 백두산이 마르고 닳도록 <br />
+      하느님이 보우하사 우리나라 만세
+    </div>
+    <h3>span</h3>
+    <span
+      >동해물과 백두산이 마르고 닳도록 <br />
+      하느님이 보우하사 우리나라 만세
+    </span>
+  </body>
+</html>

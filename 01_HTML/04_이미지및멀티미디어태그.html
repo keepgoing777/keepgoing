@@ -18,7 +18,7 @@
     <!-- ./이미지 주소는 동일 선상에 있을 때(그냥 이미지 클릭해도 됨)
         ../이미지 주소는 이미지가 상위 폴더에 위치해 있을 때 -->
 
-    <!-- width와 height는 함께 쓰지 않는다. 이미지 비율 때문에. CSS가 보완 -->
+    <!-- 보통 width와 height는 함께 쓰지 않는다. 이미지 비율 때문에. CSS가 보완 -->
 
     <!-- loading lazy 사용자가 화면을 내릴 때 성능 최적화 -->
 
@@ -72,7 +72,31 @@
     <!-- controls : 재생 컨트롤러 표시 -->
     <!-- loop : 반복 재생 -->
     <!-- 다운로드 가능하게 만들기 = a href -->
-    <audio src="assets/audio.mp3" controls loop></audio>
-    <a href="assets/audio.mp3" download>오디오 다운로드</a>
+    <audio src="assets/audio.mp3" controls loop>
+      <a href="assets/audio.mp3" download>오디오 다운로드</a>
+      브라우저가 오디오를 지원하지 않습니다.
+    </audio>
+
+    <h2>비디오 태그</h2>
+    <!-- controls : 재생 컨트롤러 표시
+         poster : 썸네일 이미지  -->
+
+    <video
+      src="assets/video.mp4"
+      controls
+      poster="assets/thumbnail.png"
+    ></video>
+
+    <!-- iframe : 외부 콘텐츠 삽입, 유튜브 영상 집어넣는 과정(공유>퍼가기>iframe소스)-->
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/RFJlOvhvUZo?si=ynb-4mk_V7knB0Yt"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
   </body>
 </html>

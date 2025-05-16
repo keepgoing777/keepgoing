@@ -1,0 +1,37 @@
+/* 1.선체 선택자 */
+* {
+  color: blue;
+}
+
+/* 2. 태그 선택자 */
+h3 {
+  background-color: yellow;
+}
+p {
+  color: tomato;
+}
+
+/* 3. 클래스 선택자 */
+.class1 {
+  color: yellowgreen;
+}
+.class2 {
+  font-size: 32px;
+}
+/* 4. 아이디 선택자 */
+#id1 {
+  background-color: indigo;
+}
+/* 5. 그룹 선택자 */
+#select1,
+#select2 {
+  background-color: orangered;
+}
+/* 6. 자식, 자손 선택자 */
+#test1 ul li {
+  background-color: pink;
+}
+
+#test1 > ul > li {
+  color: red;
+}

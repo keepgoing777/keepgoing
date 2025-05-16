@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>하이퍼링크</title>
+  </head>
+  
+    <!-- a 태그 : 다른 페이지나 리소스를 연결하는 하이퍼링크
+     href : 이동할 주소 
+     target="_blank" : 새 창 열기-->
+
+    <h2>외부 페이지 링크</h2>
+    <a href="https://www.google.com/" target="_blank">구글 페이지로 이동</a>
+
+    <h2>내부 페이지 링크</h2>
+    <ul>
+      <li><a href="02_텍스트태그.html">텍스트태그</a></li>
+    </ul>
+    
+    <h2>이미지 링크</h2> 
+    <a href="https://www.naver.com/" target="_blank"><img src="assets/naver.png" alt=""/></a>
+
+    <h2>같은 페이지 내 이동</h2>
+    
+    <!-- ul>(li>a)*3 
+         #은 아이디를 호출 -->
+    <ul>
+        <li><a href="#test1">테스트1</a></li>
+        <li><a href="#test2">테스트2</a></li>
+        <li><a href="#test3">테스트3</a></li>
+    </ul> 
+
+    <!-- h3{테스트$}*3 -->
+
+    <h3 id="test1">테스트1</h3>
+    <p>테스트 1 영역입니다.</p>
+    <div style="height: 1000px"></div>
+
+    <h3 id="test2">테스트2</h3>
+    <p>테스트 2영역입니다.</p>
+    <div style="height: 1000px"></div>
+    <a href="">위로이동</a>
+    
+    <h3 id="test3">테스트3</h3>
+    <p>테스트 3영역입니다.</p>
+    <div style="height: 1000px"></div>
+
+  </body>
+</html>
