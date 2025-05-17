@@ -17,7 +17,7 @@
     <!-- 문단 태그 -->
     <p>p 태그는 문단을 구분할 때 사용한다.</p>
     줄 바꿈을 하고 싶다면 <br />
-    태그를 사용한다. <br />
+    br 태그를 사용한다. <br />
     <br />
 
     <!-- 강조 태그 -->
@@ -27,30 +27,30 @@
 
     <!-- 아이, em 태그 -->
     <i>기울여서 표시</i> <br />
-    <em>기울여서 표시, 강조 표현</em>
+    <em>기울여서 표시, 강조 표현</em> <br />
 
     <!-- 형광펜, 작은글자, 첨자 -->
-    <br />
     <mark>형광펜 효과</mark> <br />
     <small>작은 글자</small>
-    <sub>아래첨자</sub><sup>윗첨자</sup>
-    <br />
+    <sub>아래첨자</sub><sup>윗첨자</sup> <br />
     <!-- 인용문 -->
     <p>
-      p 태그 사이에 
-      <q cite="google.com">짧은 인용문</q>
+      p 태그 사이에
+      <q cite="https://google.com">짧은 인용문</q>
       q 태그 사용
     </p>
-    <p>
-      P 태그 사이에
-    <blockquote cite="google.com">긴 인용문</blockquote>
-      blockquote 태그 사용
-    </p>
+    <p>P 태그 사이에</p>
+    <blockquote cite="https://google.com">긴 인용문</blockquote>
+    <p>blockquote 태그 사용</p>
 
+    <!-- P태그는 블록레벨 요소를 자식으로 가질 수 없음, HTML 파서는 P태그 내부에서 
+     블록레벨 요소를 만나면 자동으로 태그를 닫아버림, 브라우저는 자동으로 P태그를 닫고
+     blockquote 부분을 독립적 요소로 처리함 -->
+
+    <h1>실습문제</h1>
+    태그들은 중첩으로 사용가능합니다.<br />
+    <small><i>작게, 기울여서</i></small> 표현 가능하고,
+    <b><mark>굵게,형광펜</mark></b
+    >을 넣어 글자를 강조할 수 있습니다.
   </body>
 </html>
-
-<p><h1>실습문제</h1></p>
-
-태그들은 중첩으로 사용가능합니다.<br/>
-<small><i>작게, 기울여서</i></small> 표현 가능하고, <b><mark>굵게,형광펜</mark></b>을 넣어 글자를 강조할 수 있습니다. 
