@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복습</title>
+  </head>
+  <body>
+    <!-- 이미지 -->
+    <h4>고정</h4>
+    <img
+      src="../01_HTML/assets/e12a88c9-354e-4667-913f-875e366e71d6.jpg.png"
+      arc="고양이 이미지"
+      width="200"
+    />
+    <h4>가변</h4>
+    <img
+      src="../01_HTML/assets/e12a88c9-354e-4667-913f-875e366e71d6.jpg.png"
+      arc="고양이 이미지"
+      width="49%"
+    />
+    <h4>반응형</h4>
+    <img
+      src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200"
+      srcset="
+        https://images.unsplash.com/photo-1518770660439-4636190af475?w=480   480w,
+        https://images.unsplash.com/photo-1518770660439-4636190af475?w=800   800w,
+        https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200 1200w
+      "
+      sizes="(max-width:600px) 480px, (max-width:900px) 800px, 1200px "
+      arc="반도체 이미지"
+      width="100%"
+    />
+    <!-- 오디오 태그 -->
+    <audio src="../01_HTML/assets/audio.mp3" controls loop>
+      <a href="../01_HTML/assets/audio.mp3" download>다운로드</a>
+      브라우저가 오디오를 지원하지 않습니다.
+    </audio>
+    <!-- 비디오 태그 -->
+    <video
+      src="../01_HTML/assets/video.mp4"
+      controls
+      poster="../01_HTML/assets/thumbnail.png"
+    ></video>
+    <!-- iframe -->
+    <!-- 하이퍼링크 -->
+    <a href="https://www.google.com/?hl=ko" target="_blank"
+      >구글 페이지로 이동</a
+    ><br />
+    <a href="../01_HTML/07_폼태그.html" target="_blank">폼태그</a> <br />
+    <a href="https://www.naver.com/" target="_blank"
+      ><img src="../01_HTML/assets/naver.png" alt="네이버 이미지"
+    /></a>
+    <br />
+    <!-- 같은 페이지 내 이동 -->
+    <ol>
+      <li><a href="#test1">테스트1</a></li>
+      <li><a href="#test2">테스트2</a></li>
+      <li><a href="#test3">테스트3</a></li>
+    </ol>
+    <h3 id="test1">테스트1</h3>
+    <p>테스트 1 영역입니다.</p>
+    <div style="height: 1000px"></div>
+    <h3 id="test2">테스트2</h3>
+    <p>테스트 2 영역입니다.</p>
+    <a href="">위로이동</a>
+    <div style="height: 1000px"></div>
+    <h3 id="test3">테스트3</h3>
+    <p>테스트 3 영역입니다.</p>
+    <div style="height: 1000px"></div>
+  </body>
+</html>
