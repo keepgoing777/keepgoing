@@ -1,14 +1,15 @@
-/* 1.선체 선택자 */
+/* 1.전체 선택자 */
 * {
   color: blue;
 }
 
-/* 2. 태그 선택자 */
+/* 2. 태그 선택자 * 우선순위는 마지막으로 */
 h3 {
   background-color: yellow;
 }
 p {
   color: tomato;
+  color: aqua;
 }
 
 /* 3. 클래스 선택자 */
@@ -34,4 +35,124 @@ p {
 
 #test1 > ul > li {
   color: red;
+}
+/* 7. 속성 선택자 */
+div[name="name1"] {
+  background-color: pink;
+}
+/* 정확히 일치해야함 */
+
+div[name~="name1"] {
+  background-color: yellow;
+}
+/* ~=단어가 포함되어 있는지 */
+
+div[class*="-c"] {
+  color: red;
+}
+/* 부분 일치 */
+div[class^="cl"] {
+  background: blue;
+}
+/* ""로 시작하는지 확인 (시작문구 일치 여부) */
+
+div[class|="div"] {
+  background: cyan;
+}
+/* 시작 일치 */
+div[class$="div"] {
+  background: pink;
+}
+/* =끝 일치 */
+
+/* 8. 형제선택자 */
+#test2 ~ div {
+  background: beige;
+}
+/* 동일한 부모를 가진 요소 중에 test2 이후에 등장하는 모든 형제 div 선택 */
+
+#test2 + div {
+  background: yellow;
+}
+/* test2 바로 뒤에 오는 div만 선택 */
+/* 9.반응선택자 */
+.area {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+#active-test:active {
+  background-color: yellow !important;
+  color: red;
+}
+/* active:마우스를 눌렀을 때*/
+
+#hover-test:hover {
+  background-color: aquamarine;
+  color: red;
+}
+/* hover:마우스를 올렸을 때 */
+
+input[type="text"]:focus {
+  background: pink;
+}
+/* input 요소에 포커스가 갔을 때 적용*/
+
+input[type="checkbox"]:checked {
+  width: 20px;
+  height: 20px;
+}
+/* 체크박스에 체크 상태인 경우  */
+
+button:enabled {
+  background-color: violet;
+}
+
+button:disabled {
+  background-color: yellowgreen;
+}
+
+/* 10. 구조 선택자 */
+#test3 li:first-child {
+  background: salmon;
+}
+#test3 li:last-child {
+  background: skyblue;
+}
+#test3 li:nth-child(even) {
+  background: darkcyan;
+}
+#test3 li:nth-of-type(4) {
+  color: white;
+}
+#test3 li:nth-last-child(3) {
+  background: hotpink;
+}
+#test3 li:nth-last-of-type(4) {
+  background: seagreen;
+}
+
+/* 가상 요소  */
+#test4 p::before {
+  content: "앞";
+  color: blue;
+  background: yellow;
+}
+#test4 P::after {
+  content: "뒤";
+  color: white;
+  background: black;
+}
+
+/* 선택자 우선순위 */
+#test5 {
+  width: 200p;
+  height: 200px;
+}
+div.class5 {
+  background: pink !important;
+}
+div {
+  background: skyblue;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<body lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,17 +8,23 @@
   </head>
   <h3>1. 전체 선택자 : *</h3>
   <p>모든 요소의 스타일을 적용</p>
+
   <h3>2. 태그 선택자 : 태그</h3>
   <p>해당 태그에 스타일 적용</p>
+
   <h3>3. 클래스 선택자 : .클래스명</h3>
   <p class="class1">class1 스타일 적용</p>
   <p class="class2">class2 스타일 적용</p>
+
   <h3>4. 아이디 선택자 : #아이디명</h3>
   <p id="id1">id1 스타일 적용</p>
+
   <h3>5. 그룹 선택자</h3>
   <p>콤마(,)를 사용하여 여러 요소 선택</p>
+
   <div id="select1">div 선택</div>
   <p id="select2">p 선택</p>
+
   <h3>6. 자식/자손 선택자</h3>
   <p>자식(>) : 바로 하위 요소들 / 자손() : 하위 요소들 전부 다</p>
   <div id="test1">
@@ -31,5 +37,58 @@
       </ul>
     </ul>
   </div>
-  <body></body>
+  <h3>7. 속성 선택자</h3>
+  <p>요소에 작성된 속성을 이용해 선택
+   <br />
+    선택자 뒤에 대괄호[]를 사용하여 속성, 속성값으로 선택
+  </p>
+  <div class="div-class" name="name1">div1</div>
+  <div class="div-class" name="name2">div2</div>
+  <div class="div-class" name="name3 name1">div3</div>
+  <div class="class-div" name="name1">div4</div>
+
+  <h3>8. 형제 선택자</h3>
+  <p>같은 부모를 가진 형제 요소 중, 뒤에 위치한 특정 요소를 선택할 때</p>
+  <div id="test2">div1</div>
+  <div>div2</div>
+  <div>div3</div>
+  <div>div4</div>
+  <p>p</p>
+  <div>div5</div>
+
+
+ <h3>9. 반응 선택자</h3>
+  <p>사용자의 상호작용(마우스 올림, 클릭 등)에 따라 선택</p> 
+  <div id="active-test" class="area">active테스트</div>
+  <div id="hover-test" class="area">hover 테스트</div>
+  <input type="text">
+  <input type="checkbox">
+  <button>클릭 가능</button>
+  <button disabled>클릭 불가능</button>
+
+ <h3>10. 구조 선택자</h3>
+  <p>요소의 순서를 기준으로 특정 위치에 있는 요소를 선택</p>
+  <div id="test3">
+   <ul>
+     <li>list 1</li>
+     <li>list 2</li>
+     <p>p item!</p>
+     <li>list 3</li>
+     <li>list 4</li>
+     <li>list 5</li>
+     <li>list 6</li>
+     <li>list 7</li>
+     <li>list 8</li>
+     <li>list 9</li>
+     <li>list 10</li>
+   </ul>
+<h3>11. 가상 요소 선택자</h3>
+ <p>선택한 요소의 앞(before)이나 뒤(after)에 원하는 내용을 추가</p>
+  <id="test4">
+  <p>TEXT</p>
+
+<h3>12. 선택자 우선순위 </h3>
+<div>id="test5" class="class5" style="background: purple">우선순위 테스트</div> 
+<!-- !mportant>인라인 스타일(style="")>아이디 선택자(#id)>클래스 선택자 (.class)>태그 선택지*/ -->
+</body>
 </html>

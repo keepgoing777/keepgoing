@@ -1,0 +1,46 @@
+/* background-color */
+#bc {
+  background-color: aqua;
+}
+
+/* background-clip */
+.div-test {
+  background: peachpuff;
+  padding: 30px;
+  border: 5px dashed orangered;
+  margin-bottom: 20px;
+}
+
+#bc1 {
+  background-clip: content-box;
+}
+
+#bc2 {
+  background-clip: padding-box;
+}
+/* content+padding영역 */
+
+#bc3 {
+  background-clip: border-box;
+}
+/* content+padding+border영역 */
+
+#test {
+  width: 400px;
+  height: 300px;
+  border: 2px solid;
+
+  background-image: url("assets/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center
+  background-attachment: fixed;
+}
+
+/* size : 이미지 크기 조절 px 
+contain : 
+cover : 
+repeat : 반복 여부 설정 (repeat-x, y, no-repeat)
+position : 사진의 위치를 설정할 수 있음(center, bottom, upper, right, left)
+background 순서 : color, image, position/size, repeat, attachment 순서  
+*/

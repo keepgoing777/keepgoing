@@ -1,0 +1,205 @@
+/* font-family */
+/* 여러가지 나열하는 이유는 해당 글꼴이 없을 때 다음 글꼴로 변환 */
+#ff1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#ff2 {
+  font-family: "궁서", serif;
+}
+#ff3 {
+  font-family: "돋움", sans-serif;
+}
+
+#ff4 {
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* font-weight 700이 bold */
+#fw1 {
+  font-weight: bold;
+}
+#fw2 {
+  font-weight: 900;
+}
+#fw3 {
+  font-weight: 100;
+}
+
+/* font-size */
+#fs1 {
+  font-size: 32px;
+} /* 고정크기 */
+#fs2 {
+  font-size: 2em;
+} /* 부모 기준* 30*2=60px */
+#fs3 {
+  font-size: 2rem;
+} /* 1rem=16px, 현재 32px, 부모와 상관없이 고정값 html 기준 */
+#fs4 {
+  font-size: 200%;
+} /* 현재 30*2=60px, 부모 기준 비율 */
+
+/* font-style */
+/* 이탤릭체는 문체, 오블리큐는 강제로 기울게 하는것 */
+#fs5 {
+  font-style: italic;
+}
+#fs6 {
+  font-style: oblique;
+}
+
+/* font-variant 일부로 대문자를 만들어줌 */
+#fv {
+  font-variant: small-caps;
+}
+
+/* font 순서 : font style, font variant, font weight, font size/line-height, font-family */
+#font1 {
+  font: italic small-caps bold 32px/2 "궁서";
+}
+#font2 {
+  font: 2rem "궁서";
+}
+/* 위와 동일 
+#font2 {
+  font-size: 2rem;
+  font-family: "궁서";} */
+
+/* color */
+#c-name {
+  color: red;
+}
+/* 색상명 : 브라우저가 인식하는 기본 색상명, web safe colors, 216가지 */
+
+#c-16 {
+  color: #dd882e;
+}
+/* 색상 표기법이 16진수로 나타남, #RRGGBB 표기법 */
+
+#c-rgb {
+  color: rgb(68, 223, 78);
+  color: rgb(0, 0, 0, 1);
+}
+/* 색상 표기 RED(0~255) Green(0~255) Blue(0~255) Alpha(투명도, 0~1 사이 값) */
+
+#c-hsl {
+  color: hsl(200, 50%, 50%, 0.2);
+}
+/* 색상환(H, 0~360) 채도(S, 0~100%), 밝기(L, 0~100%), 투명도(A, 0~1)*/
+
+/* text decoration */
+#td1 {
+  text-decoration: underline;
+}
+
+#td2 {
+  text-decoration: overline;
+}
+
+#td3 {
+  text-decoration: line-through;
+}
+
+#td4 {
+  text-decoration: none;
+}
+/* text-transform */
+
+#tt1 {
+  text-transform: uppercase;
+}
+
+#tt2 {
+  text-transform: lowercase;
+}
+
+#tt3 {
+  text-transform: capitalize;
+}
+
+/* text-shadow */
+.shadow {
+  font-size: 50px;
+  font-weight: 900px;
+}
+
+#ts1 {
+  color: green;
+  text-shadow: 5px 5px 2px red;
+}
+
+/* text-shadow 순서 : x축 y축 blur(흐린정도) color */
+
+#ts2 {
+  color: white;
+  text-shadow: 0px 0px 10px purple;
+}
+
+#ts3 {
+  text-shadow: 0px 0px 4px gray, 0px -5px 4px yellow, 0px -10px 8px orange,
+    0px -15px 15px orangered, 0px -22px 20px red;
+}
+
+/* whtie-space */
+#whs {
+  white-space: pre-warp;
+}
+
+/* letter, word spacing  */
+#ls {
+  letter-spacing: 10px;
+}
+
+#wsp {
+  word-spacing: 20px;
+}
+#ta1 {
+  text-align: left;
+}
+
+#ta2 {
+  text-align: right;
+}
+
+#ta3 {
+  text-align: center;
+}
+
+#ta4 {
+  text-align: justify;
+}
+
+/* text-indent */
+#ti {
+  text-indent: 20px;
+}
+
+/* line height */
+
+#lh {
+  line-height: 2;
+}
+
+/* text-overflow */
+#to {
+  background: beige;
+  width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ul.circle {
+  list-style: circle;
+}
+
+ul.square {
+  list-style: square;
+}
+
+ul.none {
+  list-style: none;
+}
