@@ -9,7 +9,6 @@ h3 {
 }
 p {
   color: tomato;
-  color: aqua;
 }
 
 /* 3. 클래스 선택자 */
@@ -43,7 +42,7 @@ div[name="name1"] {
 /* 정확히 일치해야함 */
 
 div[name~="name1"] {
-  background-color: yellow;
+  background: yellow;
 }
 /* ~=단어가 포함되어 있는지 */
 
@@ -63,7 +62,7 @@ div[class|="div"] {
 div[class$="div"] {
   background: pink;
 }
-/* =끝 일치 */
+/* $=끝 일치 */
 
 /* 8. 형제선택자 */
 #test2 ~ div {
@@ -132,6 +131,7 @@ button:disabled {
 #test3 li:nth-last-of-type(4) {
   background: seagreen;
 }
+/* nth-child(숫자, odd - 홀수, even - 짝수) */
 
 /* 가상 요소  */
 #test4 p::before {
