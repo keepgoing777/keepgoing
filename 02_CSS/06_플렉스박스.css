@@ -1,0 +1,189 @@
+.container {
+  display: flex;
+  background: #9b9898;
+  padding: 1rem;
+  border: 1px solid #0f0303;
+}
+
+.tall {
+  height: 80px;
+}
+
+.item {
+  background: white;
+  border: 2px solid #333;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* flex-direction */
+
+#fd {
+  flex-direction: row;
+  /* 가로방향이 기본값 */
+  flex-direction: row-reverse;
+  /* 가로 반대 방향 */
+  flex-direction: column;
+  /* 세로 방향 */
+  flex-direction: column-reverse;
+  /* 세로 반대방향 */
+}
+
+/* justify-content */
+
+#jc {
+  justify-content: flex-start;
+  /* 기본값, 왼쪽 정렬 */
+  justify-content: flex-end;
+  /*오른쪽 정렬 */
+  justify-content: center;
+  /* 가운데 정렬 */
+  justify-content: space-between;
+  /* 양끝 정렬, 간격 골고루 줌 */
+  justify-content: space-around;
+  /* 자신을 기준으로 양쪽 간격 동일 */
+  justify-content: space-evenly;
+  /* 모든 간격을 동일하게 */
+}
+
+/* align-items */
+#ai {
+  align-items: stretch;
+  /* 높이를 자동 확장 */
+  align-items: flex-start;
+  /* 상단 정렬 */
+  align-items: flex-end;
+  /* 하단 정렬 */
+  align-items: center;
+  /* 수직 중앙 정렬 */
+  justify-content: center;
+}
+
+/* flex-wrap */
+#fw {
+  flex-wrap: nowrap;
+  /* 줄바꿈 없음 */
+  flex-wrap: wrap;
+  /* 화면에 따라 줄바꿈 있음 */
+  flex-wrap: wrap-reverse;
+  /* 역방향 줄바꿈 */
+}
+
+#fw .item {
+  width: 200px;
+  height: 100px;
+}
+
+/* align-self */
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.order1 {
+  order: 2;
+  /* 1번자리에 2번이 옴 자리이동 */
+}
+
+.order3 {
+  order: -1;
+  /* 자신의 위치에서 -1은 왼쪽으로 이동 */
+}
+
+/* gap */
+
+#gap {
+  gap: 20px;
+}
+
+#gap .item {
+  margin: 2rem;
+}
+
+/* flex-grow */
+
+#grow-1 {
+  flex-grow: 2;
+}
+/* 부모(컨테이너)보다 아이템이 작을 때, flex-grow값이 클수록 남은 공간을 더 많이 차지 */
+
+#grow-2 {
+  flex-grow: 2;
+}
+
+#grow-3 {
+  flex-grow: 3;
+}
+
+/* flex-shrink */
+
+#shrink .item {
+  width: 300px;
+}
+
+#shrink-1 {
+  flex-shrink: 0;
+}
+
+#shrink-2 {
+  flex-shrink: 1;
+}
+
+#shrink-3 {
+  flex-shrink: 2;
+}
+
+/* 컨테이너보다 아이템이 클때 flex-shrink값이 작을수록 더 적게 줄어든다. 0일때는 아예 줄어들지 않음 */
+
+/* flex-basis */
+
+#basis-1 {
+  flex-basis: 100px;
+}
+
+#basis-2 {
+  flex-basis: 200px;
+}
+
+#basis-3 {
+  flex-basis: 150px;
+}
+/* width랑 똑같은 역할 */
+
+/* flex : flex-grow, flex-shrink, flex-basis 한번에 설명 가능*/
+
+#flex-1 {
+  flex: 0 1 auto;
+}
+/* 기본형 */
+
+#flex-2 {
+  flex: 1;
+}
+/* grow=1, shrink=1 basis=0% */
+
+#flex-3 {
+  flex: none;
+}
+/* 고정값 */
+
+/* align-content */
+
+#ac {
+  flex-wrap: wrap;
+  height: 200px;
+  align-content: flex-start;
+  /*flex-start 상단 정렬 */
+  align-content: center;
+  /* center 중앙정렬 */
+  align-content: space-between;
+  /* space-between 양끝 정렬 */
+}

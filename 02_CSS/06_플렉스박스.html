@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>플렉스박스</title>
+    <link rel="stylesheet" href="../02_CSS/06_플렉스박스.css" />
+  </head>
+  <body>
+    <h1>Flexbox</h1>
+    <p>display:flex</p>
+    <!-- flex : container(부모) + items 필수요소 보통 부모에게 flex를 줌-->
+    <h2>flex-direction</h2>
+    <div class="container" id="fd">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+    <h2>justify-content</h2>
+    <div class="container" id="jc">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+    </div>
+    <h2>align-items</h2>
+    <div class="container tall" id="ai">
+      <div class="item">가</div>
+      <div class="item">나</div>
+      <div class="item">다</div>
+    </div>
+    <h2>flex-wrap</h2>
+    <div class="container tall" id="fw">
+      <div class="item">a</div>
+      <div class="item">b</div>
+      <div class="item">c</div>
+    </div>
+    <!-- 여기서부터는 아이템에게 플렉스를 줘야함 -->
+    <h2>align-self</h2>
+    <div class="container tall" id="as">
+      <div class="item self-start">1</div>
+      <div class="item self-center">2</div>
+      <div class="item self-end">3</div>
+    </div>
+    <h2>order</h2>
+    <div class="container" id="order">
+      <div class="item order1">1</div>
+      <div class="item order2">2</div>
+      <div class="item order3">3</div>
+    </div>
+    <!-- 아이템에게 플렉스를 줘야함 끝 -->
+    <h2>gap</h2>
+    <div class="container" id="gap">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+    <h2>flex-grow</h2>
+    <!--   .item#grow-${grow$}*3 -->
+    <div class="container" id="row">
+      <div class="item" id="grow-1">grow 1</div>
+      <div class="item" id="grow-2">grow 2</div>
+      <div class="item" id="grow-3">grow 3</div>
+    </div>
+    <h2>flex-shrink</h2>
+    <div class="container" id="shrink">
+      <div class="item" id="shrink-1">shrink 1</div>
+      <div class="item" id="shrink-2">shrink 2</div>
+      <div class="item" id="shrink-3">shrink 3</div>
+    </div>
+    <h2>flex-basis</h2>
+    <div class="container" id="basis">
+      <div class="item" id="basis-1">basis 1</div>
+      <div class="item" id="basis-2">basis 2</div>
+      <div class="item" id="basis-3">basis 3</div>
+    </div>
+    <h2>flex</h2>
+    <div class="container" id="flex">
+      <div class="item" id="flex-1">flex 1</div>
+      <div class="item" id="flex-2">flex 2</div>
+      <div class="item" id="flex-3">flex 3</div>
+    </div>
+    <h2>align-content</h2>
+    <div class="container" id="ac">
+      <div class="item">item 1</div>
+      <div class="item">item 2</div>
+      <div class="item">item 3</div>
+      <div class="item">item 4</div>
+      <div class="item">item 5</div>
+      <div class="item">item 6</div>
+    </div>
+  </body>
+</html>
