@@ -1,0 +1,67 @@
+:root {
+  --main-width: 240px;
+  --main-color: rgba(0, 0, 0, 0.5);
+}
+/* :root :이름 부여 */
+
+header {
+  position: fixed;
+  background-color: black;
+  width: var(--main-width);
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--main-color);
+  background-image: url(../02_CSS/assets/background.jpg);
+  background-blend-mode: color;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+}
+/* background-blend-mode: image+color 섞는 느낌 */
+
+header h1 {
+  font-size: 4rem;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-inline: 10px;
+  border-bottom: 2px solid white;
+}
+
+header nav {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 150px;
+  gap: 15px;
+}
+
+header nav a {
+  text-decoration: underline;
+}
+
+main {
+  padding: 10px;
+  padding-left: calc(var(--main-width) + 10px);
+  text-align: center;
+}
+
+/* calc : 계산해라 var(변수 함수) */
+
+main h2 {
+  text-align: left;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+main img {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: left;
+}

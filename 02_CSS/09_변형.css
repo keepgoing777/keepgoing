@@ -1,0 +1,147 @@
+section {
+  display: flex;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  color: white;
+  line-height: 150px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.transition {
+  background-color: cadetblue;
+  transition-property: all;
+  transition-duration: 5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 1s;
+  transition: all 2s ease-in-out 1s;
+}
+/* transition property :속성값(배경, 폰트사이즈 등)
+   transition duration : 시간
+   transition-timing-function: 전환속도 (linear, ease-in-out)
+   transition-delay
+   transition-property: background-color, font-size;
+   속성값을 시간동안 변형시킴
+   ex) transition: all 1s; 모든 속성 1초만에 변함
+   transition: property duration function delay 한줄로 표현 가능    */
+
+.transition:hover {
+  background-color: coral;
+  font-size: 2rem;
+  transform: scale(1.5) rotate(15deg);
+  border-radius: 50%;
+}
+
+/* transform */
+
+.transform-scale {
+  background-color: coral;
+}
+
+.transform-scale:hover {
+  transform: scale(1.2);
+}
+
+/* scale : 크기 확대 */
+
+.transform-rotate {
+  background-color: orange;
+}
+
+.transform-rotate:hover {
+  transform: rotate(45deg);
+}
+
+.transform-translate {
+  background-color: mediumaquamarine;
+}
+
+.transform-translate:hover {
+  transform: translate(40px, 20px);
+}
+/* translate(x,y) 위치이동, X는 오른쪽 x축, Y는 아래쪽으로*/
+
+.transform-skew {
+  background-color: dodgerblue;
+}
+
+.transform-skew:hover {
+  transform: skew(10deg, 20deg);
+}
+/* Skew(x,y) 기울이기 deg:degree각도 */
+
+/* animation */
+
+@keyframes bounce {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: translate(25px, 50px);
+  }
+}
+
+/* @keyframes bounce : 애니메이션 정의, 직접 만들어내야함 */
+
+.animation-once {
+  background-color: crimson;
+  animation: bounce 1s ease-in-out 3;
+}
+
+/* animation: 애니메이션 이름, 지속시간, 속도곡선, 횟수  */
+
+.animation-alternate {
+  background-color: indigo;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+/* alternate 추가시 갔다가 다시 돌아오는 모션 추가됨 */
+
+@keyframes bounce2 {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.animation-reverse {
+  background-color: darkslateblue;
+  animation: bounce 1s ease-in-out reverse;
+}
+
+.animation-paused {
+  background-color: mediumaquamarine;
+  animation: bounce2 2s linear infinite;
+}
+
+.animation-paused:hover {
+  animation-play-state: paused;
+}
+
+/* 3D */
+
+.perspective-container {
+  perspective: 600px;
+}
+
+.perspective-container .box {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.perspective-container .box:hover {
+  transform: rotateY(180deg);
+}

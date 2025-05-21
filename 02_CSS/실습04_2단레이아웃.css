@@ -1,0 +1,44 @@
+header {
+  position: fixed;
+  width: 15%;
+  height: 100%;
+  background-image: url(../02_CSS/assets/background.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+}
+
+header h1 {
+  color: white;
+  font-size: 70px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+header nav a {
+  display: flex;
+  color: white;
+  font-size: 20px;
+  /* flex-direction: column; */
+}
+
+section {
+  padding-left: 310px;
+}
+
+img {
+  width: 500px;
+  height: 300px;
+}
+
+section h1 {
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+section p {
+  display: flex;
+}

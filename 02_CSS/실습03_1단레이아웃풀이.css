@@ -1,0 +1,92 @@
+header {
+  position: fixed;
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* justify-content:space-between : header(부모)태그에 줌, h1과 nav를 양쪽 사이드로 배치 */
+
+header h1 {
+  font-size: 2em;
+  padding: 10px;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+}
+
+header nav a {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+/*  
+header nav a {
+  display: inline-block;
+  height: 52px;
+  line-height: 52px;
+  padding: 5px;
+}
+*/
+/* a태그는 블록요소, 인라인화 */
+
+header nav a:hover {
+  background: black;
+  color: white;
+}
+/*  
+#section1 {
+  padding-top: 52px;
+}
+ heading 글자를 로고 백그라운드에 가려짐, 위에서 밀어내니까 padding-top */
+
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#section1 {
+  background-color: cadetblue;
+}
+
+section h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+section p {
+  line-height: 1.5;
+  text-align: center;
+  width: 70%;
+}
+/* 페이지 양옆 문단 여백주기 */
+
+#section2 {
+  background-color: skyblue;
+}
+
+#section3 {
+  background-color: aqua;
+}
+
+.top {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 60px;
+  height: 60px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
