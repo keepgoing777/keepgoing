@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복습</title>
+    <style>
+      div {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: aqua">Cascading Style Sheet</h1>
+    <div>웹 페이지의 디자인을 위한 언어</div>
+    <link rel="stylesheet" href="/00_복습/0520 선택자.css" />
+    <p>선택자 {속성 : 값}</p>
+  </body>
+</html>
+
+<h2>전체 선택자</h2>
+<p>* 전체 적용</p>
+
+<h2>태그 선택자</h2>
+<p>p 태그</p>
+
+<h2>아이디 선택자</h2>
+<p id="id1">p id 선택적용</p>
+
+<h2>그룹선택자</h2>
+<div id="select1">선택그룹 1</div>
+<p id="select2">선택그룹 2</p>
+
+<h2>자식 자손</h2>
+<div id="test1">
+  <ul>
+    <li>자손</li>
+    <ul>
+      <li>하위</li>
+      <li>하위</li>
+    </ul>
+  </ul>
+</div>
+
+<h2>속성 선택자</h2>
+<div class="div-class" name="name1">div1</div>
+<div class="div-class" name="name2">div2</div>
+<div class="div-class" name="name3 name1">div3</div>
+<div class="class-div" name="name3">div4</div>
+
+<h2>형제 선택자</h2>
+<div id="test2">div1</div>
+<div>div2</div>
+<div>div3</div>
+<div>div4</div>
+<p>p</p>
+<div>div5</div>
+
+<h2>반응 선택자</h2>
+<div id="active-test" class="area">active 테스트</div>
+<div id="hover-test" class="area">hover 테스트</div>
+<input type="text" />
+<input type="checkbox" />
+<button>클릭가능</button>
+<button disabled>클릭불가능</button>
+
+<h2>가상요소 선택자</h2>
+<div id="test4">
+  <p>TEXT</p>
+</div>
+
+<h2>구조 선택자</h2>
+<div id="test3">
+  <ul>
+    <li>list1</li>
+    <li>list2</li>
+    <p>p item!</p>
+    <li>list3</li>
+    <li>list4</li>
+    <li>list5</li>
+    <li>list6</li>
+    <li>list7</li>
+    <li>list8</li>
+    <li>p item!</li>
+    <li>list9</li>
+    <li>list10</li>
+  </ul>
+</div>

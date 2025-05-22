@@ -1,0 +1,139 @@
+/* 전체 적용 */
+* {
+  color: purple;
+}
+
+/* h2와 p 선택적용 */
+h2 {
+  background-color: yellow;
+}
+p {
+  background-color: lightgreen;
+}
+
+/* 아이디 선택적용 */
+#id1 {
+  background-color: beige;
+}
+
+/* 그룹 , 선택 */
+#select1,
+#select2 {
+  background-color: orangered;
+}
+
+/* 자식 자손 */
+#test1 {
+  background-color: pink;
+}
+#test1 ul li {
+  background-color: hotpink;
+}
+
+#test1 > ul > li {
+  color: white;
+}
+
+/* 속성 선택자 */
+div[name="name1"] {
+  background-color: skyblue;
+}
+/* 완전일치 */
+div[name~="name1"] {
+  background-color: plum;
+}
+/* 포함 시 */
+div[class*="-c"] {
+  color: red;
+}
+/* -C 부분일치시 */
+div[class^="cl"] {
+  background-color: greenyellow;
+}
+/* cl로 시작 시 */
+div[class$="div"] {
+  color: coral;
+}
+/* div로 끝날 시시 */
+
+/* 형재 선택자 */
+#test2 ~ div {
+  background-color: coral;
+}
+/* #test2 이후 모든 div */
+
+#test2 + div {
+  color: blanchedalmond;
+}
+
+/* test2 바로 뒤에 오는 div */
+
+/* 반응 선택자  */
+.area {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+#active-test:active {
+  background-color: aqua;
+  color: red;
+}
+/* 클릭시  */
+
+#hover-test:hover {
+  background-color: greenyellow;
+  color: brown;
+}
+/* 마우스 가져다대면 */
+input[type="text"]:focus {
+  background-color: pink;
+}
+/* 클릭하면 변함, focusing */
+
+input[type="checkbox"]:checked {
+  width: 20px;
+  height: 20px;
+}
+/* 체크박스 체크되면 반응 */
+
+button:enabled {
+  background-color: plum;
+}
+button:disabled {
+  background-color: red;
+}
+
+/* 가상요소 선택자 */
+
+#test4 p::before {
+  content: "앞";
+  color: blue;
+  background-color: burlywood;
+}
+#test4 p::after {
+  content: "뒤";
+  color: white;
+  background-color: black;
+}
+
+#test3 li:first-child {
+  background-color: white;
+}
+#test3 li:last-child {
+  background-color: greenyellow;
+}
+#test3 li:nth-child(4) {
+  color: white;
+}
+#test3 li:nth-of-type(4) {
+  background-color: blueviolet;
+}
+
+#test3 li:nth-last-child(3) {
+  background-color: hotpink;
+}
+
+#test3 li:nth-last-of-type(4) {
+  background-color: green;
+}

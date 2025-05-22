@@ -8,7 +8,7 @@ h3 {
   background-color: yellow;
 }
 p {
-  color: tomato;
+  color: green;
 }
 
 /* 3. 클래스 선택자 */
@@ -119,7 +119,7 @@ button:disabled {
 #test3 li:last-child {
   background: skyblue;
 }
-#test3 li:nth-child(even) {
+#test3 li:nth-child(4) {
   background: darkcyan;
 }
 #test3 li:nth-of-type(4) {
@@ -153,6 +153,7 @@ button:disabled {
 div.class5 {
   background: pink !important;
 }
+
 div {
   background: skyblue;
 }
