@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수와 연산자</title>
+  </head>
+  <body>
+    <h1>변수와 연산자</h1>
+    <h2>1. var, let, const</h2>
+    <script>
+      // 변수 : 값을 담는 공간 "var"라는 단어로 지칭
+      // 변수명 = 값
+      // 재할당이 가능하다 (1에서 변경으로 변경)
+      var oldVar = 1;
+      oldVar = "변경";
+      console.log(oldVar);
+      // var : 예전 버전 (가급적 사용 X)
+      let nickname = "성예찬";
+      nickname = "이상엽";
+      console.log(nickname);
+      // let : 자유선언, 강의때만 자주 사용(변경값이 많아서)
+      const name = "조규상";
+      //name = "최다은";
+      console.log(name);
+      // const : 상수선언, 재할당 불가능, 개발 실무에서 자주 사용
+    </script>
+    <h2>2. 자료형과 typeof</h2>
+    <script>
+      //한 페이지 내에서 공유함 (위 태그 아래 script에서 바로 사용가능)\
+      const userID = "최다인"; //문자, 문자열 - string으로 표현
+      const age = 15; // 숫자 - number
+      const check = true; //true, false : 논리형 - boolean
+      let unknown; //값이 정의되지 않음 - undefined
+      let isNone = null; //값이 없음 - null
+      console.log(typeof useID);
+      console.log(userID);
+      console.log(age);
+      console.log(check);
+      console.log(unknown);
+      console.log(isNone);
+
+      let test = "test";
+      console.log(typeof test);
+      test = 123;
+      console.log(typeof test);
+      test = false;
+      console.log(typeof test);
+    </script>
+    <h2>3. 문자열 & 템플릿 리터럴</h2>
+    <script>
+      const hobby = "게임";
+      console.log("내 취미는" + hobby + "입니다.");
+      console.log("내 취미는 ${hobby}입니다.");
+
+      const escape = '내 이름은 \n"김은진"입니다.';
+      // \n\ 줄바꿈 /t/ tap 키 "내 이름은 \n\"김은진\"입니다.";를 저장하면 자동으로 \"\생략, ''로 변경 "
+      console.log(escape);
+    </script>
+    <h2>4. 숫자</h2>
+    <script>
+      const num1 = 10;
+      const num2 = 3;
+      console.log("더하기 :", num1 + num2);
+      console.log("빼기 :", num1 - num2);
+      console.log("곱하기 :", num1 * num2);
+      console.log("나누기 :", num1 / num2);
+      console.log("제곱 :", num1 ** num2);
+      console.log("나머지 :", num1 % num2);
+
+      //  문자열 -> 숫자
+      console.log(Number("100")); //100
+      console.log(Number("Hello")); //Nan
+      // typeof "100"을 Number(100)
+
+      // 숫자 -> 문자열
+      console.log(String(300));
+
+      // 소수 제거해서 정수로 만들어버림
+      console.log(parseInt(3.9));
+
+      // 문자열 -> 실수
+      console.log(parseFloat("4.2"));
+    </script>
+    <h2>5. Boolean과 비교 연산자</h2>
+    <script>
+      console.log(true);
+      console.log(false);
+
+      // boolean 변환
+      console.log(Boolean("World"));
+      console.log(Boolean("")); //false 숫자 비어있을 때만, 나머지는 true
+
+      console.log(Boolean(0)); //false
+      console.log(Boolean(1)); //true
+
+      const a = 100;
+      const b = "100";
+      console.log(a == b); //true 100이랑 100이랑 같이?
+      console.log(a === b); //false 숫자 100이랑 문자 100이랑 같아? 타입까지 비교 (자바에서 자주 사용)
+      console.log(a === Number(b)); //true
+      console.log(a != b); //false
+      console.log(a !== b); //true
+
+      const c = 200;
+      console.log(a < c); //true
+      console.log(a > c); //false
+      console.log(a >= c); //false
+      console.log(a <= c); //true
+
+      console.log("0" == 0); //true
+      console.log("0" === 0); //false
+      console.log(Boolean("")); //false
+      console.log(Boolean("0")); //true
+    </script>
+    <h2>6. 논리연산자</h2>
+    <script>
+      const x = 10;
+      const y = 20;
+
+      console.log(x < 15 && y > 10); //true
+      console.log(x > 15 && y > 10); //false
+      //and(&&) : 둘다 true인 경우만 true
+
+      console.log(x < 15 || y > 10); //true
+      // or(||) : 하나만 true여도 true
+
+      console.log(!false); //true
+      //! : 부정
+
+      console.log(!!true); //true
+      //!! : 이중부정
+
+      console.log("Javascript" && 12345); //12345
+      console.log("" && 12345); //
+      console.log(null || "JS"); //JS
+    </script>
+  </body>
+</html>
