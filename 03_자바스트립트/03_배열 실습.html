@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 연습문제</title>
+  </head>
+  <body>
+    <h1>배열 연습문제</h1>
+    <ol style="line-height: 2">
+      <li>
+        배열을 문자열로 변환하여 console에 출력하시오. <br />
+        ["010", "1234", "5678"] → 010-1234-5678
+        <script></script>
+      </li>
+
+      <li>
+        배열에 push/pop/shift/splice 등을 사용하여 결과를 출력하시오.
+        <script>
+          const scores = [85, 98, 99, 76, 82];
+          // [30, 50]
+
+          scores.splice(0, 2, 30, 50);
+          scores.splice(2, 7);
+          console.log(scores);
+        </script>
+      </li>
+
+      <li>
+        배열에서 원하는 항목만 잘라내서 출력하시오.
+        <script>
+          const music = ["가요", "팝송", "클래식", "재즈", "OST"];
+          // [팝송, 클래식, 재즈]
+          // [OST]
+          const sliced = music.slice(1, 4);
+          console.log(sliced);
+          console.log(music[4]);
+        </script>
+      </li>
+
+      <li>
+        아래 배열을 오름차순으로 정렬하시오.
+        <script>
+          const numbers = [7, -24, -8, 10, 17, -58];
+          // [-58, -24, -8, 7, 10, 17]
+
+          numbers.sort((a, b) => a - b);
+          console.log(numbers);
+        </script>
+      </li>
+
+      <li>
+        배열에서 "B"의 인덱스를 찾아 출력하시오.
+        <script>
+          const letters = ["A", "B", "C"];
+
+          console.log(letters[1]);
+        </script>
+      </li>
+
+      <li>
+        배열을 역순으로 뒤집어 출력하시오.
+        <script>
+          const words = ["one", "two", "three"];
+          // [three, two, one]
+
+          console.log(words.reverse());
+        </script>
+      </li>
+
+      <li>
+        중복된 값이 있는 배열에서 중복을 제거한 새 배열을 만들어 출력하시오.
+        <script>
+          const dupArr = [1, 2, 2, 3, 3, 3];
+          // [1, 2, 3]
+
+          const unique = new Set(dupArr);
+          console.log(unique);
+        </script>
+      </li>
+    </ol>
+  </body>
+</html>

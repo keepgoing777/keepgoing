@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문 연습문제</title>
+  </head>
+  <body>
+    <h1>반복문 연습문제</h1>
+    <ol style="line-height: 2">
+      <li>
+        1부터 10까지 숫자를 출력하는 반복문을 작성하시오.
+        <script>
+          for (let i = 1; i <= 10; i++) {
+            console.log(i);
+          }
+        </script>
+      </li>
+
+      <li>
+        구구단 2단을 출력하시오.
+        <script>
+          for (let i = 1; i < 10; i++) {
+            console.log(2 * i);
+          }
+        </script>
+      </li>
+
+      <li>
+        1부터 사용자에게 입력받은 숫자까지의 합을 출력하시오. (prompt 사용)
+        <script>
+          // Q3
+          prompt("숫자 입력하시겠습니까?");
+        </script>
+      </li>
+
+      <li>
+        1부터 100까지의 수 중 3의 배수만 출력하시오.
+        <script>
+          for (let i = 1; i < 100; i++) {
+            if (i % 3 == 0) console.log(i);
+          }
+        </script>
+      </li>
+
+      <li>
+        주어진 숫자 배열에서 짝수만 출력하는 반복문을 작성하시오.
+        <script>
+          const numbers = [12, 7, 9, 20, 33, 16];
+
+          for (let i = 0; i < 6; i++) {
+            if (numbers[i] % 2 == 0) console.log(numbers[i]);
+          }
+        </script>
+      </li>
+
+      <li>
+        주어진 문자열 배열에서 글자 수가 3자 이상인 단어만 출력하시오.
+        <script>
+          const words = ["오므라이스", "라면", "불고기", "된장찌개", "김밥"];
+        </script>
+      </li>
+
+      <li>
+        배열에서 가장 큰 숫자를 찾아 출력하시오.
+        <script>
+          const nums = [3, 45, 21, 99, 18, 77];
+
+          for (let i = 0; i < 6; i++) {}
+          console.log("가장 큰 숫자 : ", Math.max(...nums)); // 다음주!
+          //console.log(max(nums[i]));
+        </script>
+      </li>
+
+      <li>
+        break와 continue를 사용하여 1~10 사이 홀수만 출력하되, 7이 나오면
+        멈추도록 구현하시오.
+        <script>
+          for (let i = 1; i <= 10; i++) {
+            if (i % 2 == 0) continue;
+            if (i === 7) break;
+            console.log(i);
+          }
+        </script>
+      </li>
+
+      <li>
+        랜덤 숫자 맞추기 게임을 구현하시오. <br />
+        - 1부터 100까지의 랜덤 숫자를 생성하고, <br />
+        - 사용자가 정답을 맞출 때까지 숫자를 입력하게 하며, <br />
+        - 입력한 숫자가 크면 "너무 큽니다", 작으면 "너무 작습니다"를
+        출력하고,<br />
+        - 정답을 맞추면 시도 횟수와 함께 종료 메시지를 출력하시오.
+        <script>
+          const target = Math.floor(Math.random() * 100) + 1; // 1~100 랜덤 숫자
+        </script>
+      </li>
+    </ol>
+  </body>
+</html>
