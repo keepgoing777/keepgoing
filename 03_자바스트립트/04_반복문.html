@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문</title>
+  </head>
+  <body>
+    <h2>반복문</h2>
+    <script>
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+      }
+      //  for(초기값 ; 조건식 ; 증감연산자){
+      //     반복문 조건에 해당되는 만큼 실행}
+    </script>
+
+    <h2>1. 전위/후위 연산자</h2>
+    <script>
+      // 전위 연산자 ++n, --n : 계산을 하고 출력
+      // 후위 연산자는 n++ n-- : 출력을 하고 계산
+      let num = 1;
+      num = num + 1; //2
+      //   num = num + 1 : ++num, num++
+      //   num = num - 1 : --num, num--
+      console.log(++num);
+      console.log(--num);
+      console.log(num++); // num=3, 값은 2
+      console.log(num); // 3
+      console.log(num--); //num=3, 값은 2
+    </script>
+
+    <h2>2. 복합대입연산자</h2>
+    <script>
+      num = num + 3;
+      console.log(num); //5
+      num += 3;
+      console.log(num); //8
+      num -= 2;
+      console.log(num); //6
+    </script>
+
+    <h2>3. 배열과 for문</h2>
+    <script>
+      const movies = ["야당", "파과", "미션 임파서블", "플립", "릴로 & 스티치"];
+      console.log(movies[0]);
+      console.log(movies[1]);
+      console.log(movies[2]);
+
+      for (let i = 0; i < movies.length; i++) {
+        console.log(movies[i]);
+      }
+      //제일 자주 쓰이고 기본적인 구문//
+
+      for (const index in movies) {
+        console.log(movies[index]);
+      }
+      // for ... in 구문 : 인덱스 기반, 자바스크립트에서만 사용, 배열이랑 같이 씀 //
+      // for(const 인덱스 in 배열){} 구조
+
+      for (const value of movies) {
+        console.log(value);
+      }
+      // for...of 구문 : 값 기반,
+      // for(const 값 of 배열){}
+    </script>
+    <h2>4. While문</h2>
+    <script>
+      // while(조건) {조건이 true면 계속}
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+      }
+
+      let i = 1;
+      while (i <= 10) {
+        console.log(i);
+        i++;
+      }
+
+      // 무한 루프를 일부로! //
+      while (true) {
+        //const input = prompt("종료하려면 q를 입력해주세요");
+        const input = "q";
+        if (input === "q") break;
+        console.log("입력한 값 : ", input);
+      }
+      // 반복문을 빠져나가는 조건문을 반드시 넣어줘야함
+      // 조건문 안에 실행 부분이 1줄인 경우 {break} 대괄호 생략가능
+    </script>
+
+    <h2>5. break / continue</h2>
+    <script>
+      for (let i = 1; i < 10; i += 2) {
+        console.log(i);
+      }
+
+      for (let i = 1; i < 10; i++) {
+        if (i % 2 == 1) console.log(i);
+      }
+
+      for (let i = 1; i < 10; i++) {
+        if (i % 2 == 0) continue;
+        console.log(i);
+      }
+      // 조건문 사용, 홀수인 경우만
+      // continue = 건너뛰기
+
+      for (let i = 1; i < 10; i++) {
+        if (i % 2 == 0) continue;
+        if (i === 7) break;
+        console.log(i);
+      }
+    </script>
+
+    <h2>6. 2차원 배열 + 중첩 for문</h2>
+    <script>
+      const arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      console.log(arr[0]); // 1 2 3
+      console.log(arr[0][0]); // 1
+      console.log(arr[0][1]); // 2
+      console.log(arr[0][2]); // 3
+      console.log(arr[1]); //4 5 6
+      console.log(arr[1][0]); // 4
+      console.log(arr[1][1]); // 5
+      // 1,2,3,4,5,6,7,8,9 하나씩 꺼내기
+      // 반복문 2개 필요
+
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          console.log([i][j]);
+        }
+      }
+
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i].length);
+        for (let j = 0; j < arr[i].length; j++) {
+          console.log(arr[i][j]);
+        }
+      }
+
+      for (const i of arr) {
+        for (const j of i) {
+          console.log(j);
+        }
+      }
+    </script>
+  </body>
+</html>
