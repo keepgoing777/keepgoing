@@ -8,11 +8,11 @@
   </head>
   <body>
     <h2>박스모델</h2>
-     <h3>width, height</h3>
+    <h3>width, height</h3>
     <h4>고정크기</h4>
-     <div id="fixed-size"></div>
+    <div id="fixed-size"></div>
     <h4>가변크기</h4>
-     <div id="variable-size"></div>
+    <div id="variable-size"></div>
     <h3>padding, margin</h3>
     <p>
       - padding : 테두리와 콘텐츠 영역 사이의 안쪽 여백을 뜻함
@@ -20,67 +20,67 @@
       - margin : 요소와 요소 사이의 여백(테두리 바깥 여백)
     </p>
     <h4>padding</h4>
-     <div class="space" id="padding1">전체 padding</div>
-     <div class="space" id="padding2">부분 padding</div>
+    <div class="space" id="padding1">전체 padding</div>
+    <div class="space" id="padding2">부분 padding</div>
     <h4>margin</h4>
-     <div class="space" id="margin1">전체 margin</div>
-     <div class="space" id="margin2">부분 margin</div>
-     <h4>margin 상쇄 (margin collapse) 현상</h4>
-     <p>margin-top과 margin-bottom중 더 큰 값만 여백으로 적용</p>
-     <!--  .collapse-box#box$*2 -->
-     <div class="collapse-box" id="box1">box1 (margin-bottom: 50px)</div>
-     <div class="collapse-box" id="box2">box2 (margin-top: 30px)</div>
+    <div class="space" id="margin1">전체 margin</div>
+    <div class="space" id="margin2">부분 margin</div>
+    <h4>margin 상쇄 (margin collapse) 현상</h4>
+    <p>margin-top과 margin-bottom중 더 큰 값만 여백으로 적용</p>
+    <!--  .collapse-box#box$*2 -->
+    <div class="collapse-box" id="box1">box1 (margin-bottom: 50px)</div>
+    <div class="collapse-box" id="box2">box2 (margin-top: 30px)</div>
     <h4>margin : auto로 가운데 정렬</h4>
     <p>주로 수평 정렬에서 사용, 수직 정렬은 안됨</p>
-     <div class="center-box">가운데 정렬 박스</div>
+    <div class="center-box">가운데 정렬 박스</div>
     <h3>border</h3>
-     <!--.border#border$*3-->
-     <div class="border" id="border1"></div>
-     <div class="border" id="border2"></div>
-     <div class="border" id="border3"></div>
+    <!--.border#border$*3-->
+    <div class="border" id="border1"></div>
+    <div class="border" id="border2"></div>
+    <div class="border" id="border3"></div>
     <h4>border-radius : 테두리를 둥글게</h4>
-     <!-- .radius-box.radius$*2 -->
-     <div class="radius-box radius1">10px</div>
-     <div class="radius-box radius2">50%</div>
+    <!-- .radius-box.radius$*2 -->
+    <div class="radius-box radius1">10px</div>
+    <div class="radius-box radius2">50%</div>
     <h4>box-sizing</h4>
-     <div class="box box-content">300px+padding+border</div> 
-     <div class="box box-border">300px안에 padding+border 포함</div></div>
+    <div class="box box-content">300px+padding+border</div>
+    <div class="box box-border">300px안에 padding+border 포함</div>
     <h2>display</h2>
     <h3>블록요소를 인라인 요소로 변경</h3>
     <!--     .display.display-inline{$번째영역>}*5 -->
-     <div class="display display-inline">1번째영역></div>
-     <div class="display display-inline">2번째영역></div>
-     <div class="display display-inline">3번째영역></div>
-     <div class="display display-inline">4번째영역></div>
-     <div class="display display-inline">5번째영역></div>
+    <div class="display display-inline">1번째영역></div>
+    <div class="display display-inline">2번째영역></div>
+    <div class="display display-inline">3번째영역></div>
+    <div class="display display-inline">4번째영역></div>
+    <div class="display display-inline">5번째영역></div>
     <h3>인라인 요소를 블록요소로 변경</h3>
-     <span class="display display-block">1번째영역></span>
-     <span class="display display-block">2번째영역></span>
-     <span class="display display-block">3번째영역></span>
-     <span class="display display-block">4번째영역></span>
-     <span class="display display-block">5번째영역></span>
+    <span class="display display-block">1번째영역</span>
+    <span class="display display-block">2번째영역</span>
+    <span class="display display-block">3번째영역</span>
+    <span class="display display-block">4번째영역</span>
+    <span class="display display-block">5번째영역</span>
     <h3>블록요소를 인라인 블록요소로 변경</h3>
-     <div class="display display-inline-block">1번째영역></div>
-     <div class="display display-inline-block">2번째영역></div>
-     <div class="display display-inline-block">3번째영역></div>
-     <div class="display display-inline-block">4번째영역></div>
-     <div class="display display-inline-block">5번째영역></div>
+    <div class="display display-inline-block">1번째영역</div>
+    <div class="display display-inline-block">2번째영역</div>
+    <div class="display display-inline-block">3번째영역</div>
+    <div class="display display-inline-block">4번째영역</div>
+    <div class="display display-inline-block">5번째영역</div>
     <h2>포지셔닝</h2>
     <p>여러 요소를 원하는 위치에 배치하는 것</p>
     <h3>float, clear</h3>
-     <div class="float">001</div>
-     <div class="float">002</div>
-     <div class="float">003</div>
-     <div class="float">004</div>
-     <div class="float">005</div>
+    <div class="float">001</div>
+    <div class="float">002</div>
+    <div class="float">003</div>
+    <div class="float">004</div>
+    <div class="float">005</div>
     <h3 style="clear: both">positon</h3>
     <!--     .position-box#relative -->
     <div id="outer">
-     <div class="position-box" id="relative"></div>
-     <div class="position-box" id="absolute"></div>
-     <div class="position-box" id="fixed"></div>
-     <div class="position-box" id="sticky"></div>
-    <br><br><br><br><br><br><br><br><br><br>
+      <div class="position-box" id="relative"></div>
+      <div class="position-box" id="absolute"></div>
+      <div class="position-box" id="fixed"></div>
+      <div class="position-box" id="sticky"></div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </div>
     <h3>visibility</h3>
     <div class="visibility" id="vis1">hidden</div>
@@ -91,9 +91,9 @@
     <h3>z-index</h3>
     <!--     .z-index#z-index$*3 -->
     <div id="z-outer">
-    <div class="z-index" id="z-index1"></div>
-    <div class="z-index" id="z-index2"></div>
-    <div class="z-index" id="z-index3"></div>
+      <div class="z-index" id="z-index1"></div>
+      <div class="z-index" id="z-index2"></div>
+      <div class="z-index" id="z-index3"></div>
     </div>
   </body>
 </html>

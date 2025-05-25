@@ -33,7 +33,7 @@
 }
 /* padding: 30px 20px 40px 10px; 시계방향 top, right, bottom, left 로 써도 같음 */
 /* padding: 30px 20px 40px; top right/left, bottom */
-/* padding: 30px 20px; top,bottom, right/left */
+/* padding: 30px 20px; top/bottom, right/left */
 /* 전체 패딩: 콘텐츠 위아래옆으로 모두 20px 
    부분 패딩: 콘텐츠 원하는 방향으로 여백 줄 수 있음 */
 
@@ -139,7 +139,6 @@
   width: 150px;
   height: 70px;
 }
-
 .display-inline {
   display: inline;
 }
@@ -188,14 +187,14 @@
   left: 20px;
 }
 /* position : top, bottom, left, right가 속성임 */
-/* relative 기준은 outer기준 */
+/* relative 기준은 outer기준, 자리 그대로 차지 */
 
 #absolute {
   background-color: green;
   position: absolute;
-  right: 10px;
+  right: 20px;
 }
-/* absolute 기준은 브라우저 */
+/* absolute 기준은 outer 기준, 없으면 브라우저기준, 다른요소들이 무시함 */
 
 #fixed {
   background: red;
@@ -203,13 +202,14 @@
   right: 20px;
   top: 30px;
 }
+/* fixed 기준은 브라우저 */
 
 #sticky {
   background-color: blue;
-  position: sticky
-  top: 0 px;
+  position: sticky;
+  top: 0;
 }
-
+/* 스크롤 위치에 따라 변함, 평소 normal 일정위치에서 고정정 */
 .visibility {
   width: 100px;
   height: 100px;

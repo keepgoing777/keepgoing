@@ -32,15 +32,15 @@
 
   background-image: url("assets/bg.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 /* size : 이미지 크기 조절 px 
-contain : 
-cover : 
-repeat : 반복 여부 설정 (repeat-x, y, no-repeat)
+contain : 이미지 전체가 사이즈에 들어가게(이미지 비율 유지, 빈 공간이 생길 수 있음)
+cover : 이미지가 요소 전체를 덮게 크기 조절(이미지 비율 유지, 요소 채움, 일부 짤림)
+repeat : 반복 여부 설정 (repeat-x, repeat-y, no-repeat)
 position : 사진의 위치를 설정할 수 있음(center, bottom, upper, right, left)
 background 순서 : color, image, position/size, repeat, attachment 순서  
 */

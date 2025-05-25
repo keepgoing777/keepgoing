@@ -58,7 +58,7 @@
 
 /* font 순서 : font style, font variant, font weight, font size/line-height, font-family */
 #font1 {
-  font: italic small-caps bold 32px/2 "궁서";
+  font: italic small-caps bold 32px "궁서";
 }
 #font2 {
   font: 2rem "궁서";
@@ -80,13 +80,12 @@
 /* 색상 표기법이 16진수로 나타남, #RRGGBB 표기법 */
 
 #c-rgb {
-  color: rgb(68, 223, 78);
-  color: rgb(0, 0, 0, 1);
+  color: rgb(68, 223, 78, 0.7);
 }
 /* 색상 표기 RED(0~255) Green(0~255) Blue(0~255) Alpha(투명도, 0~1 사이 값) */
 
 #c-hsl {
-  color: hsl(200, 50%, 50%, 0.2);
+  color: hsl(200, 50%, 50%, 0.8);
 }
 /* 색상환(H, 0~360) 채도(S, 0~100%), 밝기(L, 0~100%), 투명도(A, 0~1)*/
 
@@ -128,14 +127,14 @@
 
 #ts1 {
   color: green;
-  text-shadow: 5px 5px 2px red;
+  text-shadow: 5px 5px 8px red;
 }
 
 /* text-shadow 순서 : x축 y축 blur(흐린정도) color */
 
 #ts2 {
   color: white;
-  text-shadow: 0px 0px 10px purple;
+  text-shadow: 0px 0px 6px purple;
 }
 
 #ts3 {
@@ -145,7 +144,7 @@
 
 /* whtie-space */
 #whs {
-  white-space: pre-warp;
+  white-space: pre-wrap;
 }
 
 /* letter, word spacing  */
@@ -153,7 +152,7 @@
   letter-spacing: 10px;
 }
 
-#wsp {
+#ws {
   word-spacing: 20px;
 }
 #ta1 {
@@ -180,7 +179,7 @@
 /* line height */
 
 #lh {
-  line-height: 2;
+  line-height: 3;
 }
 
 /* text-overflow */
