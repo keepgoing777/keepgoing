@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장객체</title>
+  </head>
+  <body>
+    <h2>Math 객체</h2>
+    <p>자바 스크립트에서 제공되는 기본 내장 객체들</p>
+    <h2>Math 객체</h2>
+    <script>
+      console.log("최소값:", Math.min(5, 7, -1, -8));
+      console.log("최대값:", Math.max(5, 7, -1, -8));
+      console.log("절대값:", Math.abs(-7.5736374737));
+      console.log("반올림:", Math.round(2.497));
+      console.log("버림:", Math.floor(2.897));
+      console.log("올림:", Math.ceil(2.897));
+      console.log("0~1랜덤:", Math.random());
+      //   1~10까지의 랜덤수가 필요할 경우
+      // 0<=Math.random()<1 *10
+      // 0<=Math.randon()<10
+      // 1<=Math.randon()<11
+      console.log(Math.floor(Math.random() * 10) + 1);
+      // 5부터 15까지
+      console.log(Math.floor(Math.random() * 10) + 5);
+    </script>
+    <h2>Date 객체</h2>
+    <script>
+      const now = new Date();
+      console.log("현재:", now);
+      console.log(
+        `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일`
+      );
+      //   월의 경우 0부터 시작해서 +1 해줘야 정확하게 나옴 //
+      const date = new Date(2025, 11, 16, 17, 50, 0);
+      console.log("특정날짜:", date);
+
+      const date2 = new Date("2025-12-16");
+      console.log("특정날짜2:", date2);
+
+      const date3 = new Date("2025-12-16T17:50:00");
+      console.log("특정날짜3:", date3);
+    </script>
+    <h2>Timer</h2>
+    <script>
+      setTimeout(() => {
+        console.log("3초후!");
+      }, 3000);
+      // 일정 시간 후 1회 동작 //
+      let sec = 0;
+      setInterval(() => {
+        console.log(`${++sec}초`);
+      }, 1000);
+      // 일정 시간마다 동작 //
+    </script>
+    <h2>String 개체</h2>
+    <script>
+      const str = "Hello, JavaScript!";
+      console.log("길이:", str.length);
+      //  공백 포함 길이 //
+      console.log("포함여부:", str.includes("Java"));
+      console.log("위치:", str.indexOf("Script"));
+      console.log("일부:", str.slice(7, 17));
+      console.log("대문자:", str.toUpperCase());
+    </script>
+    <h2>JSON 객체</h2>
+    <script>
+      // 데이터를 문자열로 변환 및 파싱
+      const obj = {
+        name: "김주현",
+        age: 12,
+      };
+      const jsonStr = JSON.stringify(obj);
+      console.log(obj.name);
+      console.log(jsonStr);
+      //   jsonStr 은 이름을 불러올수가 없음 데이터를 문자열로 바꿔버렸기 때문에 //
+      const parsed = JSON.parse(jsonStr);
+      console.log(parsed);
+      //   문자열을 다시 데이터화 하는 작업 //
+    </script>
+  </body>
+</html>

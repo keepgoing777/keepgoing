@@ -209,7 +209,7 @@
   position: sticky;
   top: 0;
 }
-/* 스크롤 위치에 따라 변함, 평소 normal 일정위치에서 고정정 */
+/* 스크롤 위치에 따라 변함, 평소 normal 일정위치에서 고정 */
 .visibility {
   width: 100px;
   height: 100px;
@@ -238,7 +238,13 @@
   width: 200px;
   height: 200px;
   background: #ddd;
+  position: relative;
+}
+.z-index {
+  width: 100px;
+  height: 100px;
   position: absolute;
+  opacity: 0.5;
 }
 
 #z-index1 {
@@ -259,3 +265,5 @@
   background-color: blue;
   z-index: 9999;
 }
+
+/* z 인덱스가 높은 숫자일수록 위로 올라와 먼저 보이는 효과  */

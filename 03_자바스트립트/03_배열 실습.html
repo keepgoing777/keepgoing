@@ -11,7 +11,11 @@
       <li>
         배열을 문자열로 변환하여 console에 출력하시오. <br />
         ["010", "1234", "5678"] → 010-1234-5678
-        <script></script>
+        <script>
+          const tel = ["010", "1234", "5678"];
+          const strTel = tel.join("-");
+          console.log(strTel);
+        </script>
       </li>
 
       <li>
@@ -19,8 +23,7 @@
         <script>
           const scores = [85, 98, 99, 76, 82];
           // [30, 50]
-
-          scores.splice(0, 2, 30, 50);
+          scores.splice(0, 5, 30, 50);
           scores.splice(2, 7);
           console.log(scores);
         </script>
@@ -32,9 +35,10 @@
           const music = ["가요", "팝송", "클래식", "재즈", "OST"];
           // [팝송, 클래식, 재즈]
           // [OST]
-          const sliced = music.slice(1, 4);
-          console.log(sliced);
+
+          console.log(music.slice(1, 4));
           console.log(music[4]);
+          console.log(music[music.length - 1]);
         </script>
       </li>
 
@@ -54,7 +58,7 @@
         <script>
           const letters = ["A", "B", "C"];
 
-          console.log(letters[1]);
+          console.log(letters.indexOf("B")); // 1
         </script>
       </li>
 
@@ -74,8 +78,9 @@
           const dupArr = [1, 2, 2, 3, 3, 3];
           // [1, 2, 3]
 
-          const unique = new Set(dupArr);
+          const unique = [...new Set(dupArr)];
           console.log(unique);
+          // set을 풀기 위해 [... ] 기재
         </script>
       </li>
     </ol>
