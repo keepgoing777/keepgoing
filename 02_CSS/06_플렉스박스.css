@@ -6,7 +6,7 @@
 }
 
 .tall {
-  height: 80px;
+  height: 300px;
 }
 
 .item {
@@ -42,8 +42,10 @@
   /* 양끝 정렬, 간격 골고루 줌 */
   justify-content: space-around;
   /* 자신을 기준으로 양쪽 간격 동일 */
-  justify-content: space-evenly;
-  /* 모든 간격을 동일하게 */
+}
+
+#jc-2 {
+  justify-content: space-evenly; /* 모든 간격을 동일하게 */
 }
 
 /* align-items */
@@ -105,13 +107,13 @@
 }
 
 #gap .item {
-  margin: 2rem;
+  margin-right: 2rem;
 }
 
 /* flex-grow */
 
 #grow-1 {
-  flex-grow: 2;
+  flex-grow: 1;
 }
 /* 부모(컨테이너)보다 아이템이 작을 때, flex-grow값이 클수록 남은 공간을 더 많이 차지 */
 
