@@ -85,7 +85,6 @@
 .self-center {
   align-self: center;
 }
-
 .self-end {
   align-self: flex-end;
 }
@@ -99,7 +98,6 @@
   order: -1;
   /* 자신의 위치에서 -1은 왼쪽으로 이동 */
 }
-
 /* gap */
 
 #gap {

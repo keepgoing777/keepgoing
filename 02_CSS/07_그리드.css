@@ -101,5 +101,5 @@
   grid-template-rows: repeat(2, 80px);
   height: 300px;
   align-content: center;
-  justify-content: flex-end;
+  justify-content: space-evenly;
 }
