@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1>DOM(Document Object Model)</h1>
+    <h2>문서 객체 가져오기</h2>
+    <h3>태그로 가져오기</h3>
+    <button onclick="btn1()">확인</button>
+    <h3>Id로 가져오기</h3>
+    <button onclick="btn2()">확인</button>
+    <h3>class로 가져오기</h3>
+    <button onclick="btn3()">확인</button>
+    <h3>name으로 가져오기</h3>
+    <button onclick="btn4()">확인</button>
+    <h3>선택자로 가져오기(querySelector)</h3>
+    <button onclick="btn5()">확인</button>
+    <h2>문서 객체 조작하기</h2>
+    <h3>내용 조작하기</h3>
+    <button onclick="btn6()">확인</button>
+    <h3>속성 조작하기</h3>
+    <button onclick="btn7()">확인</button>
+    <h3>스타일 조작하기</h3>
+    <button onclick="btn8()">확인</button>
+    <h3>ClassList 사용하기</h3>
+    <button onclick="btn9()">add</button>
+    <button onclick="btn10()">remove</button>
+    <button onclick="btn11()">contains</button>
+    <button onclick="btn12()">toggle</button>
+    <style>
+      .black {
+        background-color: black;
+        color: white;
+      }
+    </style>
+    <h2>문서 객체 추가하기</h2>
+    <button onclick="btn13()">확인</button>
+    <h2>문서 객체 삭제하기</h2>
+    <button onclick="btn14()">확인</button>
+
+    <div id="testId" class="testClass" name="testName">Hello, World!</div>
+    <div id="testId2" class="testClass" name="testName">Hello, JavaScript!</div>
+    <div id="testId3"></div>
+
+    <script src="../03_자바스트립트/08_DOM.js"></script>
+    <!-- 바디 닫기 전 바로 위(내용 제일 아래) 위치하기 -->
+  </body>
+</html>

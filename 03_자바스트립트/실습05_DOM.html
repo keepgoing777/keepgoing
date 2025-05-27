@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 연습문제</title>
+    <style>
+      .div-test {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        margin: 10px;
+      }
+      td {
+        width: 100px;
+        height: 30px;
+        text-align: center;
+      }
+      .active {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>DOM 연습 문제</h2>
+
+    <h3>문제 1. 안녕하세요 텍스트 출력</h3>
+    <div id="result1"></div>
+    <button onclick="printText()">출력하기</button>
+
+    <h3>문제 2. input 값 출력</h3>
+    <div id="result2"></div>
+    <input id="customer" placeholder="이름을 입력하세요" />
+    <button onclick="printInputValue()">출력하기</button>
+
+    <h3>문제 3. div 색상 변경</h3>
+    <div class="div-test"></div>
+    <button onclick="changeColor()">색상 변경</button>
+
+    <h3>문제 4. 문자열 길이 출력</h3>
+    <input id="text" placeholder="글자를 입력하세요" />
+    <div id="result4"></div>
+    <button onclick="stringLength()">확인</button>
+
+    <h3>문제 5. 문자열 분리 ul 출력</h3>
+    <label id="la">사과, 바나나, 오렌지, 포도</label>
+    <div id="result5"></div>
+    <button onclick="stringSplit()">출력</button>
+
+    <h3>문제 6. 배열 삭제 & 추가</h3>
+    <label id="preview">피자 치킨 떡볶이</label><br />
+    <input id="remove" placeholder="삭제할 음식" />
+    <input id="add" placeholder="추가할 음식" />
+    <button onclick="arrayTest()">처리</button>
+
+    <h3>문제 7. 학생 정보 입력</h3>
+    <table border="1">
+      <tr>
+        <th>이름</th>
+        <th>나이</th>
+        <th>주소</th>
+      </tr>
+      <tr>
+        <td class="name"></td>
+        <td class="age"></td>
+        <td class="addr"></td>
+      </tr>
+      <tr>
+        <td class="name"></td>
+        <td class="age"></td>
+        <td class="addr"></td>
+      </tr>
+      <tr>
+        <td class="name"></td>
+        <td class="age"></td>
+        <td class="addr"></td>
+      </tr>
+    </table>
+    <button onclick="addStudent()">입력</button>
+
+    <h3>문제 8. li 요소 추가 & 삭제</h3>
+    <ul id="list"></ul>
+    <button onclick="addItem()">아이템 추가</button>
+    <button onclick="remove()">아이템 삭제</button>
+
+    <h3>문제 9. 클래스 토글</h3>
+    <div class="div-test" id="result9"></div>
+    <button onclick="toggleClass()">클래스 추가/삭제</button>
+
+    <h3>문제 10. 장바구니 리스트</h3>
+    <input id="item" placeholder="상품명" />
+    <input id="price" placeholder="가격" />
+    <ul id="cart"></ul>
+    <div id="total">총액: <span>0</span>원</div>
+    <button onclick="addToCart()">추가</button>
+    <script src="../03_자바스트립트/실습05_DOM.js"></script>
+  </body>
+</html>
