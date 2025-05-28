@@ -20,16 +20,15 @@ section {
   transition-duration: 5s;
   transition-timing-function: ease-in-out;
   transition-delay: 1s;
-  transition: all 2s ease-in-out 1s;
 }
 /* transition property :속성값(배경, 폰트사이즈 등)
    transition duration : 시간
    transition-timing-function: 전환속도 (linear, ease-in-out)
    transition-delay
-   transition-property: background-color, font-size;
    속성값을 시간동안 변형시킴
    ex) transition: all 1s; 모든 속성 1초만에 변함
-   transition: property duration function delay 한줄로 표현 가능    */
+   transition: property duration function delay 한줄로 표현 가능
+   transition: all 2s ease-in-out 1s;    */
 
 .transition:hover {
   background-color: coral;
@@ -134,7 +133,7 @@ section {
 /* 3D */
 
 .perspective-container {
-  perspective: 600px;
+  perspective: 1200px;
 }
 
 .perspective-container .box {

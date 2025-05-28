@@ -33,7 +33,7 @@
       const check = true; //true, false : 논리형 - boolean
       let unknown; //값이 정의되지 않음 - undefined
       let isNone = null; //값이 없음 - null
-      console.log(typeof useID);
+      console.log(typeof userID);
       console.log(userID);
       console.log(age);
       console.log(check);
@@ -50,11 +50,13 @@
     <h2>3. 문자열 & 템플릿 리터럴</h2>
     <script>
       const hobby = "게임";
-      console.log("내 취미는" + hobby + "입니다.");
-      console.log("내 취미는 ${hobby}입니다.");
+      console.log("내 취미는 " + hobby + "입니다.");
+      console.log(`내 취미는 ${hobby}입니다.`);
 
       const escape = '내 이름은 \n"김은진"입니다.';
-      // \n\ 줄바꿈 /t/ tap 키 "내 이름은 \n\"김은진\"입니다.";를 저장하면 자동으로 \"\생략, ''로 변경 "
+      // const escape = "내 이름은 \n\"김은진\"입니다.";//
+      // \n\ 줄바꿈 "내 이름은 \n\"김은진\"입니다.";
+      // \t\ tap "내 이름은 \t\"김은진\"입니다."
       console.log(escape);
     </script>
     <h2>4. 숫자</h2>
