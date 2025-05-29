@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규표현식</title>
+  </head>
+  <body>
+    <h1>정규표현식(Regular Expression)</h1>
+    <p>문자열에서 특정 패턴을 찾거나, 대체하거나, 나누는 도구</p>
+    <h2>기본 메타문자</h2>
+    <script>
+      // ^ : 문자열의 시작
+      const patternStart = /^H/; // H로 시작되는지 확인
+      console.log("^ 테스트 :", patternStart.test("Hello"));
+      // $ : 문자열의 끝
+      const patternEnd = /d$/; // d로 끝나는지 확인
+      console.log("$ 테스트 :", patternEnd.test("World"));
+      // . : 임의의 한 문자
+      // const patternDot = /^.$/; test 값 한 문자만 true
+      // const patternDot = /^..$/; test 값 두 문자만 true
+      const patternDot = /H.llo/;
+      console.log(". 테스트 :", patternDot.test("Hello"));
+      // * : 앞 문자가 0회 이상 반복, 앞의 c문자가 없어도 되고, 그 이상 많아도 됨
+      const patternStar = /abc*d/;
+      console.log("* 테스트 :", patternStar.test("abcccccd"));
+      // + : 앞 문자가 1회 이상 반복, c가 없으면 false, c 가 1개 이상은 무조건 있어야 함
+      const patternPlus = /abc+d/;
+      console.log("+ 테스트 :", patternPlus.test("abccccd"));
+      // ? : 앞 문자가 0~1회, o가 0개 아니면 1개만 허용
+      const patternQ = /colo?r/;
+      console.log("? 테스트 :", patternQ.test("coloooor"));
+      // {m,n} : 최소 m부터 최대 n회 반복
+      const patternRepeat = /^a{2,4}$/;
+      console.log("{2,4} 테스트 :", patternRepeat.test("aazaa"));
+      // [] : 문자셋, a-z : 알파벳 소문자들 A-Z : 알파벳 대문자들 0-9, 가-힣 : 한글, !-~ : 특수문자들부터 알파벳 소문자, 대문자, 숫자까지 모두 포함
+      const patternSet = /^[a-z]{2,5}$/;
+      console.log("[] 테스트 :", patternSet.test("aazaa"));
+      // [] : 문자셋 2
+      const patternSet2 = /^[!-~]+$/;
+      console.log("[] 테스트 2:", patternSet2.test("^^"));
+      //() : 그룹화 : | or
+      const patternG = /(dog|cat)/;
+      console.log("(), | 테스트 : ", patternG.test("dog"));
+      // \d : 숫자 (0-9),
+      const patternDigit = /^\d+$/;
+      console.log("\d 테스트 : ", patternDigit.test("123456"));
+      // \D : 숫자제외
+      const patternDigit2 = /^\D+$/;
+      console.log("\\D 테스트 : ", patternDigit2.test("aaaa"));
+      // \w : 문자, 숫자, _ 포함가능 \W : 문자, 숫자, _ 그 외의 것만 가능
+      const patternW = /^\w+$/;
+      console.log("\\w 테스트 : ", patternW.test("abc_123"));
+      const patternW2 = /^\W+$/;
+      console.log("\\W 테스트 : ", patternW2.test("#@#$!"));
+      // \s : 공백 포함 여부 확인
+      const patternS = /\s+/;
+      console.log("\\s 테스트 : ", patternS.test("a b"));
+      // \S : 공백 제외
+      const patternS2 = /\S+/;
+      console.log("\\S 테스트 : ", patternS2.test("abc"));
+    </script>
+    <h2>match / replace / split</h2>
+    <script>
+      const test = "apple banana kiwi orange";
+      console.log("match : ", test.match(/kiwi/));
+      console.log("replace :", test.replace(/orange/, "grape"));
+      console.log("replace :", test.replace(/a/g, "y"));
+      // /a/뒤에 g 붙여야지 a로 된 모든 문자를 y로 바꿈
+      console.log("split :", "010-1234-5678".split("-"));
+    </script>
+    <h2>주민등록번호 정규표현식</h2>
+    <input type="text" id="rrn" placeholder="-포함해서 입력해주세요" />
+    <p id="result"></p>
+    <script>
+      rrn.addEventListener("input", (e) => {
+        // console.log(e.target.value);
+        // 000000-0000000
+        let regExp = /^\d{6}-\d{7}$/;
+        // 성별 : -다음 바로 나오는 숫자가 1~4까지만 허용
+        regExp = /^[0-9]{6}-[1-4][0-9]{6}$/;
+        // 생년월일 : 년 두자리 숫자, 월 01~12 두자리, 일 01~31
+        regExp =
+          /^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])-[1-4][0-9]{6}$/;
+        if (regExp.test(e.target.value)) {
+          console.log("주민등록번호 맞음!");
+        } else {
+          console.log("주민등록번호 틀림");
+          result.innerHTML = "NO!";
+          result.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+em {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+}
+/* object-fit : 원형 안에 이미지를 딱 맞게 잘라서 넣어줌 */
+button {
+  border: none;
+  font-size: 1rem;
+  padding: 5px, 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: tomato;
+  color: navy;
+}
+
+button:last-child {
+  background-color: navy;
+  color: tomato;
+}
+
+h2 {
+  font-style: italic;
+  visibility: hidden;
+}

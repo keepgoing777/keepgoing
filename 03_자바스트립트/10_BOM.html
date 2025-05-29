@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM</title>
+  </head>
+  <body>
+    <h1>BOM(Browser Object Model)</h1>
+    <h2>window 객체</h2>
+    <p>브라우저의 최상위 객체</p>
+    <button onclick="window.alert('Hello~')">alert</button>
+    <!-- alert : 경고창 -->
+    <button onclick="windowPrompt()">promt</button>
+    <!-- prompt : 사용자 입력창 -->
+    <button onclick="windowConfirm()">confirm</button>
+    <!-- confirm 확인/취소  -->
+    <button onclick="windowOpen()">open</button>
+    <!-- open : 새 창 -->
+
+    <script>
+      const windowPrompt = () => {
+        const name = window.prompt("이름을 입력해주세요");
+        alert(name);
+        //   prompt로 입력받은 값을 alert 창에 띄우기
+      };
+      const windowConfirm = () => {
+        //confirm("정말 탈퇴하실건가요?");
+        if (confirm("정말 탈퇴하실건가요?")) {
+          alert("네");
+        } else {
+          alert("아니오");
+        }
+      };
+      // 확인을 눌렀을 때 "네" alert!, 취소를 눌렀을 때 "아니오" alert
+      // 동일 답변 window.confirm("정말 탈퇴하실건가요?") ? alert("네") : alert("아니오");
+      const windowOpen = () => {
+        window.open(
+          "https://www.google.com",
+          "_blank",
+          "width=500, height=500"
+
+          // open(주소, 새창여부, 창 크기 지정 가능)
+        );
+      };
+    </script>
+    <h2>location 객체</h2>
+    <p>현재 페이지의 url 정보 확인 및 이동, 새로고침</p>
+    <button onclick="showLocation()">현재 URL 정보</button>
+    <button onclick="movePage()">다른 페이지로 이동</button>
+    <button onabort="location.reload()">새로고침</button>
+    <div id="locationInfo"></div>
+    <script>
+      const showLocation = () => {
+        console.log(location.href);
+        console.log(location.host);
+        console.log(location.pathname);
+        locationInfo.innerHTML = `
+        <ul>
+            <li>href : ${location.href} - 전체 주소</li>
+            <li>host : ${location.host} - 호스트명(도메인)</li>
+            <li>pathname: ${location.pathname} - 경로명</li>
+        </ul>
+        `;
+      };
+
+      const movePage = () => {
+        location.href = "https://www.naver.com";
+      };
+    </script>
+    <h2>navigator</h2>
+    <p>브라우저와 운영체제 정보를 제공</p>
+    <button onclick="showNavigator()">브라우저 정보</button>
+    <div id="naviInfo"></div>
+    <script>
+      const showNavigator = () => {
+        naviInfo.innerHTML = `
+            <ul>
+                <li>userAgent : ${navigator.userAgent} - 브라우저 정보</li>
+                    <li>platform : ${navigator.platform} - 운영체제 정보</li>
+                    <li>language : ${navigator.language} - 브라우저 언어</li>
+            </ul>
+            `;
+      };
+    </script>
+    <h2>history</h2>
+    <p>방문 기록을 앞뒤로 이동 가능</p>
+    <button onclick="history.back()">뒤로</button>
+    <button onclick="history.forward()">앞으로</button>
+    <h2>screen</h2>
+    <p>사용자의 화면 해상도와 색상 정보 제공</p>
+    <button onclick="showScreen()">화면 정보 확인</button>
+    <div id="screenInfo"></div>
+    <script>
+      const showScreen = () => {
+        screenInfo.innerHTML = `
+            <ul>
+                <li>width : ${screen.width} - 화면 너비 </li>
+                <li>height : ${screen.height} - 화면 높이 </li>
+                <li>colorDepth : ${screen.colorDepth} - 색상 깊이</li>
+            </ul>
+            `;
+      };
+    </script>
+  </body>
+</html>

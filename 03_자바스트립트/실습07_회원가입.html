@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../03_자바스트립트/실습07_회원가입.css" />
+  </head>
+    <h1>회원가입</h1>
+    <div id="box"></div>
+    <input text="text" id="id" placeholder="아이디를 입력해주세요" />
+    <p id="id1">영문자로 시작하고 영문자와 숫자 조합으로 4~12이내</p>
+    <script>
+      id.addEventListener("input", (e) => {
+        let id = /^[a-zA-Z][a-zA-Z0-9]{3,11}$/;
+        if (id.test(e.target.value)) {
+          console.log("아이디형식 맞음");
+          id1.style.color = "green";
+        } else {
+          console.log("아이디형식 틀림");
+          id1.style.color = "red";
+        }
+      });
+    </script>
+
+    <input text="text" id="pwd" placeholder="비밀번호를 입력해주세요" />
+    <p id="pwd1">영문자, 숫자, 특수문자 조합으로 8~15자 이내</p>
+    <script>
+      pwd.addEventListener("input", (e) => {
+        let pwd =
+          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/;
+        if (pwd.test(e.target.value)) {
+          console.log("비밀번호형식 맞음");
+          pwd1.style.color = "green";
+        } else {
+          console.log("비밀번호형식 틀림");
+          pwd1.style.color = "red";
+        }
+      });
+    </script>
+
+    <input
+      text="text"
+      id="pwd2"
+      placeholder="비밀번호를 다시 한 번 입력해주세요"
+    />
+    <p id="pwd3">위 비밀번호와 동일하게</p>
+    <script>
+      pwd2.addEventListener("input", (e) => {
+        let pwd4 =
+          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/;
+        if (pwd4.test(e.target.value)) {
+          console.log("비밀번호형식 맞음");
+          pwd3.style.color = "green";
+        } else {
+          console.log("비밀번호형식 틀림");
+          pwd3.style.color = "red";
+        }
+      });
+    </script>
+
+    <input text="text" id="name" placeholder="이름을 입력해주세요" />
+    <p id="name1">한글 2자 이상</p>
+    <script>
+      const name = document.querySelector("#name");
+      name.addEventListener("input", (e) => {
+        let name = /^[가-힣]{2,}$/;
+        if (name.test(e.target.value)) {
+          console.log("이름형식 맞음");
+          name1.style.color = "green";
+        } else {
+          console.log("이름형식 틀림");
+          name1.style.color = "red";
+        }
+      });
+    </script>
+
+    <input text="text" id="email" placeholder="이메일을 입력해주세요" />
+
+    <p id="email1">이메일 형식</p>
+    <script>
+      email.addEventListener("input", (e) => {
+        let email = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+        if (email.test(e.target.value)) {
+          console.log("이메일 형식맞음");
+          email1.style.color = "green";
+        } else {
+          console.log("이메일 형식 틀림");
+          email1.style.color = "red";
+        }
+      });
+    </script>
+
+    <input text="text" id="tel" placeholder="전화번호를 입력해주세요" />
+    <p id="tel1">전화번호 형식</p>
+    <script>
+      tel.addEventListener("input", (e) => {
+        let tel = /^010-\d{4}-\d{4}$/;
+        if (tel.test(e.target.value)) {
+          console.log("전화번호 형식맞음");
+          tel1.style.color = "green";
+        } else {
+          console.log("전화번호 형식틀림");
+          tel1.style.color = "red";
+        }
+      });
+    </script>
+       <input type="submit" value="회원가입" />
+       <input type="reset" value="취소"/>
+  </body>
+</html>
