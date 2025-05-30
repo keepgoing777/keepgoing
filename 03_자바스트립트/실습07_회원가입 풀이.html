@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../03_자바스트립트/실습07_회원가입 풀이.css" />
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form action="">
+      <div>
+        <input type="text" id="userId" placeholder="아이디를 입력해주세요" />
+        <span>영문자로 시작하고 영문자와 숫자 조합으로 4~12자 이내</span>
+      </div>
+      <div>
+        <input
+          type="text"
+          id="password"
+          placeholder="비밀번호를 입력해주세요"
+        />
+        <span>영문자, 숫자, 특수문자 조합으로 8~15자 이내</span>
+      </div>
+      <div>
+        <input
+          type="text"
+          id="passwordCheck"
+          placeholder="비밀번호를 다시 한 번 입력해주세요"
+        />
+        <span>위 비밀번호와 동일하게</span>
+      </div>
+      <div>
+        <input type="text" id="userName" placeholder="이름을 입력해주세요" />
+        <span>한글 2자 이상</span>
+      </div>
+      <div>
+        <input type="text" id="email" placeholder="이메일을 입력해주세요" />
+        <span>이메일 형식</span>
+      </div>
+      <div>
+        <input type="text" id="phone" placeholder="전화번호를 입력해주세요" />
+        <span>전화번호 형식</span>
+      </div>
+      <div class="button">
+        <button type="submit" id="signup" disabled>회원가입</button>
+        <button type="reset" id="cancel">취소</button>
+      </div>
+    </form>
+    <script src="../03_자바스트립트/실습07_회원가입 풀이2.js"></script>
+  </body>
+</html>

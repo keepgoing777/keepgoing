@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹스토리API</title>
+  </head>
+  <body>
+    <h1>Web Storage API</h1>
+    <p>브라우저에 데이터를 저장하고 읽어오는 방법</p>
+
+    <h2>sessionStorage</h2>
+    <p>같은 탭/창에서만 유지, 브라우저 탭 닫으면 데이터 삭제</p>
+    <!-- key 값 value값 (string만) -->
+
+    <button onclick="setSession()">데이터 저장</button>
+    <button onclick="getSession()">데이터 읽기</button>
+    <button onclick="removeSession()">데이터 삭제</button>
+    <button onclick="clearSession()">전체 삭제</button>
+    <script>
+      const setSession = () => {
+        sessionStorage.setItem("sessionName", "이환희");
+        sessionStorage.setItem("sessionAge", 10);
+      };
+      const getSession = () => {
+        const name = sessionStorage.getItem("sessionName"); //key 값만으로도 데이터 가지고 옴 //
+        console.log(name);
+      };
+      const removeSession = () => {
+        sessionStorage.removeItem("sessionName");
+      };
+      const clearSession = () => {
+        sessionStorage.clear();
+      };
+    </script>
+
+    <h2>localStorage</h2>
+    <p>브라우저에 영구적으로 데이터 저장, 브라우저 종료해도 유지</p>
+    <!-- key 값 value값 (string만) -->
+
+    <button onclick="setLocal()">데이터 저장</button>
+    <button onclick="getLocal()">데이터 읽기</button>
+    <button onclick="removeLocal()">데이터 삭제</button>
+    <button onclick="clearLocal()">전체 삭제</button>
+    <script>
+      const setLocal = () => {
+        localStorage.setItem("name", "이환희");
+        localStorage.setItem("age", 10);
+      };
+      const getLocal = () => {
+        const name = localStorage.getItem("name"); //key 값만으로도 데이터 가지고 옴 //
+        console.log(name);
+      };
+      const removeLocal = () => {
+        localStorage.removeItem("name");
+      };
+      const clearLocal = () => {
+        localStorage.clear();
+      };
+    </script>
+  </body>
+</html>

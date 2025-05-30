@@ -1,0 +1,54 @@
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+form,
+#form {
+  border: 1px solid;
+  padding: 10px;
+  width: 70%;
+  margin: auto;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+form .button {
+  flex-direction: row;
+  justify-content: center;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 5px;
+}
+
+form span {
+  margin: 0px 5px 5px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: lightseagreen;
+  color: white;
+}
+
+form .button button:disabled {
+  background-color: lightgrey;
+}
+
+#logout {
+  display: block;
+  margin: auto;
+}
