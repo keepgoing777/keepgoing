@@ -62,7 +62,7 @@ div[class^="cl"] {
 div[class$="div"] {
   color: rgb(89, 34, 218);
 }
-/* div로 끝날 시시 */
+/* div로 끝날 시 */
 
 /* 형재 선택자 */
 #test2 ~ div {

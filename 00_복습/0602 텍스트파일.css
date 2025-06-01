@@ -1,0 +1,150 @@
+#ff1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* 1순위, 2순위, 3순위대로 글꼴 나타남 */
+
+#fw1 {
+  font-weight: bold;
+}
+/* 700 = bold */
+#fw2 {
+  font-weight: 100;
+}
+
+#fs1 {
+  font-size: 24px;
+}
+
+#fs2 {
+  font-size: 2em;
+}
+/* 부모기준 15*2=30px */
+
+#fs3 {
+  font-size: 2rem;
+}
+/* 고정 1rem=16px 32px */
+
+#fs4 {
+  font-size: 200%;
+}
+/* 부모기준 15*200%=30px */
+
+#fs5 {
+  font-style: italic;
+}
+
+#fs6 {
+  font-style: oblique;
+}
+
+#fv {
+  font-variant: small-caps;
+}
+
+#font1 {
+  font: italic small-caps bold 24px "궁서";
+}
+
+#font2 {
+  font: 1rem "궁서";
+}
+
+#c-name {
+  color: red;
+}
+
+#c-16 {
+  color: #dd882e;
+}
+
+#c-rgb {
+  color: rgb(68, 223, 78, 0.7);
+}
+
+#c-hsl {
+  color: hsl(200, 50%, 50%, 0.8);
+}
+
+#td1 {
+  text-decoration: underline;
+}
+#td2 {
+  text-decoration: overline;
+}
+#td3 {
+  text-decoration: line-through;
+}
+#td4 {
+  text-decoration: none;
+}
+#tt1 {
+  text-transform: uppercase;
+}
+#tt2 {
+  text-transform: lowercase;
+}
+#tt3 {
+  text-transform: capitalize;
+}
+#ts1 {
+  color: green;
+  text-shadow: 5px 5px 2px red;
+}
+#ts2 {
+  color: white;
+  text-shadow: 0px 0px 6px purple;
+}
+
+#ts3 {
+  text-shadow: 0px 0px 4px grey, 0px -5px 4px yellow, 0px -10px 8px orange,
+    0px -15px 15px orangered, 0px -22px 20px red;
+}
+
+#whs {
+  white-space: pre-wrap;
+}
+
+#is {
+  letter-spacing: 10px;
+}
+#ws {
+  word-spacing: 10px;
+}
+#ta1 {
+  text-align: right;
+}
+#ta2 {
+  text-align: left;
+}
+#ta3 {
+  text-align: center;
+}
+#ta4 {
+  text-align: justify;
+}
+
+#ti {
+  text-indent: 20px;
+}
+
+#lh {
+  line-height: 5;
+}
+#to {
+  background-color: beige;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ul.circle {
+  list-style: circle;
+}
+ul.square {
+  list-style: square;
+}
+ul.none {
+  list-style: none;
+}
