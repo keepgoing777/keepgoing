@@ -15,11 +15,6 @@
           if (id === "admin1") {
             console.log("관리자입니다");
           }
-
-          /*const id = "admin";
-           if (id == "admin") {
-             console.log("관리자입니다");
-           } */
         </script>
       </li>
 
@@ -108,16 +103,6 @@
               console.log("겨울");
               break;
           }
-          /*  const month = "계절"; 
-            if ((month || 3, 4, 5)) {
-              console.log("봄");
-            } else if ((month || 6, 7, 8)) {
-              console.log("여름");
-            } else if ((month || 9, 10, 11)) {
-              console.log("가을");
-            } else if ((month || 12, 1, 2)) {
-              console.log("겨울");
-            } */
         </script>
       </li>
 
@@ -130,8 +115,10 @@
             console.log("A");
           } else if (80 <= score3) {
             console.log("B");
-          } else if (60 <= score3) {
+          } else if (70 <= score3) {
             console.log("C");
+          } else if (60 <= score3) {
+            console.log("D");
           } else log("F");
 
           /* const score = "학점";
@@ -161,23 +148,6 @@
           else if (number2 === 7) day = "일";
           if (day !== undefined) console.log(`${day}요일`);
           else alert("숫자를 잘못 입력하셨습니다. 1~7까지 입력해주세요");
-          /*
-            const week = "요일";
-            if (week == 1) {
-              console.log("월요일");
-            } else if (week == 2) {
-              console.log("화요일");
-            } else if (week == 3) {
-              console.log("수요일");
-            } else if (week == 4) {
-              console.log("목요일");
-            } else if (week == 5) {
-              console.log("금요일");
-            } else if (week == 6) {
-              console.log("토요일");
-            } else if (week == 7) {
-              console.log("일요일");
-            } */
 
           const days = ["월", "화", "수", "목", "금", "토", "일"];
           const result = day[number2 - 1];
@@ -209,10 +179,6 @@
               break;
           }
           console.log(`${num1} ${op} ${num2} = ${result2}`);
-          /* const number1 = 10;
-          const number2 = 30;
-          result = number1 * number2;
-          console.log(result);*/
         </script>
       </li>
 
@@ -226,6 +192,7 @@
           }
         </script>
       </li>
+
       <li>
         3개의 수 중 가장 큰 수를 출력하시오.
         <script>
@@ -245,34 +212,15 @@
         아닌지 판별하시오.
         <script>
           const number3 = 36;
-          if (number % 3 === 0) {
-            if (number3 % 5 === 0) {
-              console.log("둘다");
-            } else {
-              console.log("3의 배수!");
-            }
-          }
-
-          if (number3 % 5 === 0 && number3 % 5 === 0) {
+          if (number3 % 3 === 0 && number3 % 5 === 0) {
             console.log("둘다!");
           } else if (number3 % 3 === 0) {
             console.log("3의 배수");
           } else if (number3 % 5 === 0) {
-            console.log("4의 배수");
+            console.log("5의 배수");
           } else {
             console.log("둘다 아님");
           }
-
-          /*const num = Number;
-          if (num % 3 == 0) {
-            console.log("3의 배수");
-          } else if (num % 5 == 0) {
-            console.log("5의 배수");
-          } else if (num % 3 == 0 && num % 5 == 0) {
-            console.log("3과 5의 배수");
-          } else {
-            console.log("3과 5의 배수 아님");
-          }*/
         </script>
       </li>
 
