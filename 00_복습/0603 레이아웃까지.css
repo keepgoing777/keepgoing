@@ -1,0 +1,270 @@
+#bc {
+  background-color: aquamarine;
+}
+
+.div-test {
+  background: peachpuff;
+  padding: 30px;
+  border: 3px dashed orangered;
+  margin-bottom: 20px;
+}
+
+#bc1 {
+  background-clip: content-box;
+}
+
+#bc2 {
+  background-clip: padding-box;
+}
+
+#bc3 {
+  background-clip: border-box;
+}
+
+#test {
+  width: 300px;
+  height: 200px;
+  border: 2px solid;
+  background-image: url("../02_CSS/assets/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-attachment: fixed;
+}
+
+#fixed-size {
+  width: 300px;
+  height: 150px;
+  background-color: aqua;
+}
+
+#variable-size {
+  width: 20vw;
+  height: 20vh;
+  background-color: aquamarine;
+}
+
+.space {
+  background-color: lightyellow;
+  border: 1px solid;
+  margin-bottom: 10px;
+}
+
+#padding1 {
+  padding: 20px;
+}
+
+#padding2 {
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+}
+
+/* padding2{padding: 30px 20px 40px 10px;} 시계방향 top right bottom left */
+/* 30px 20px 40px top right/left bottom */
+/* 30px 20px top/bottom right/left */
+
+#margin1 {
+  margin: 20px;
+}
+#margin2 {
+  margin: 5px 15px 10px 30px;
+}
+
+.collapse-box {
+  background-color: lightcoral;
+  padding: 10px;
+  border: 1px solid #444;
+}
+#box1 {
+  margin-bottom: 50px;
+}
+#box2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.center-box {
+  width: 200px;
+  height: 100px;
+  background-color: cornflowerblue;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  margin: auto;
+}
+
+.border {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background: #eee;
+  display: inline-block;
+}
+#border1 {
+  border: 2px solid red;
+}
+#border2 {
+  border: 5px dashed green;
+}
+#border3 {
+  border: 2px dotted blue;
+}
+
+.radius-box {
+  width: 120px;
+  height: 120px;
+  background: pink;
+  color: white;
+  text-align: center;
+  line-height: 120px;
+  margin-bottom: 10px;
+}
+
+.radius1 {
+  border-radius: 10px;
+}
+.radius2 {
+  border-radius: 50%;
+}
+
+.box {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 5px solid;
+  background-color: lightgreen;
+  margin: 10px;
+}
+
+.box-content {
+  box-sizing: content-box;
+}
+
+.box-border {
+  box-sizing: border-box;
+}
+
+.display {
+  background-color: pink;
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+  height: 70px;
+  border: 1px solid grey;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.float {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  background-color: aqua;
+  text-align: center;
+  line-height: 80px;
+}
+
+#outer {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: lightgray;
+  overflow: auto;
+}
+
+.position-box {
+  width: 100px;
+  height: 100px;
+}
+
+#relative {
+  position: relative;
+  background-color: yellow;
+  top: 20px;
+  left: 20px;
+}
+
+#absolute {
+  position: absolute;
+  background-color: red;
+  right: 20px;
+}
+
+#fixed {
+  position: fixed;
+  background-color: aqua;
+  right: 20px;
+  top: 30px;
+}
+
+#sticky {
+  position: sticky;
+  background-color: greenyellow;
+  top: 0;
+}
+
+.visibility {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: grey;
+  display: inline-block;
+}
+
+#vis2 {
+  visibility: visible;
+}
+
+#vis1 {
+  visibility: hidden;
+}
+
+#dis1 {
+  display: none;
+}
+
+.z-index {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  opacity: 0.5;
+}
+
+#z-outer {
+  width: 200px;
+  height: 200px;
+  background-color: lightgrey;
+  position: relative;
+}
+
+#z-index1 {
+  background-color: red;
+  z-index: 1;
+  top: 20px;
+  left: 20px;
+}
+
+#z-index2 {
+  background-color: green;
+  z-index: 2;
+  top: 40px;
+  left: 40px;
+}
+
+#z-index3 {
+  background-color: blue;
+  z-index: 9999;
+}
