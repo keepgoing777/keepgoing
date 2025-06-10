@@ -82,8 +82,10 @@ SELECT
  FROM DUAL;
  
 --USER_INFO에서 전화번호(CONTACT)에서 가운데 번호 4자리만 조회 
-SELECT CONTACT, SUBSTR(CONTACT, INSTR(CONTACT, '-') + 1, 4)
--- SUBSTR(CONTACT, 5, 4) 부분 중 5 = INSTR(CONTACT, '-') + 1
+SELECT 
+ CONTACT, 
+ INSTR(CONTACT, '-') + 1,
+ SUBSTR(CONTACT, INSTR(CONTACT, '-') + 1, 4)
 FROM USER_INFO;
 
 --EMPLOYEE에서 이메일에서 아이디만 (@ 앞에) 조회
@@ -93,22 +95,31 @@ INSTR(EMAIL, '@'),
 SUBSTR(EMAIL, 1, INSTR(EMAIL, '@')-1)
 FROM EMPLOYEE;
 -- REPLACE 사용한 다른 해답
---SELECT EMAIL, REPLACE(EMAIL, '@kh.or.kr')
---FROM EMPLOYEE;
+SELECT EMAIL, REPLACE(EMAIL, '@kh.or.kr', '')
+FROM EMPLOYEE;
 
 --주민등록번호(EMP_NO)를 000000-0******로 조회
 -- 000000-0 <- 자르면! SUBSTR 사용해서 
 
 SELECT EMP_NO,
 INSTR(EMP_NO, '-')+1,
-SUBSTR(EMP_NO, INSTR(EMP_NO, '-')+1, 1),
-RPAD(SUBSTR(EMP_NO, INSTR(EMP_NO, '-')+1, 1), 7, '*'),
+SUBSTR(EMP_NO, 1, INSTR(EMP_NO, '-') + 1),
+RPAD(SUBSTR(EMP_NO, 1, INSTR(EMP_NO, '-') + 1), 14, '*'),
 SUBSTR(EMP_NO, 1, 8)||'******'
 FROM EMPLOYEE;
 
+/*SELECT 
+    EMP_NO, 
+    RPAD(SUBSTR(EMP_NO, 1, INSTR(EMP_NO, '-') + 1), 14, '*'),
+    SUBSTR(EMP_NO, 1, 8) || '******',
+    SUBSTR(EMP_NO, 1, INSTR(EMP_NO, '-') + 1), 
+    INSTR(EMP_NO, '-') + 1
+FROM EMPLOYEE;
+*/
+
 --REPLACE 사용한 다른 답변
---SELECT EMP_NO, REPLACE(EMP_NO, SUBSTR(EMP_NO, -6, 6), '******')
---FROM EMPLOYEE;
+SELECT EMP_NO, REPLACE(EMP_NO, SUBSTR(EMP_NO, -6, 6), '******')
+FROM EMPLOYEE;
 
 --남자 사원만 조회 
 SELECT EMP_NO, 
@@ -150,7 +161,7 @@ REPLACE(ADDRESS, '서울', '경기')
 FROM USER_INFO;
 -- EMPLOYEE에서 사원들의 이메일 kh.or.kr을 gmail.com으로 바꾸기
 SELECT EMAIL, 
-REPLACE(EMAIL, 'kr.or.kr', 'gmail.com')
+REPLACE(EMAIL, 'kh.or.kr', 'gmail.com')
 FROM EMPLOYEE;
 
 /*
@@ -342,11 +353,154 @@ FROM DUAL;
     
     DECODE(값, 조건값1, 결과값1, 조건값2, 결과값2, ... )
     비교하고자하는 값과 조건값과 일치하는 경우 그에 해당하는 결과값 반환
+    
+    CASE WHEN 조건식1 THEN 결과값1
+         WHEN 조건식2 THEN 결과값2 ...
+         ELSE 결과값N 
+    END(Swithch+if 섞은 듯한 느낌)
+    
 */
-
+ 
 --EMPLOYEE에서 주민번호(EMP_NO)로 성별(남, 여) 조회
 SELECT 
   SUBSTR(EMP_NO, 8, 1),
   DECODE(SUBSTR(EMP_NO, 8, 1), 1, '남', 2, '여')
 FROM EMPLOYEE;
 
+SELECT
+ EMP_NAME, EMP_NO,
+ CASE WHEN SUBSTR(EMP_NO, 8, 1) = 1 THEN '남'
+      WHEN SUBSTR(EMP_NO, 8, 1) = 2 THEN '여'
+ END
+ FROM EMPLOYEE;
+
+-- 직급 코드가 J7인 사원은 급여를 10% 인상
+-- 직급 코드가 J6인 사원은 급여를 15% 인상
+-- 직급 코드가 J5인 사원은 급여를 20% 인상
+-- 그 외 직급 사원은 급여를 5% 인상
+-- 정렬: 직급코드(JOB_CODE) J1부터, 인상된 급여 높은 순서대로
+
+SELECT 
+JOB_CODE, SALARY, 
+DECODE(JOB_CODE, 'J5', SALARY * 1.2, 
+                 'J6', SALARY * 1.15, 
+                 'J7', SALARY * 1.1, SALARY * 1.05) "인상급여"
+FROM EMPLOYEE
+ORDER BY JOB_CODE, "인상급여" DESC;
+
+SELECT
+  CASE JOB_CODE 
+    WHEN 'J7' THEN SALARY*1.
+    WHEN 'J6' THEN SALARY*1.15
+    WHEN 'J5' THEN SALARY*1.2
+    ELSE SALARY*1.05
+  END
+FROM EMPLOYEE;
+
+-- 급여가 500만원 초과일 경우 1등급
+-- 급여가 500만원 이하 350만원 초과일경우 2등급
+-- 급여가 350만원 이하 200만원 초과일경우 3등급
+-- 그 외의 경우 4등급
+
+SELECT 
+SALARY,
+ CASE WHEN SALARY > 5000000 THEN '1등급' 
+     WHEN SALARY>3500000 THEN '2등급'
+     WHEN SALARY>2000000 THEN '3등급'
+     ELSE '4등급'
+ END
+FROM EMPLOYEE;
+
+/*
+    그룹함수 -> 결과값 1개(단일행 함수와의 차이, 함께 사용하지 못하는 이유)
+      - 대량의 데이터들로 집꼐나 통계 같은 작업을 처리해야하는 경우
+      - 모든 그룹 함수는 NULL값을 자동으로 제외하고 값이 있는 것들만 계산
+*/
+
+--SUM : 해당 컬럼 값들의 총 합계 
+
+--USER_INFO 나이 모두 더한 값 
+SELECT
+SUM(AGE)
+FROM USER_INFO;
+
+--EMPLOYEE 에서 부서코드가 D5인 사원들의 총 연봉 조회
+SELECT SUM(SALARY * 12)
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5';
+
+SELECT 
+SUM(DECODE(DEPT_CODE, 'D5', SALARY * 12, 0))
+FROM EMPLOYEE; 
+
+SELECT
+SUM(CASE WHEN DEPT_CODE = 'D5' THEN SALARY * 12 ELSE 0 END)
+FROM EMPLOYEE; 
+
+/*SELECT 위와 같은 결과값을 가져옴
+SUM(CASE DEPT_CODE WHEN 'D5' THEN SALARY * 12 ELSE 0 END)
+FROM EMPLOYEE; 
+*/ 
+
+/*
+     AVG 
+      - 해당 컬럼값들의 평균값
+      - 모든 그룹 함수는 NULL값을 자동으로 제외하기 때문에 NVL 함수랑 함께 사용 권장
+*/
+
+--USER_INFO 에서 평균나이
+SELECT FLOOR(AVG(CASE WHEN AGE<100 THEN AGE END))
+FROM USER_INFO;
+--EMPLOYEE에서 평균 보너스값
+SELECT AVG( NVL(BONUS, 0))
+FROM EMPLOYEE;
+
+/*
+    MIN : 해당 컬럼 값들 중에 가장 작은 값
+    MAX : 해당 컬럼 값들 중에 가장 큰 값
+*/
+
+--EMPLOYEE에서 MIN, MAX, 전부 사용해서 
+--사원명(EMP_NAME), 급여(SALARY), 입사일(HIRE_DATE)
+
+SELECT MIN(EMP_NAME), MIN(SALARY), MIN(HIRE_DATE),
+MAX(EMP_NAME), MAX(SALARY), MAX(HIRE_DATE)
+FROM EMPLOYEE;
+
+/*
+   COUNT : 가장 많이 사용, 컬럼 또는 행의 개수를 세서 변환
+    - * : 조회 결과에 해당하는 모든 행의 개수 반환
+    - 컬럼 : 해당 컬럼값이 NULL이 아닌 행 개수 반환
+    - DISTINCT 컬럼 : 해당 컬럼값의 중복을 제거한 행 개수 반환
+*/
+
+--USER_INFO 전체 사람 수
+SELECT COUNT(USER_ID)
+FROM USER_INFO;
+
+SELECT COUNT(*)
+FROM USER_INFO;
+
+--서울에 사는 사람 수만 조회
+SELECT COUNT(*)
+FROM USER_INFO
+WHERE ADDRESS LIKE '%서울%';
+
+SELECT COUNT(CASE WHEN ADDRESS LIKE '%서울%' THEN 1 END)
+FROM USER_INFO;
+
+--EMPLOYEE 보너스를 받은 사원의 수 조회
+SELECT COUNT(BONUS)
+FROM EMPLOYEE;
+
+SELECT COUNT(*)
+FROM EMPLOYEE
+WHERE BONUS IS NOT NULL;
+
+--부서가 배치된 사원 수 조회
+SELECT COUNT(DEPT_CODE)
+FROM EMPLOYEE; 
+
+--현재 사원들이 속해있는 부서 수 조회
+SELECT COUNT(DISTINCT DEPT_CODE)
+FROM EMPLOYEE; 

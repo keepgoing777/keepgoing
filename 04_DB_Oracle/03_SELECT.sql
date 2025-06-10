@@ -15,7 +15,7 @@
 --    - SELECT 조회를 의미하며 일부에서는 DQL(Data Query Languate)로 분류하기도함
 -- 2. DDL(Data Definition Language) : 데이터 정의어
 --    - DB의 구조를 정의하거나 변경, 삭제하기 위한 언어
---    - CREATE : 생성 / ALTER : 수정 / DROP : 삭제 -
+--    - CREATE : 생성 / ALTER : 수정 / DROP : 삭제 
 --    - 테이블 변경과 관련
 -- 3. DCL(Data Control Language) : 데이터 제어어
 --    - DB의 보안, 권한관리, 무결성 제어를 위한 언어
@@ -215,14 +215,66 @@ SELECT NAME, AGE, GENDER, MBTI FROM USER_INFO ORDER BY MBTI DESC NULLS LAST;
 SELECT EMP_NAME, BONUS FROM EMPLOYEE ORDER BY BONUS NULLS FIRST;
 -- 오라클에서만 제공되는 예, NULL 값만 맨 위로 보내기 NULLS FIRST 
 -- (원래 오름차순으로 정렬 시 NULL은 마지막에 배치됨)
-SELECT EMP_NAME, BONUS FROM EMPLOYEE ORDER BY BONUS DESC NULLS LAST; 
+SELECT EMP_NAME, BONUS FROM EMPLOYEE ORDER BY BONUS DESC NULLS LAST;
 
+/*
+    GROUP BY
+     - 그룹 기준을 제시할 수 있는 구문
+     - 여러 개의 값들을 하나의 그룹으로 묶어서 처리할 목적으로 사용
+*/
+--MBTI별 평균 나이, 나이 합계, 명 수 모두 기재 가능
+SELECT MBTI, AVG(AGE), SUM(AGE), COUNT(*)
+FROM USER_INFO
+GROUP BY MBTI;
 
+--USER_INFO 성별 사원 수 조회
+SELECT GENDER, COUNT(*)
+FROM USER_INFO
+GROUP BY GENDER;
 
+-- EMPLOYEE 성별 사원 수 조회
+SELECT DECODE(SUBSTR(EMP_NO, 8, 1), 1, '남', 2, '여'), COUNT(*)
+FROM EMPLOYEEVD
+GROUP BY SUBSTR(EMP_NO, 8, 1);
 
+/*
+   HAVING 
+     - 그룹에 대한 조건을 제시할 때 사용하는 문구
+     
+     SELECT 실행 순서
+     SELECT   * |컬럼| 함수 
+     FROM     테이블명
+     WHERE    조건식
+     GROUP BY 그룹기준에 해당하는 컬럼 | 함수
+     HAVING   조건식 (그룹함수)
+     ORDER BY 컬럼 | 별칭 | 컬럼 순번(숫자)
+*/
+--EMPLOYEE 부서별(부서코드 DEPT_CODE)평균 급여가 300만원 이상인 직원의 
+--평균급여(SALARY)를 조회 (부서코드 DEPT_CODE)
+SELECT DEPT_CODE, TO_CHAR(FLOOR(AVG(NVL(SALARY, 0))), '9,999,999')
+FROM EMPLOYEE
+-- WHERE DEPT_CODE IS NOT NULL : DEPT_CODE가 NULL이 아닌경우 그룹함수 X, WHERE 씀
+GROUP BY DEPT_CODE
+HAVING AVG(NVL(SALARY, 0))>=3000000;
 
+--직급별(JOB_CODE) 총 급여의 합이 1000만원 이상인 직급만 조회
+SELECT JOB_CODE, TO_CHAR(SUM(SALARY), '99,999,999')
+FROM EMPLOYEE
+GROUP BY JOB_CODE
+HAVING SUM(SALARY) >= 10000000;
 
+--부서별 보너스를 받는 사원이 없는 부서만 조회
+SELECT DEPT_CODE, COUNT(BONUS)
+FROM EMPLOYEE
+GROUP BY DEPT_CODE
+HAVING COUNT(BONUS) = 0;
 
+--USER_INFO에서 MBTI별 평균나이를 계산하는데 평균 나이가 30이하인 MBTI만 조회
+--단 나이가 100살 이상인 경우는 제외
+SELECT MBTI, AVG(CASE WHEN AGE<100 THEN AGE END)
+FROM USER_INFO
+GROUP BY MBTI
+HAVING AVG(CASE WHEN AGE<100 THEN AGE END) <= 30;
 
 
 
