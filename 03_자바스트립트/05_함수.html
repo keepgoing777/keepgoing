@@ -13,7 +13,6 @@
         console.log("안녕하세요~");
       }
       sayHello(); // 함수 호출 //
-
       //   2. 매개변수 O 리턴값  X
       function greet(name = "성모") {
         console.log(name + "님, 안녕하세요~");
@@ -67,7 +66,7 @@
         return a / b;
       };
       console.log("화살표함수 : ", divide(12, 3));
-      //const divide = (a / b) => a / b ({} return 생략가능
+      //const divide = (a, b) => a / b ({} return 생략가능)
     </script>
     <h2>콜백 함수</h2>
     <!-- 다른 함수의 인자로 전달되는 함수  -->
@@ -127,7 +126,7 @@
 
       // filter 형태 ((값, 인덱스, 배열)=>{}) // : 조건에 만족하는 요소(리턴한 값들이 true 인것만 모아서)만 추출해서 새로운 배열 반환
 
-      //4. 매열의 총 합 구하기
+      //4. 배열의 총 합 구하기
       let sum = 0;
       for (let i = 0; i < numbers.length; i++) {
         sum += numbers[i];

@@ -23,11 +23,11 @@
       num = num + 1; //2
       //   num = num + 1 : ++num, num++
       //   num = num - 1 : --num, num--
-      console.log(++num);
-      console.log(--num);
-      console.log(num++); // num=3, 값은 2
+      console.log(++num); //3
+      console.log(--num); //2
+      console.log(num++); // 2 최종값은3
       console.log(num); // 3
-      console.log(num--); //num=3, 값은 2
+      console.log(num--); // 3 최종값은2
     </script>
 
     <h2>2. 복합대입연산자</h2>
@@ -131,12 +131,12 @@
 
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-          console.log([i][j]);
+          console.log(arr[i][j]);
         }
       }
 
       for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i].length);
+        //   console.log(arr[i].length);
         for (let j = 0; j < arr[i].length; j++) {
           console.log(arr[i][j]);
         }
