@@ -121,15 +121,15 @@ window.addEventListener("DOMContentLoaded", () => {
   // 이벤트 위임
   // 이미지가 클릭될 때마다 해당 이미지 지우기
   // 1. 이미지마다 이벤트 걸려면 직접 for 반복문 사용
-  // const img = document.querySelectorAll(".container img");
-  // for (let i = 0; i < img.length; i++) {
-  // console.log(img[i]); 확인용
-  //   img[i].addEventListener("click", (e) => {
-  //    img[i].style.display = "none";
-  //  console.log(e.currentTarget); 확인용
-  // e.currentTarget.style.display = "none"; 으로 사용 가능
-  //  });
-  // }
+  /* const img = document.querySelectorAll(".container img");
+  for (let i = 0; i < img.length; i++) {
+    console.log(img[i]); // 확인용;
+    img[i].addEventListener("click", (e) => {
+      img[i].style.display = "none"; // 첫번째 방법
+      console.log(e.currentTarget); // 두번째 방법 
+      e.currentTarget.style.display = "none"; 
+    });
+  } */
 
   // 2. 부모인 컨테이너에 이벤트 걸기
   const container = document.querySelector(".container");

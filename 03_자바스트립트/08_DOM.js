@@ -1,9 +1,10 @@
 function btn1() {
   console.log(document.body);
 
-  const h1 = document.getElementsByTagName("h1");
+  const h2 = document.getElementsByTagName("h2");
   const divs = document.getElementsByTagName("div");
   //   모든 div 태그 가져오기
+  console.log(h2);
   console.log(divs);
   console.log(divs[0]); //첫번째 div //
   // 같은 태그로 여러개일 수 있어서 배열로 반환 받음 //
@@ -50,6 +51,7 @@ function btn6() {
   divs[0].textContent = "<span>안녕하세요</span>"; // 태그를 문자로 출력 //
   divs[1].innerHTML = "<span>안녕하세요</span>"; // 태그를 HTML로 출력//
   console.log(divs[0].textContent);
+  console.log(divs[1].innerHTML);
 }
 
 function btn7() {
