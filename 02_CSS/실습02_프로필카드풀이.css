@@ -5,8 +5,8 @@
 }
 
 body {
-  background: indigo;
-  background: linear-gradient(purple, pink);
+  background: rgb(242, 240, 243);
+  background: linear-gradient(rgb(119, 230, 125), rgb(230, 226, 226));
   height: 100vh;
   padding: 20px;
   display: flex;
