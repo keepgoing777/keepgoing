@@ -28,15 +28,16 @@
           }, 1000);
         }, 1000);
         callbackResult.innerHTML = "0초 후 실행 2";
+        //실행 시 0초 후 실행이 안보임 해당문장이 바로 덮음
       };
-      // 콜백 중첩으로 코드 가독성이 떨어지고 유자보수도 어려움 > 콜백지옥 //
+      // 콜백 중첩으로 코드 가독성이 떨어지고 유지보수도 어려움 > 콜백지옥 //
     </script>
     <h2>Promise 객체</h2>
-    <button>Promise 실행</button>
+    <button onclick="promise()">Promise 실행</button>
     <p id="promiseResult"></p>
     <script>
       const promise = () => {
-        new Promise((resolve) => {
+        return new Promise((resolve) => {
           setTimeout(() => resolve("1초 후 실행"), 1000);
         })
           .then((result) => {
@@ -46,10 +47,10 @@
             });
           })
           .then((result) => {
-            prosmiseResult.innerHTML = result;
+            promiseResult.innerHTML = result;
             // then()을 연속 호출해 비동기 작업 순서를 표현 - 체이닝 방식 //
             return new Promise((resolve) => {
-              setTimeout(() => resolv("3초후 실행"), 1000);
+              setTimeout(() => resolve("3초 후 실행"), 1000);
             });
           })
           .then((result) => {
@@ -58,7 +59,7 @@
       };
     </script>
     <h2>async / await</h2>
-    <button onclick="asyncAwait">Async/Await 실행</button>
+    <button onclick="asyncAwait()">Async/Await 실행</button>
     <p id="asyAwaResult"></p>
     <script>
       const delay = (message) => {

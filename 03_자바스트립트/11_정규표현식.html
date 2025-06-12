@@ -23,28 +23,29 @@
       console.log(". 테스트 :", patternDot.test("Hello"));
       // * : 앞 문자가 0회 이상 반복, 앞의 c문자가 없어도 되고, 그 이상 많아도 됨
       const patternStar = /abc*d/;
-      console.log("* 테스트 :", patternStar.test("abcccccd"));
+      console.log("* 테스트 :", patternStar.test("abd"));
       // + : 앞 문자가 1회 이상 반복, c가 없으면 false, c 가 1개 이상은 무조건 있어야 함
       const patternPlus = /abc+d/;
       console.log("+ 테스트 :", patternPlus.test("abccccd"));
       // ? : 앞 문자가 0~1회, o가 0개 아니면 1개만 허용
       const patternQ = /colo?r/;
-      console.log("? 테스트 :", patternQ.test("coloooor"));
+      console.log("? 테스트 :", patternQ.test("color"));
       // {m,n} : 최소 m부터 최대 n회 반복
       const patternRepeat = /^a{2,4}$/;
-      console.log("{2,4} 테스트 :", patternRepeat.test("aazaa"));
-      // [] : 문자셋, a-z : 알파벳 소문자들 A-Z : 알파벳 대문자들 0-9, 가-힣 : 한글, !-~ : 특수문자들부터 알파벳 소문자, 대문자, 숫자까지 모두 포함
+      console.log("{2,4} 테스트 :", patternRepeat.test("aza"));
+      // [] : 문자셋, a-z : 알파벳 소문자들 A-Z : 알파벳 대문자들 0-9, 가-힣 : 한글,
+      // !-~ : 특수문자들부터 알파벳 소문자, 대문자, 숫자까지 모두 포함
       const patternSet = /^[a-z]{2,5}$/;
       console.log("[] 테스트 :", patternSet.test("aazaa"));
       // [] : 문자셋 2
       const patternSet2 = /^[!-~]+$/;
-      console.log("[] 테스트 2:", patternSet2.test("^^"));
+      console.log("[] 테스트 2:", patternSet2.test("^^!a"));
       //() : 그룹화 : | or
       const patternG = /(dog|cat)/;
       console.log("(), | 테스트 : ", patternG.test("dog"));
       // \d : 숫자 (0-9),
       const patternDigit = /^\d+$/;
-      console.log("\d 테스트 : ", patternDigit.test("123456"));
+      console.log("\d 테스트 : ", patternDigit.test("123456fff"));
       // \D : 숫자제외
       const patternDigit2 = /^\D+$/;
       console.log("\\D 테스트 : ", patternDigit2.test("aaaa"));
@@ -74,8 +75,9 @@
     <p id="result"></p>
     <script>
       rrn.addEventListener("input", (e) => {
-        // console.log(e.target.value);
+        //console.log(e.target.value);
         // 000000-0000000
+
         let regExp = /^\d{6}-\d{7}$/;
         // 성별 : -다음 바로 나오는 숫자가 1~4까지만 허용
         regExp = /^[0-9]{6}-[1-4][0-9]{6}$/;
@@ -84,6 +86,8 @@
           /^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])-[1-4][0-9]{6}$/;
         if (regExp.test(e.target.value)) {
           console.log("주민등록번호 맞음!");
+          result.innerHTML = "YES!";
+          result.style.color = "green";
         } else {
           console.log("주민등록번호 틀림");
           result.innerHTML = "NO!";
