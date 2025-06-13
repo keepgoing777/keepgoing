@@ -71,6 +71,7 @@ SELECT
   TRIM(BOTH 'Z' FROM 'ZZZKHZZZ'), --양쪽 모두 제거 
   TRIM('          KH          ')
 FROM DUAL;
+
 /*
   SUBSTR(컬럼, 시작위치, 추출위치) 
    - 문자열에서 특정 부분을 잘라서 추출
@@ -504,3 +505,144 @@ FROM EMPLOYEE;
 --현재 사원들이 속해있는 부서 수 조회
 SELECT COUNT(DISTINCT DEPT_CODE)
 FROM EMPLOYEE; 
+
+/*
+     집계 함수 
+      - 그룹별 산출한 결과 값의 중간 집계를 계산해주는 함수
+      - ROLLUP(컬럼1, 컬럼2) : 컬럼 1을 가지고 다시 중간집계를 내는 함수 
+      - CUBE(컬럼1, 컬럼2) : 컬럼 1을 가지고 중간집계도 내고, 
+                            컬럼 2를 가지고 중간집계를 또 내는 함수  
+*/
+--EMPLOYEE에서 직급별 급여 평균
+SELECT JOB_CODE, SUM(SALARY)
+FROM EMPLOYEE
+GROUP BY JOB_CODE;
+
+--ROLLUP 전체 합계까지 추산(맨아래)
+SELECT JOB_CODE, SUM(SALARY)
+FROM EMPLOYEE
+GROUP BY ROLLUP(JOB_CODE);
+
+--CUBE 전체 합계까지 추산(맨위), 컬럼 하나일때는 ROLLUP과 CUBE 차이 없음
+SELECT JOB_CODE, SUM(SALARY)
+FROM EMPLOYEE
+GROUP BY CUBE(JOB_CODE);
+
+-- 부서코드와 직급코드가 같은 사원들의 급여 합계
+SELECT JOB_CODE, DEPT_CODE, SUM(SALARY)
+FROM EMPLOYEE
+GROUP BY JOB_CODE, DEPT_CODE;
+
+--ROLLUP: DEPT_CODE 기준으로만 합계 추가
+SELECT JOB_CODE, DEPT_CODE, SUM(SALARY)
+FROM EMPLOYEE
+GROUP BY ROLLUP(JOB_CODE, DEPT_CODE);
+
+SELECT JOB_CODE, DEPT_CODE, SUM(SALARY)
+FROM EMPLOYEE
+GROUP BY CUBE(JOB_CODE, DEPT_CODE);
+
+/*
+     GROUPING
+      - ROLLUP이나 CUBE에 의해 산출된 값이 해당 컬럼 집합의 산출물이면
+        0을 반환, 아니면 1을 반환하는 함수      
+*/
+
+SELECT JOB_CODE, DEPT_CODE, SUM(SALARY),
+       GROUPING(DEPT_CODE), GROUPING(JOB_CODE)
+FROM EMPLOYEE
+GROUP BY ROLLUP(JOB_CODE, DEPT_CODE);
+
+SELECT JOB_CODE, DEPT_CODE, SUM(SALARY),
+       GROUPING(DEPT_CODE), GROUPING(JOB_CODE)
+FROM EMPLOYEE
+GROUP BY CUBE(JOB_CODE, DEPT_CODE);
+
+/*
+     집합연산자
+      - 여러 개의 쿼리문을 하나의 쿼리문으로 만드는 연산자
+      - 여러 개의 쿼리문에서 조회하려고 하는 컬럼의 개수와 이름이 같아야 집합 연산자를
+        사용할 수 있음.
+        
+      UNION(합집합): 두 쿼리문을 수행한 결과값을 하나로 합쳐서 추출 - 중복값 제거
+      UNION ALL(합집합) : 두 쿼리문을 수행한 결과값을 하나로 합쳐서 추출 - 중복 포함
+      INTERSECT(교집합): 두 쿼리문을 수행한 결과값을 중복된 결과값만 추출
+      MINUS(차집합): 두 쿼리문을 수행한 결과값에서 후행 쿼리문의 결과값을 뺀 나머지 
+                    결과값만 추출
+*/
+
+--부서코드가 D5인 사원들의 사번 사원명 부서코드 급여 조회
+SELECT * FROM EMPLOYEE;
+--1. UNION : 부서코드가 D5이거나 급여가 300만원 초과인 사원들 조회
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5'
+UNION
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+-- 급여가 300만원 초과인 사원들의 사번, 사원명, 부서코드, 급여 조회
+
+-- 위 쿼리문 대신 WHERE절에서  OR 연산자 사용해서도 처리 가능
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5' OR SALARY > 3000000;
+
+--2. UNION ALL : 중복 (대북혼)
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5'
+UNION ALL
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+
+--3. INTERSECT 
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5'
+INTERSECT
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+
+-- 위 쿼리문 대신 WHERE절에서  AND 연산자 사용해서도 처리 가능
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5' AND SALARY > 3000000;
+
+--4. MINUS
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5'
+MINUS
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+
+-- 위 쿼리문 대신 WHERE절에서  AND 연산자 사용해서도 처리 가능
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D5' AND SALARY <= 3000000;
+
+/*
+     GROUPING SETS
+      - 그룹별로 처리된 여러개의 SELECT문을 하나로 합친 결과를 원할 때 사용
+*/
+
+--부서별, 직급별 사원수(UNION ALL)
+SELECT DEPT_CODE, COUNT(*)
+FROM EMPLOYEE
+GROUP BY DEPT_CODE
+UNION ALL
+SELECT JOB_CODE, COUNT(*)
+FROM EMPLOYEE
+GROUP BY JOB_CODE;
+
+--부서별, 직급별 사원수(GROUP BY 뒤에)
+SELECT DEPT_CODE, JOB_CODE, COUNT(*)
+FROM EMPLOYEE
+GROUP BY GROUPING SETS(DEPT_CODE, JOB_CODE);
+
+
+

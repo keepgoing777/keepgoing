@@ -103,7 +103,7 @@ SELECT NAME, AGE, BIRTHDATE FROM USER_INFO WHERE AGE >=30;
 SELECT * FROM EMPLOYEE WHERE DEPT_CODE = 'D9';
 
 /* 
-  OR(또는), ADN(rmflrh)
+  OR(또는), ADN(그리고)
 */
 -- 테이블 : USER_INFO
 -- 성별(GENDER)이 여자이거나 나이(AGE)가 25살 이하인 사람들 조회
@@ -166,6 +166,7 @@ SELECT * FROM EMPLOYEE WHERE DEPT_CODE IS NULL AND BONUS IS NOT NULL;
 --USER_INFO에서 MBTI가 INFP 또는 INTJ인 사용자 조회
 SELECT * FROM USER_INFO WHERE MBTI = 'INFP' OR MBTI = 'INTJ';
 SELECT * FROM USER_INFO WHERE MBTI IN ('INFP', 'INTJ');
+
 /* IN(A,B) A 또는 B 
    - 컬럼값이 내가 제시한 목록 중에 일치하는 값이 있는지 
      컬럼 IN ('값1', '값2', ... ) -> 검색필터에 자주 사용
