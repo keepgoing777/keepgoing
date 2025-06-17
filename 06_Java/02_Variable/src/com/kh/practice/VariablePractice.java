@@ -48,9 +48,6 @@ public class VariablePractice {
 		int x = 5;
 		int y = 7;
 		int z = 9;
-		
-		
-
 	}
 	
 	
@@ -66,17 +63,19 @@ public class VariablePractice {
 	 * 나누기 몫 : 3
 	 * */
 	public void method3() {
-		int num1 = 23;
-		int num2 = 7;
-		int result1 = num1 + num2;
-		int result2 = num1 - num2;
-	    int result3 = num1 * num2;	
-		int result4 = floor(num1%num2);
 		
-		System.out.println(result1);
-		System.out.println(result2);
-	    System.out.println(result3);
-		System.out.println(result4);
+		System.out.print("첫번재 정수");
+	    int first = sc.nextInt();
+	    sc.nextLine();
+		System.out.print("두번째 정수");
+	    int second = sc.nextInt();
+	    sc.nextLine();
+	    
+	    System.out.println(first+second);
+	    System.out.println(first-second);
+	    System.out.println(first*second);
+	    System.out.println(first/second);
+
 	}
 
 	/*
@@ -91,13 +90,15 @@ public class VariablePractice {
 	 * */
 	public void method4() {
 		
-		 float row = 13.5;
-	     float column = 41.7;
-		 float s = 562.95;
-		 float r = 110.4;
-		
-		   s = row * column;
-		   r = (row + column) *2 ;
+		System.out.print("가로");
+	    float row = sc.nextFloat();
+	    sc.nextLine();
+		System.out.print("세로");
+	    float column = sc.nextFloat();
+	    sc.nextLine();
+	    
+	    System.out.println("면적:"+ row*column);
+	    System.out.println("둘레:"+ (row+column)*2);	    
 
 	}
 
@@ -110,6 +111,9 @@ public class VariablePractice {
 	 * 마지막 문자 : e
 	 * */
 	public void method5() {
+		System.out.print("문자열을 입력하세요 : apple");
+	    String apple = sc.nextLine(); 
+	    sc.nextLine();
 
 	}
 
@@ -121,8 +125,13 @@ public class VariablePractice {
 	 * B unicode : 66
 	 * */
 	public void method6() {
-
+		
+		System.out.print("문자입력:알파벳 소문자나 대문자 한글자");
+		char ch = sc.nextLine().charAt(0);
+		System.out.println((int)ch);
+		System.out.println((int)ch+1);
 	}
+	
 	
 	/*
 	 * 국어, 영어, 수학 세 과목의 점수를 입력 받아 총점과 평균을 출력하세요.
@@ -138,9 +147,9 @@ public class VariablePractice {
 		int kor = 75;
 		int eng = 63;
 		int math = 80;
-		int total = 75 + 63 + 80 = 218
-		int ave = total / 3 
-		System.out.println(ave);
+		int total = 75 + 63 + 80;
+		int ave = total / 3;
+		System.out.println("평균:"+ave);
 
 	}
 

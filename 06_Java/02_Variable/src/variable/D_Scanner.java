@@ -13,7 +13,7 @@ public class D_Scanner {
     *   - 입력값이 문자열일 때 : sc.next() 공백 있을 경우 공백 이전까지 sc.nextLine() 공백 포함 엔터 전까지
     *   - 입력값이 정수일 때 : sc.nextInt()
     *   - 입력값이 실수일 때 : sc.nextFloat(), sc.nextDouble()
-    *  sc.nextLine()만 사용하는것을 권장 ( enter 처리)  
+    *  sc.nextLine()만 사용하는것을 권장 (enter 처리)  
     */
 	
 	
