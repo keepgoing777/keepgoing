@@ -182,7 +182,7 @@
   width: 400px;
   height: 200px;
   background-color: lightgray;
-  overflow: auto;
+  overflow: scroll;
 }
 
 .position-box {
@@ -193,14 +193,15 @@
 #relative {
   position: relative;
   background-color: yellow;
-  top: 20px;
-  left: 20px;
+  top: 50px;
+  left: 50px;
 }
 
 #absolute {
   position: absolute;
   background-color: red;
   right: 20px;
+  top: 300px;
 }
 
 #fixed {

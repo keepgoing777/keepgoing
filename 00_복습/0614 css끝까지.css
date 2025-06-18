@@ -1,0 +1,198 @@
+.response-color {
+  background-color: lightblue;
+}
+
+@media (max-width: 1000px) {
+  .response-color {
+    background-color: cadetblue;
+  }
+}
+@media (max-width: 600px) {
+  .response-color {
+    background-color: cornflowerblue;
+  }
+}
+
+.response-color2 {
+  background-color: coral;
+}
+@media (min-width: 600px) {
+  .response-color2 {
+    background-color: darkgreen;
+  }
+}
+
+@media (min-width: 1000px) {
+  .response-color2 {
+    background-color: deeppink;
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flex-container .item {
+  background-color: skyblue;
+  height: 150px;
+}
+
+@media (min-width: 480px) {
+  .flex-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .flex-container .item {
+    flex: 1;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.grid-container .item {
+  background-color: lightpink;
+  height: 100px;
+}
+
+@media (min-width: 500px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+section {
+  display: flex;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  color: white;
+  line-height: 150px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.transition {
+  background-color: cadetblue;
+  transition-property: all;
+  transition-duration: 5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 1s;
+}
+
+.transition:hover {
+  background-color: coral;
+  font-size: 2rem;
+  transform: scale(1.5) rotate(15deg);
+  border-radius: 50%;
+}
+
+.transform-scale {
+  background-color: coral;
+}
+
+.transform-scale:hover {
+  transform: scale(1.2);
+}
+
+.transform-rotate {
+  background-color: orange;
+}
+
+.transform-rotate:hover {
+  transform: rotate(45deg);
+}
+
+.transform-translate {
+  background-color: lightgreen;
+}
+
+.transform-translate:hover {
+  transform: translate(40px, 20px);
+}
+
+.transform-skew {
+  background-color: lightskyblue;
+}
+
+.transform-skew:hover {
+  transform: skew(10deg, 20deg);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: translate(25px, 50px);
+  }
+}
+
+@keyframes bounce2 {
+  0% {
+    transform: translate(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+.animation-once {
+  background-color: red;
+  animation: bounce 1s ease-in-out 3;
+}
+
+.animation-alternate {
+  background-color: indigo;
+  animation: bounce2 2s linear infinite alternate;
+}
+
+.animation-reverse {
+  background-color: lightseagreen;
+  animation: bounce 1s ease-in-out reverse;
+}
+
+.animation-paused {
+  background-color: yellow;
+  animation: bounce2 2s linear infinite;
+}
+.animation-paused:hover {
+  animation-play-state: paused;
+}
+
+.perspective-container {
+  perspective: 1200px;
+}
+.perspective-container .box {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.perspective-container .box:hover {
+  transform: rotateY(180deg);
+}
