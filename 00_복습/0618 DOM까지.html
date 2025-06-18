@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>함수</h3>
+    <ul>
+      <li>
+        매개변수X 리턴X (function hello(){console.log("hello")} hello(); <br />
+        매개변수O 리턴X (function greet(name="nn"){console.log(name +"님
+        하이");} greet("mm");<br />
+        매개변수X 리턴O (function getNumber(){return 100;} getNumber();<br />
+        매개변수O 리턴O (function add(a,b) {return a+b;} add(10,20);<br />
+      </li>
+      <li>변수의 유효범위 : 전역변수, 지역변수</li>
+      <li>
+        함수 종류 <br />
+        선언적 함수(function declaration) : 선언가능(선언 이전 호출 가능),
+        코드해석 시점에 메모리 등록<br />
+        익명 함수(function expression) : 변수에 할당 (const substract =
+        function(a,b){return a-b;})<br />
+        화살표 함수(arrow function) : const divide = (a, b) => {return a/b;}<br />
+      </li>
+      <li>
+        콜백 함수 : 다른 함수의 인자로 전달되는 함수 (callFunc(call); 호출전,
+        콜백함수, 호출후 )
+      </li>
+      <li>
+        배열 관련 콜백 함수 : 배열 값 출력 arr.forEach((value, index, array) =>{
+        console.log(value)}); <br />
+        배열 2배값 출력 const doublemap = arr.map((value, index, array)=>{return
+        value*2;}); console.log(doublemap); <br />
+        배열 짝수 출력 const evenfilter=arr.filter((value, index,
+        array)=>{return value%2===0;}); console.log(evenfilter);<br />
+        배열 총합 출력 const sumReduce = arr.reduce((acc, cur, idx, arr)=>
+        {return acc+cur;},0); console.log(sumReduce);
+      </li>
+    </ul>
+    <h3>객체</h3>
+    <ul>
+      <li>사람의 특징(변수)+사람의 행동(함수) = 객체화 (키-값 구조)</li>
+      <li>
+        객체 생성/속성추가 : const person = {}; (빈 객체 선언)
+        person.age=9;(속성추가)<br />
+        const person2 = new Object(); (빈 객체 선언) person2.age=11;
+      </li>
+      <li>
+        This<br />
+        익명함수 : const objFunc = {name="nn",
+        func:function(){console.log(this);}};<br />
+        화살표함수 : const objArrow = {name="nn", func : () =>
+        {console.log(this);}}; - 전역 객체 this <br />
+        method 축약형 : const objMethod={name="nn", func(){console.log(this);}};
+      </li>
+      <li>
+        생성자 함수 : function Person(name, age) {this.name = name;
+        this.age=age; this.hello=function(){console.log(`안녕, ${이름,
+        나이}야`)}}; const p1 = new person("name","age") p1.hello();<br />
+        class : class Person2{constructor(name, age){this.name=name;
+        this.age=age;} hello(){console.log(`안녕, ${이름, 나이}야`)}}; <br />
+      </li>
+    </ul>
+    <h3>내장객체</h3>
+    <ul>
+      <li>
+        Math객체 : Math.min 최소값 Math.max 최대값 Math.abs 절대값 Math.round
+        반올림 Math.floor 버림 Math.ceil 올림 Math.random() 0~1 랜덤값
+      </li>
+      <li>
+        Date객체 : const now = new Date(); console.log(now);
+        console.log(`${now.getFullYear()}년 ${now.getMonth()+1}월
+        ${now.getDate()} 일`);
+      </li>
+      <li>Timer객체 : setTimeout(()=>{console.log("3초후");},3000);</li>
+      <li>
+        String객체 : console.log (str.includes("문자")) (str.length)
+        (str.slice(n,m)) (str.indexOf("문자")) (str.toUpperCase());
+      </li>
+      <li>
+        JSON객체 : 데이터를 문자열로 변환 및 파싱 <br />
+        const jsonStr = JSON.stringify(obj); const parsed = JSON.parse(jsonStr);
+      </li>
+    </ul>
+  </body>
+</html>
