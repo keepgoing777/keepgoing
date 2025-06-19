@@ -2,9 +2,6 @@
   --main-width: 240px;
   --main-color: rgba(0, 0, 0, 0.5);
 }
-/* :root :이름 부여 */
-/* 지정하는 이유: 메인 옆에 쓰여지는 컨텐츠 패딩을 
-var(--main-width) + 10px 이런식으로 쓰기 위해서 */
 
 header {
   position: fixed;
@@ -22,7 +19,6 @@ header {
   background-size: cover;
   align-items: center;
 }
-/* background-blend-mode: image+color 섞는 느낌 */
 
 header h1 {
   font-size: 4rem;
@@ -31,7 +27,6 @@ header h1 {
   padding-inline: 10px;
   border-bottom: 2px solid white;
 }
-
 header nav {
   display: flex;
   flex-direction: column;
@@ -49,8 +44,6 @@ main {
   text-align: center;
 }
 
-/* calc : 계산해라 var(변수 함수) */
-
 main h2 {
   text-align: left;
   font-size: 3rem;
@@ -61,7 +54,7 @@ main img {
   width: 100%;
   max-width: 400px;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 p {

@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(232, 231, 220);
+  background: linear-gradient(rgb(249, 149, 35), rgb(230, 230, 51));
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+}
+
+#profile-card {
+  border: 3px solid white;
+  border-radius: 25px;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  background-color: skyblue;
+  margin: auto;
+  border-radius: 50%;
+  background-image: url(../01_HTML/assets/hui.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#profile-card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+#profile-card a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 3px solid white;
+  margin: 15px;
+  padding: 10px;
+}
+
+#profile-card a:hover {
+  background-color: white;
+  color: black;
+}
