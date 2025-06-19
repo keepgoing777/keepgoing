@@ -1,6 +1,7 @@
 package com.kh.practice;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 class LoopPractice {
@@ -10,8 +11,8 @@ class LoopPractice {
 	public static void main(String[] args) {
 
 		LoopPractice l = new LoopPractice();
-		l.method1();
-		l.method2();
+	  	//l.method1();
+		//l.method2();
 		l.method3();
 		l.method4();
 		l.method5();
@@ -29,13 +30,37 @@ class LoopPractice {
         1
      */
     public void method1() {
-
+        System.out.println("1~100 중 하나의 숫자를 입력하세요 > ");
+        int num = sc.nextInt();
+ 
+		for (int i = num; i >= 1; i--) {
+			System.out.println(i);
+		}
+        
     }
 
     // 1+(-2)+3+(-4)+...과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이 100 이상 되는지 출력하시오.
-    public void method2() {
     	
-    }
+    	public void method2() {
+    	    int sum = 0;
+    	    int n = 1;
+       	    while (sum < 100) {
+    	        if (n % 2 == 1) {
+    	            sum += n;  
+    	        } else {
+    	            sum -= n;  
+    	        }
+    	        if (sum >= 100) {
+    	            System.out.println(n + "까지 더해야 총합이 100 이상이 됩니다.");
+    	            System.out.println("최종 합계: " + sum);
+    	            break;
+    	        }
+    	        
+    	        n++;
+    	    }
+    	}
+    	
+  
 
     /*
         사용자로부터 문자열을 입력 받고 문자열에서 검색될 문자를 입력 받아 해당 문자열에 그 문자가 몇 개 있는지 개수를 출력하세요. 
@@ -45,10 +70,21 @@ class LoopPractice {
         banana 안에 포함된 a 개수 : 3
 
     */
-    public void method3() {
-
-    }
-
+    	public void method3() {
+    	    System.out.println("문자열을 입력하세요");
+    	    String word = sc.nextLine();
+    	    System.out.println("문자를 입력하세요");
+    	    String spell = sc.nextLine();
+    	    
+    	    int count = 0;
+    	    for (int i = 0; i < word.length(); i++) {
+    	      if (word.charAt(i) == spell.charAt(0)) {
+    	            count++;
+    	        }
+    	    }
+    	    
+    	   System.out.println(word + " 안에 포함된 " + spell + " 개수 : " + count);
+   } 	   
     /*
         0이 나올 때까지 숫자를 출력하시오. (random 사용! 0 ~ 10)
         7
@@ -59,8 +95,15 @@ class LoopPractice {
         4
         0
      */
+    	
+    	Random random = new Random();
+    			
     public void method4() {
-
+    	
+    	int random = (int) (Math.random() * 10 + 1);
+    	if(random == 0) break;
+    	
+       	System.out.println(random);
     }
 
     /*
