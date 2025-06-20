@@ -29,7 +29,10 @@ public class Application {
 		System.out.println("빼기 : " + c.substract());
 		System.out.println("곱하기 : " + c.multiply(20, 35));
 		System.out.println("나누기 : " + Calculator.divide(45, 4));
+        System.out.println(c.factorial(5));	
+        System.out.println(c.factorial2(6));	
 
+   
 	}
 
 }
