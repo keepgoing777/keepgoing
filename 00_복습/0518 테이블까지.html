@@ -7,6 +7,7 @@
   </head>
   <body>
     <!-- 이미지 -->
+    <h3>이미지 및 오디오, 비디오 설정</h3>
     <h4>고정</h4>
     <img
       src="../01_HTML/assets/e12a88c9-354e-4667-913f-875e366e71d6.jpg.png"
@@ -31,6 +32,7 @@
       alt="반도체 이미지"
       width="100%"
     />
+
     <!-- 오디오 태그 -->
     <audio src="../01_HTML/assets/audio.mp3" controls loop>
       <a href="../01_HTML/assets/audio.mp3" download>다운로드</a>
@@ -44,6 +46,7 @@
     ></video>
     <!-- iframe -->
     <!-- 하이퍼링크 -->
+    <h3>하이퍼링크(외부, 내부)</h3>
     <a href="https://www.google.com/?hl=ko" target="_blank"
       >구글 페이지로 이동</a
     ><br />
@@ -61,20 +64,27 @@
     <!-- ol>li*3>a[href="#test$"]{테스트$} -->
     <h3 id="test1">테스트1</h3>
     <p>테스트 1 영역입니다.</p>
-    <div style="height: 1000px"></div>
+    <div style="height: 200px"></div>
     <h3 id="test2">테스트2</h3>
     <p>테스트 2 영역입니다.</p>
     <a href="">위로이동</a>
-    <div style="height: 1000px"></div>
+    <div style="height: 200px"></div>
     <h3 id="test3">테스트3</h3>
     <p>테스트 3 영역입니다.</p>
-    <div style="height: 1000px"></div>
+    <div style="height: 200px"></div>
     <!-- h3#test${테스트$}*3 -->
 
+    <h3>표 작성하기</h3>
+    <p>기본 구조 : tr(행) 아래 td(열) 정렬</p>
+    <p>
+      caption: 표 제목 thead: 표 상단(구분) tbody : 표 내용 tfoot : 표
+      하단(결과)
+    </p>
+    <p>행 병합 : rowspan = "병합개수" / 열 병합 : colspan = "병합개수"</p>
     <caption>
       <h1>판다 유치원 성적표</h1>
     </caption>
-    <table border="1">
+    <table border="1" ;>
       <thead>
         <tr>
           <th rowspan="2">학생이름</th>

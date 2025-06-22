@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시멘틱까지</title>
+    <title>시맨틱까지</title>
     <style>
       div,
       span {
@@ -11,6 +11,22 @@
       }
     </style>
   </head>
+  <h3>폼태그</h3>
+  <p>기본구조 form action = "" method = "post or get"</p>
+  <p>
+    input type 대부분 사용 (text, submit, reset, button, file, hidden,
+    datetime-local, week, month, email, range, color 등)
+  </p>
+  <p>
+    라디오 버튼(fieldset - legend - input type = raido) label for = "값" (=
+    input id "값")
+  </p>
+  <p>
+    체크박스(fieldset - legend - input type = checkbox) label for = "값" (=
+    input id "값")
+  </p>
+  <p>선택박스 : select name - optgroup label - option value 구조</p>
+
   <body>
     <form action="" method="POST">
       검색 : <input type="text" name="keyword" />
@@ -91,21 +107,25 @@
       <textarea style="resize: none"></textarea>
     </form>
     <br />
+    <h3>div : block 요소(한줄 전체 차지)</h3>
     <div>동해물과 백두산이 마르고 닳도록</div>
     <br />
     <div>하느님이 보우하사 우리나라 만세</div>
     <br />
+    <h3>span : inline 요소 (컨텐츠만큼만 차지)</h3>
     <span>동해물과 백두산이 마르고 닳도록</span><br />
     <span>하느님이 보우하사 우리나라 만세</span><br />
     <h1>시맨틱태그</h1>
     <header>
       <h2>LOGO</h2>
-      <nav></nav>
+      <nav>NAV</nav>
     </header>
     <main>
+      MAIN
       <section>
-        <article></article>
-        <article></article>
+        SECTION
+        <article>ARTICLE1</article>
+        <article>ARTICLE2</article>
       </section>
     </main>
     <aside></aside>
@@ -120,7 +140,7 @@
       <div class="article">Article1</div>
       <dic class="article">Article2</dic>
     </div>
-    <div id="aside"></div>
-    <div id="footer"></div>
+    <div id="aside">aside</div>
+    <div id="footer">footer</div>
   </body>
 </html>

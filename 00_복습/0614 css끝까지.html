@@ -9,7 +9,7 @@
   <body>
     <h2>미디어쿼리</h2>
     <p>종류,화면크기따라 조건부 css</p>
-    <p>배경색 변경</p>
+    <p>배경색 변경 : @media (max or min-width: n px)</p>
     <div class="response-color">화면을 줄여보세요</div>
     <div class="response-color2">화면을 늘려보세요</div>
     <p>Flex 레이아웃</p>
@@ -36,14 +36,19 @@
       <div class="box transform-translate">translate</div>
       <div class="box transform-skew">skew</div>
     </section>
-    <p>Animation effect - @keyframes</p>
+    <p>Animation effect - @keyframes 애니매이션명 0% 50% 100%</p>
     <section>
       <div class="box animation-once">1회실행</div>
       <div class="box animation-alternate">alternate</div>
       <div class="box animation-reverse">reverse</div>
       <div class="box animation-paused">paused</div>
     </section>
+    <p>alternate/reverse (infinite) pasued(anmation-play-state : pasued;)</p>
     <p>3D</p>
+    <p>
+      container perspective : n px; transform-style : preserve-3d;
+      hover(rotateY(180deg));
+    </p>
     <div class="perspective-container">
       <div class="box">3D</div>
     </div>

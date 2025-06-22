@@ -19,20 +19,24 @@
     <div class="div-test" id="bc2">padding-box</div>
     <div class="div-test" id="bc3">border-box</div>
     <h2>배경 이미지TEST</h2>
+    <p>사이즈, 실선, 배경 소스/사이즈/반복/포지션/첨부</p>
     <div id="test"></div>
     <h2>레이아웃</h2>
     <h2>고정,가변</h2>
     <div id="fixed-size">고정</div>
     <div id="variable-size">가변</div>
     <h2>padding, margin</h2>
+    <p>시계방향 순서 : top > right> bottom > left</p>
     <div class="space" id="padding1">전체 padding</div>
     <div class="space" id="padding2">부분 padding</div>
     <div class="space" id="margin1">전체 margin</div>
     <div class="space" id="margin2">부분 margin</div>
     <h2>padding collapse</h2>
+    <p>bottom 50 > top 30 (큰 수로 패딩수가 결정)</p>
     <div class="collapse-box" id="box1">box1</div>
     <div class="collapse-box" id="box2">box2</div>
     <div class="center-box">가운데 정렬 박스</div>
+    <p>line-height과 height이 같으면 글씨 수직 가운데 정렬됨</p>
     <h2>Border</h2>
     <div class="border" id="border1"></div>
     <div class="border" id="border2"></div>
@@ -63,6 +67,10 @@
     <div class="display display-inline-block">5번째영역</div>
     <h2>포지셔닝</h2>
     <p>float, clear</p>
+    <p>
+      float : 문서 흐름에서 빠져나옴, center값 없음, 다른 값들이 floating 요소
+      무시, 다음 텍스트에 style="clear:both" 를 꼭 넣어줘야함
+    </p>
     <div class="float">001</div>
     <div class="float">002</div>
     <div class="float">003</div>
@@ -76,12 +84,15 @@
       <div class="position-box" id="sticky">스티키</div>
     </div>
     <h2>visibility</h2>
+    <p>빈 공간을 그대로 둠</p>
     <div class="visibility" id="vis1">hidden</div>
     <div class="visibility" id="vis2">visible</div>
     <h2>display:none</h2>
+    <p>아예 공간이 사라지고 옆부분에서 채워줌</p>
     <div class="visibility" id="dis1">hidden</div>
     <div class="visibility" id="dis2">visible</div>
     <h2>Z-index</h2>
+    <p>z-index 값이 클수록 위로 올라와 먼저 보이게 됨</p>
     <div id="z-outer">
       <div class="z-index" id="z-index1"></div>
       <div class="z-index" id="z-index2"></div>

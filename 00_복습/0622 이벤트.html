@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 복습</title>
+  </head>
+  <body>
+    <style>
+      section {
+        display: flex;
+      }
+      .box {
+        width: 200px;
+        height: 100px;
+        background: navy;
+        color: white;
+        line-height: 100px;
+        text-align: center;
+        margin: 10px;
+      }
+      .movebox {
+        width: 50px;
+        height: 50px;
+        background-color: orange;
+        position: relative;
+        top: 0px;
+        left: 0px;
+      }
+      body {
+        height: 2000px;
+      }
+
+      #scroll {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: indigo;
+        width: 100%;
+        height: 10px;
+      }
+      .container {
+        background-color: skyblue;
+        display: flex;
+      }
+      .container img {
+        width: 150px;
+      }
+    </style>
+    <h1>이벤트</h1>
+    <h2>클릭 이벤트</h2>
+    <p>
+      공통 구조 : const id명 = document.querySelector("#id명)
+      id.addEventListener("부합하는 지시단어",()=>{alert, 속성 변경 등})
+    </p>
+    <p>click / dblclick / contextmenu + event.preventDefault(); / hover</p>
+    <section>
+      <div id="click" class="box">Click</div>
+      <div id="double" class="box">Double Click</div>
+      <div id="right" class="box">Right Click</div>
+      <div id="hover" class="box">Hover</div>
+    </section>
+    <script src="/00_복습/0622 이벤트.js"></script>
+  </body>
+</html>

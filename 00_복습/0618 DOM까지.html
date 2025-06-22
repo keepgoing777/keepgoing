@@ -58,7 +58,7 @@
         익명함수 : const objFunc = {name="nn",
         func:function(){console.log(this);}};<br />
         화살표함수 : const objArrow = {name="nn", func : () =>
-        {console.log(this);}}; - 전역 객체 this <br />
+        {console.log(this);}}; - 전역 객체 this(window) <br />
         method 축약형 : const objMethod={name="nn", func(){console.log(this);}};
       </li>
       <li>
@@ -66,7 +66,8 @@
         this.age=age; this.hello=function(){console.log(`안녕, ${이름,
         나이}야`)}}; const p1 = new person("name","age") p1.hello();<br />
         class : class Person2{constructor(name, age){this.name=name;
-        this.age=age;} hello(){console.log(`안녕, ${이름, 나이}야`)}}; <br />
+        this.age=age;} hello(){console.log(`안녕, ${이름, 나이}야`)}}; - this로
+        함수 별도 지정 없음 <br />
       </li>
     </ul>
     <h3>내장객체</h3>
@@ -80,7 +81,10 @@
         console.log(`${now.getFullYear()}년 ${now.getMonth()+1}월
         ${now.getDate()} 일`);
       </li>
-      <li>Timer객체 : setTimeout(()=>{console.log("3초후");},3000);</li>
+      <li>
+        Timer객체 : setTimeout(()=>{console.log("3초후");},3000); / let sec=0;
+        setInterval(()=>{console.log(`${++sec}초`);},1000);
+      </li>
       <li>
         String객체 : console.log (str.includes("문자")) (str.length)
         (str.slice(n,m)) (str.indexOf("문자")) (str.toUpperCase());
@@ -95,23 +99,63 @@
     <div id="testId2" class="testClass" name="testName">Hello,JavaScript!</div>
     <div id="testId3"></div>
     <ul>
-      <li>태그로 가져오기<button onclick="btn1()">확인</button></li>
-      <li>ID로 가져오기<button onclick="btn2()">확인</button></li>
-      <li>Class로 가져오기<button onclick="btn3()">확인</button></li>
-      <li>Name으로 가저오기<button onclick="btn4()">확인</button></li>
-      <li>선택자로 가져오기<button onclick="btn5()">확인</button></li>
-      <li>내용 조작하기<button onclick="btn6()">확인</button></li>
-      <li>속성 조작하기<button onclick="btn7()">확인</button></li>
-      <li>스타일 조작하기<button onclick="btn8()">확인</button></li>
+      <li>
+        태그로 가져오기 document.getElementsByTagName<button onclick="btn1()">
+          확인
+        </button>
+      </li>
+      <li>
+        ID로 가져오기 document.getElementsById<button onclick="btn2()">
+          확인
+        </button>
+      </li>
+      <li>
+        Class로 가져오기 document.getElementByClassName
+        <button onclick="btn3()">확인</button>
+      </li>
+      <li>
+        Name으로 가져오기 document.getElementByName
+        <button onclick="btn4()">확인</button>
+      </li>
+      <li>
+        선택자로 가져오기 document.querySelector or querySelectorAll
+        <button onclick="btn5()">확인</button>
+      </li>
+      <li>
+        내용 조작하기 querySelectorAll > div.textContent or div.innerHTML<button
+          onclick="btn6()"
+        >
+          확인
+        </button>
+      </li>
+      <li>
+        속성 조작하기 querySelector > div.setAttribute("n", "m")<button
+          onclick="btn7()"
+        >
+          확인
+        </button>
+      </li>
+      <li>
+        스타일 조작하기 querySelector > div.style.color or backgroundColor
+        <button onclick="btn8()">확인</button>
+      </li>
       <li>
         Class List 사용하기
-        <button onclick="btn9()">사용</button>
-        <button onclick="btn10()">제거</button>
-        <button onclick="btn11()">포함</button>
-        <button onclick="btn12()">토글</button>
+        <button onclick="btn9()">사용 div.classList.add</button>
+        <button onclick="btn10()">제거 remove</button>
+        <button onclick="btn11()">
+          포함 consist has = div.classList.contains
+        </button>
+        <button onclick="btn12()">토글 toggle</button>
       </li>
-      <li>문서객체 추가하기<button onclick="btn13()">확인</button></li>
-      <li>문서객체 삭제하기<button onclick="btn14()">확인</button></li>
+      <li>
+        문서객체 추가하기 document.createElement, p.innerHTML,
+        div.appendChild(p)<button onclick="btn13()">확인</button>
+      </li>
+      <li>
+        문서객체 삭제하기 부모(testId3).removeChild(p)
+        <button onclick="btn14()">확인</button>
+      </li>
     </ul>
     <script src="../00_복습/0619 DOM까지.js"></script>
   </body>

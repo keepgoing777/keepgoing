@@ -6,39 +6,42 @@
     <title>선택자</title>
     <style>
       div {
-        color: rgb(44, 223, 233);
+        color: blueviolet;
       }
     </style>
   </head>
   <body>
-    <h1 style="color: rgb(15, 110, 110)">Cascading Style Sheet</h1>
-    <div>웹 페이지의 디자인을 위한 언어</div>
+    <h1 style="color: rgb(15, 110, 110)">
+      Cascading Style Sheet (h1 style color 별도 적용)
+    </h1>
+    <div>웹 페이지의 디자인을 위한 언어 (div style color 적용)</div>
     <link rel="stylesheet" href="/00_복습/0520 선택자.css" />
-    <p>선택자 {속성 : 값}</p>
+    <p>선택자 {속성 : 값} p bg green</p>
   </body>
 </html>
 
-<h2>전체 선택자</h2>
-<p>* 전체 적용</p>
+<h2>전체 선택자 h2 bg yellow</h2>
+<p>* 전체 적용 color hotpink</p>
 
-<h2>태그 선택자</h2>
-<p>p 태그</p>
+<h2>태그 선택자 h2 bg yellow</h2>
+<p>p 태그 p bg green</p>
 
 <h2>클래스 선택자</h2>
-<p class="class1">class1</p>
-<p class="class2">claas2</p>
+<p class="class1">class1 color white</p>
+<p class="class2">claas2 font size 32px</p>
 
 <h2>아이디 선택자</h2>
-<p id="id1">p id 선택적용</p>
+<p id="id1">p id 선택적용 bg beige</p>
 
 <h2>그룹선택자</h2>
-<div id="select1">선택그룹 1</div>
-<p id="select2">선택그룹 2</p>
+<div id="select1">선택그룹 1 div + bg thistle</div>
+<p id="select2">선택그룹 2 p + bg thistle</p>
 
 <h2>자식 자손</h2>
 <div id="test1">
+  bg pink
   <ul>
-    <li>자손</li>
+    <li>자손(test1>ul>li color white)</li>
     <ul>
       <li>하위</li>
       <li>하위</li>
@@ -47,24 +50,26 @@
 </div>
 
 <h2>속성 선택자</h2>
-<div class="div-class" name="name1">div1</div>
-<div class="div-class" name="name2">div2</div>
-<div class="div-class" name="name3 name1">div3</div>
-<div class="class-div" name="name3">div4</div>
-
+<div class="div-class" name="name1">div1 bg skyblue후에 plum color red</div>
+<div class="div-class" name="name2">div2 color red</div>
+<div class="div-class" name="name3 name1">div3 plum color red</div>
+<div class="class-div" name="name3">div4 bg greenyellow color blue</div>
+<p style="color: black; background-color: white">
+  = 완전일치 bg skyblue / ~= 포함 bg plum / *= 부분일치 red / ^= 시작 bg
+  greenyellow / $= 끝날 시 blue
+</p>
 <h2>형제 선택자</h2>
 <div id="test2">div1</div>
-<div>div2</div>
+<div>div2 #test2 + div bg blue</div>
 <div>div3</div>
 <div>div4</div>
 <p>p</p>
-<div>div5</div>
+<div>div5 #test2 ~ div test2이후의 div 모두 bg coral</div>
 
 <h2>반응 선택자</h2>
 <div id="active-test" class="area">active 테스트</div>
 <div id="hover-test" class="area">hover 테스트</div>
-<input type="text" />
-<input type="checkbox" />
+<input type="text" /> focus <input type="checkbox" /> checked
 <button>클릭가능</button>
 <button disabled>클릭불가능</button>
 

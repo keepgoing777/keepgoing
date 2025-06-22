@@ -1,6 +1,6 @@
 /* 전체 적용 */
 * {
-  color: purple;
+  color: hotpink;
 }
 
 /* h2와 p 선택적용 */
@@ -13,7 +13,7 @@ p {
 
 /* 클래스 선택적용 */
 .class1 {
-  color: brown;
+  color: white;
 }
 .class2 {
   font-size: 32px;
@@ -27,7 +27,7 @@ p {
 /* 그룹 , 선택 */
 #select1,
 #select2 {
-  background-color: orangered;
+  background-color: thistle;
 }
 
 /* 자식 자손 */
@@ -60,7 +60,7 @@ div[class^="cl"] {
 }
 /* cl로 시작 시 */
 div[class$="div"] {
-  color: rgb(89, 34, 218);
+  color: blue;
 }
 /* div로 끝날 시 */
 
@@ -85,13 +85,13 @@ div[class$="div"] {
 
 #active-test:active {
   background-color: aqua;
-  color: red;
+  color: white;
 }
 /* 클릭시  */
 
 #hover-test:hover {
   background-color: greenyellow;
-  color: brown;
+  color: white;
 }
 /* 마우스 가져다대면 */
 input[type="text"]:focus {
