@@ -1,25 +1,16 @@
-package com.kh.practice2;
+package com.kh.practice2.view;
 
-/*
- * VIEW : HTML CSS JavaScript
- * 첫 프로젝트 : JST
- * 두번째 프로젝트 : REACT 
- * POJO(Plan Old Java Object) 
-*/
 import java.util.Scanner;
 
 import com.kh.practice2.controller.SnackController;
 import com.kh.practice2.model.Snack;
 
-public class Application {
+public class SnackView {
 
-	public static void main(String[] args) {
-	//Snack view = new SnackView();
-	//view.input();
-	//view.result();
-		Scanner sc = new Scanner(System.in);
-		Snack snackData = new Snack(); // 자바스크립트에서도 객체로 값을 한꺼번에 담아서 보내요
-	 
+	Scanner sc = new Scanner(System.in);
+	Snack snackData = new Snack(); // 자바스크립트에서도 객체로 값을 한꺼번에 담아서 보내요
+
+	public void input() {
 		System.out.println("스낵류를 입력하세요.");
 		System.out.print("종류 : ");
 		snackData.setKind(sc.nextLine());
@@ -35,17 +26,16 @@ public class Application {
 
 		System.out.print("가격 : ");
 		snackData.setPrice(Integer.parseInt(sc.nextLine()));
-		
+	}
+
+	public void result() {
 		SnackController controller = new SnackController();
-	      
 		System.out.println(controller.saveData(snackData));
 		System.out.println(controller.confirmDate());
 
-		// public void result(){	
-		// System.out.println(controller.saveData(kind, name, flavor, numOf, price));
-		// System.out.println(controller.confirmDate());
-	    // }
-		
-	}
 
+	
+	}
+	
+	
 }
