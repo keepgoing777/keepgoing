@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>이벤트 복습</title>
   </head>
+  <script src="/00_복습/0622 이벤트.js"></script>
+  <p>
+    window.addEventListener("DOMContentLoaded") - HTML 로드완료 후 발생(스크립트
+    HTML 상단에 추가 가능)
+  </p>
   <body>
     <style>
       section {
@@ -88,6 +93,7 @@
     <h2>키보드 이벤트</h2>
     <ul>
       <li>키보드 값(박스 움직이기)이벤트</li>
+      <p>화살표(keydown) e.key 값(키보드누른 값) x축 y축 left top px조정</p>
       <input
         type="text"
         id="keyboard"
@@ -96,7 +102,35 @@
       <p id="keyResult"></p>
       <div class="movebox"></div>
     </ul>
-
-    <script src="/00_복습/0622 이벤트.js"></script>
+    <h2>스크롤 이벤트</h2>
+    <ul>
+      <li>휠</li>
+      <div id="wheel">휠을 움직여보세요</div>
+      <p>window이벤트, e.deltY 값(양수, 휠 위로)</p>
+      <div id="scroll"></div>
+      <li>스크롤 %</li>
+      <p>
+        window이벤트,
+        scrollHeight(document.documentElment)=innerHeight(window)+scrollY(window)
+        percent = window.scrollY / totalHeight * 100 (scroll.style.width =
+        `${percent}%`);
+      </p>
+    </ul>
+    <h2>5. 이벤트 위임</h2>
+    <p>
+      1번째 : for 반복문으로 이미지 클릭할때마다 지우기 img[i].addEventListener
+      화살표(click) e.currentTarget.style.display = "none"; 이미지를
+      클릭할때마다 이벤트 생겨서 메모리 사용량이 많음
+    </p>
+    <p>
+      2번째 : 부모 컨테이너에 이벤트 하나만 걸어서 지우기 removeHander = (e) =>
+      if(e.target!==e.currentTarget) 실제 클릭 이미지!==컨테이너
+      container.addEventListener("click", removeHander);
+    </p>
+    <div class="container">
+      <img src="../03_자바스트립트/asset/spy1.jpg" alt="" />
+      <img src="../03_자바스트립트/asset/spy2.jpg" alt="" />
+      <img src="../03_자바스트립트/asset/spy3.jpg" alt="" />
+    </div>
   </body>
 </html>

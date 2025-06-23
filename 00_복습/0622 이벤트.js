@@ -60,5 +60,55 @@ window.addEventListener("DOMContentLoaded", () => {
   const move = document.querySelector(".movebox");
   let x = 0,
     y = 0;
-  document.addEventListener;
+  document.addEventListener("keydown", (e) => {
+    console.log(e.key);
+    if (e.key === "ArrowUp") {
+      y += -5;
+    } else if (e.key === "ArrowDown") {
+      y += +5;
+    } else if (e.key === "ArrowRight") {
+      x += +5;
+    } else if (e.key === "ArrowLeft") {
+      x += -5;
+    }
+    move.style.top = `${y}px`;
+    move.style.left = `${x}px`;
+  });
+
+  const wheel = document.querySelector("#wheel");
+  const scroll = document.querySelector("#scroll");
+  window.addEventListener("wheel", (e) => {
+    if (e.deltaY < 0) wheel.textContent = "휠 위로 스크롤 중!";
+    else if (e.deltaY > 0) wheel.textContent = "휠 아래로 스크롤 중!";
+  });
+
+  window.addEventListener("scroll", () => {
+    console.log("scrollHeight", document.documentElement.scrollHeight);
+    console.log("innerHeight", window.innerHeight);
+    console.log("scrollY", window.scrollY);
+    //scrollHeight = innerHeight + scrollY
+    const totalHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const percent = (window.scrollY / totalHeight) * 100;
+    console.log(percent);
+    scroll.style.width = `${percent}%`;
+  });
+  /* for구문으로 직접 이미지 클릭할때마다 지우기
+  const img = document.querySelectorAll(".container img");
+   for (let i = 0 ; i < img.length ; i++) {
+    console.log(img[i]);
+    img[i].addEventListener("click", (e) => {
+      img[i].style.display = "none";
+      //e.currentTarget.style.display = "none";
+    })
+   }
+   */
+  // 2. 부모인 컨테이너에 이벤트 걸기
+  const container = document.querySelector(".container");
+  const removeHander = (e) => {
+    if (e.target !== e.currentTarget) {
+      e.target.style.display = "none";
+    }
+  };
+  container.addEventListener("click", removeHander);
 });
