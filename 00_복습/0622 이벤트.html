@@ -60,6 +60,43 @@
       <div id="right" class="box">Right Click</div>
       <div id="hover" class="box">Hover</div>
     </section>
+    <h2>폼 이벤트</h2>
+    <ul>
+      <li>실시간 input반영(입력값 = 출력값) : e.target.value;</li>
+      <section>
+        <input type="text" id="input" />
+        <p id="inputResult"></p>
+        <br />
+      </section>
+      <li>select 선택값 출력 : 화살표(change), selectResult</li>
+      <section>
+        <select name="" id="select">
+          <option value="사과">사과</option>
+          <option value="바나나">바나나</option>
+          <option value="포도">포도</option>
+        </select>
+        <p id="selectResult"></p>
+      </section>
+      <li>form 비면 제출 불가 : 화살표(submit), if(inputText.value===" ")</li>
+    </ul>
+    <section>
+      <form action="" method="post" id="form">
+        <input type="text" name="username" />
+        <button type="submit">제출</button>
+      </form>
+    </section>
+    <h2>키보드 이벤트</h2>
+    <ul>
+      <li>키보드 값(박스 움직이기)이벤트</li>
+      <input
+        type="text"
+        id="keyboard"
+        placholder="여기에 키보드를 입력헤보세요"
+      />
+      <p id="keyResult"></p>
+      <div class="movebox"></div>
+    </ul>
+
     <script src="/00_복습/0622 이벤트.js"></script>
   </body>
 </html>

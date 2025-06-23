@@ -64,9 +64,9 @@ public class VipCustomer extends Customer{
 */	
 	
 
-/*	public String toString() {
+	public String toString() {
 	return name + "님의 등급은 " + grade + "이며 지불해야하는 금액은" + price + "원 이며, 적립된 포인트는 " + bonusPoint + " 점 입니다.";
 	}
-*/
+
 }
 
