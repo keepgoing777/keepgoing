@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비동기까지 복습</title>
+  </head>
+  <body>
+    <h2>BOM(Browser Object Model) cf.DOM</h2>
+    <ol type="1">
+      <li>Window 객체 : 브라우저 최상위 객체</li>
+      <button onclick="window.alert('hello~')">alert</button>
+      <button onclick="windowPrompt()">prompt</button>
+      <button onclick="windowConfirm()">confirm</button>
+      <button onclick="windowOpen()">open</button>
+      <p>
+        alert : 알람창 기능 window.alert('값'); <br />
+        prompt : 입력 받기 기능 화살표 window.prompt("입력요청 문구"); <br />
+        confirm : 재확인 기능 화살표 window.conrfirm(if 조건문);<br />
+        open : 새 창열기 기능 화살표 window.open("주소", "_blank", 사이즈)
+      </p>
+      <script>
+        const windowPrompt = () => {
+          const name = window.prompt("이름을 입력해주세요");
+          alert(name);
+        };
+        const windowConfirm = () => {
+          if (confirm("정말 탈퇴하실건가요?")) {
+            alert("네");
+          } else {
+            alert("아니오");
+          }
+        };
+        const windowOpen = () => {
+          window.Open(
+            "https://www.google.com",
+            "_blank",
+            "width=500, height=500"
+          );
+        };
+      </script>
+      <li>Location 객체 : 현재 페이지의 url 정보 확인 및 이동, 새로고침</li>
+      <button onclick="showLocation()">현재 url 정보</button>
+      <button onclick="movePage()">다른 페이지 이동</button>
+      <button onclick="location.reload()">새로고침</button>
+      <script>
+        const showLocation = () => {
+          console.log(location.href);
+          console.log(location.host);
+          console.log(location.pathname);
+          locationInfo.innerHTML = `
+         <ul>
+            <li>href: ${location.href}
+            <li>host: ${location.host}
+            <li>pathname: ${location.pathname}
+         </ul>`;
+        };
+      </script>
+      <li>Navigator : 브라우저와 운영체제 정보 제공</li>
+      <li>History</li>
+      <li>Screen</li>
+    </ol>
+  </body>
+</html>
