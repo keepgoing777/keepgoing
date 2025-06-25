@@ -10,10 +10,8 @@ public class EmployeeController {
 			 if(employee.getName().equals("최다인")) {
 				 return employee; 
 			   }
-	      	 }
-		  return null; // public 뒤 생성자 타입과 리턴값 타입을 맞춰야 함
-		  		  
-	  }
+	      	 } return null; // public 뒤 생성자 타입과 리턴값 타입을 맞춰야 함
+		  }
 	  
 	  
 	  public int getAnnualSalary (Employee findEmployee) {
