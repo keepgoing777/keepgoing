@@ -129,7 +129,7 @@
           let regExp =
             /^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])-[1-4][0-9]{6}$/;
           if (regExp.test(e.target.value)) {
-            cconsole.log("주민등록번호 맞음");
+            console.log("주민등록번호 맞음");
             result.innerHTML = "yes!";
             result.style.color = "green";
           } else {
@@ -138,6 +138,58 @@
             result.style.color = "red";
           }
         });
+      </script>
+    </ol>
+    <h2>WebStorageAPI</h2>
+    <p>정의 : 브라우저에 데이터를 저장하고 읽어오는 방법</p>
+    <ol type="1">
+      <li>sessionStorage</li>
+      <button onclick="setSession()">데이터 저장</button>
+      <button onclick="getSession()">데이터 읽기</button>
+      <button onclick="removeSession()">데이터 삭제</button>
+      <button onclick="clearSession()">전체 삭제</button>
+      <script>
+        const setSession = () => {
+          sessionStorage.setItem("sessionName", "이환희");
+          sessionStroage.setItem("sessionAge", 10);
+        };
+        const getSession = () => {
+          const name = sessionStorage.getItem("sessionName");
+          console.log(name);
+        };
+        const removeSession = () => {
+          sessionStorage.removeItem("sessionName");
+        };
+        const clearSession = () => {
+          sessionStorage.clear();
+        };
+      </script>
+      <p>
+        데이터 저장 : sessionStorage.setItem / 데이터 읽기 : const 변수명 =
+        sessionStorage.getItem <br />
+        데이터 삭제 : sessionStorage.removeItem / 전체 삭제 :
+        sessionStorage.clear();
+      </p>
+      <li>localStorage</li>
+      <button onclick="setLocal()">데이터 저장</button>
+      <button onclick="getLocal()">데이터 읽기</button>
+      <button onclick="removeLocal()">데이터 삭제</button>
+      <button onclick="clearLocal()">전체 삭제</button>
+      <script>
+        const setLocal = () => {
+          localStorage.setItem("name", "이환희");
+          localStorage.setItem("age", 10);
+        };
+        const getLocal = () => {
+          const name = localStorage.getItem("name");
+          console.log(name);
+        };
+        const removeLocal = () => {
+          localStorage.removeItem("name");
+        };
+        const clearLocal = () => {
+          localStorage.clear();
+        };
       </script>
     </ol>
   </body>

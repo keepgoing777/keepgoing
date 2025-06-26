@@ -36,7 +36,7 @@ public class A_variable {
     	/*
     	 * 변수의 선언
     	 * 
-    	 * 자료형 변수명;
+    	 * 자료형 변수명
     	 *  - 자료형 : 어떤 값을 저장할지, 어떤 크기에 메모리를 할당받을지에 대한 정보
     	 *  - 변수명 : 변수의 이름으로 값을 읽고, 쓰고 지우는 작업을 할 때 사용
     	 *  
@@ -51,7 +51,7 @@ public class A_variable {
     	 boolean isTrue; //변수 선언
     	 isTrue = true; //변수 초기화
     	 boolean isFalse = false; //변수 선언과 함께 초기화
-    	 // 2. 문자형(
+    	 // 2. 문자형
     	 char ch = 'a';
     	 // ch = 'ab'; 에러발생
     	 // 3. 정수형

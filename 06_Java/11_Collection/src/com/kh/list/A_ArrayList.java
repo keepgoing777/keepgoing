@@ -1,6 +1,8 @@
 package com.kh.list;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import com.kh.list.model.Person;
 
@@ -61,19 +63,67 @@ public class A_ArrayList {
 		//2. set : 해당 인덱스의 값 변경, 수정
 	    list.set(0, new Person("키", "한남동", 33));
 	    //3. size : 리스트 안에 몇 개의 데이터가 있는지 확인
-		System.out.println("사람 수 : " +list.size()); // 3	
+		//System.out.println("사람 수 : " +list.size()); // 3	
 		//4. remove : 해당 인덱스의 객체 삭제
 	    list.remove(2); 	
-		System.out.println(list);	
+		//System.out.println(list);	
 		//5. get : 해당 인덱스의 객체 가져오기
-		System.out.println(list.get(0));
+		//System.out.println(list.get(0));		
+		//6. subList : 기존 리스트에서 원하는 만큼 추출해서 새로운 리스트 반환
+		list.add(new Person("전현무", "삼성동", 47));
+		list.add(new Person("박나래", "이태원", 39));
+		List<Person> subList = list.subList(0,2);
+		//System.err.println(subList);
+		//7. addAll : 컬렉션을 통째로 추가 
+		list.addAll(subList);
+		//System.out.println(list); // subList로 빼둔거 모두 다시 살아남
+		//8. isEmpty : 컬렉션이 비어있는지
+		//System.out.println("리스트가 비어있는지? " + list.isEmpty()); //false
+		//리스트에 저장된 사람들의 평균 연령 출력 (list.size 주의, person 선언 주의)
+		/*int sum = 0;
+		for(int i = 0 ; i < list.size() ; i++) {
+			Person person = list.get(i);
+			sum += person.getAge();
+			System.out.println(person.getAge());}
+		    System.out.println(sum/list.size());
+		    
+		//저장된 사람들 이름 출력(향상된 for문 적용)
+		    for(Person person : list) {
+		    	System.out.println(person.getName());
+		    }
+		 */   
+		   //나이 순서대로 정렬
+		    Collections.sort(list); //
+		    System.out.println(list);		
+
+		//9. clear : 싹 비우기
+		    list.clear();
+		    System.out.println(list);		
+	}   
+	
+	public void method3() {
+		List<String> list = new ArrayList<>();
+		list.add("banana");
+		list.add("orange");
+		list.add("apple");
+		list.add("mango");
+		list.add("grape");
+		
+		//10. 오름차순 정렬 Comparable 
+		//Collections.sort(list); //apple~orange
+		//11. 내림차순 정렬 (sort 메서드 오름차순을 먼저 하고 reverse를 해야함) 
+		//그냥 바로 내림차순 정렬을 하면 list 작성된 순서를 reverse해서 나타냄
+		Collections.reverse(list);//orange~apple
+	   System.out.println(list);
+						
 	}
 	
-	    
+	
 	public static void main(String[] args) {
         A_ArrayList a = new A_ArrayList();
        // a.method1();
-        a.method2();
+         a.method2();
+         a.method3();
 	}
-
+   
 }
