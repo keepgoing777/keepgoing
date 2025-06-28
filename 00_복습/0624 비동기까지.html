@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비동기까지 복습</title>
+  </head>
+  <body>
+    <ol>
+      <h2>BOM(Browser Object Model) cf.DOM</h2>
+      <li>Window 객체 : 브라우저 최상위 객체</li>
+      <button onclick="window.alert('hello~')">alert</button>
+      <button onclick="windowPrompt()">prompt</button>
+      <button onclick="windowConfirm()">confirm</button>
+      <button onclick="windowOpen()">open</button>
+      <p>
+        alert : 알람창 기능 window.alert('값'); <br />
+        prompt : 입력 받기 기능 화살표 window.prompt("입력요청 문구"); <br />
+        confirm : 재확인 기능 화살표 window.conrfirm(if 조건문);<br />
+        open : 새 창열기 기능 화살표 window.open("주소", "_blank", 사이즈)
+      </p>
+      <script>
+        const windowPrompt = () => {
+          const name = window.prompt("이름을 입력해주세요");
+          alert(name);
+        };
+        const windowConfirm = () => {
+          if (confirm("정말 탈퇴하실건가요?")) {
+            alert("네");
+          } else {
+            alert("아니오");
+          }
+        };
+        const windowOpen = () => {
+          window.open(
+            "https://www.google.com",
+            "_blank",
+            "width=500, height=500"
+          );
+        };
+      </script>
+      <li>Location 객체 : 현재 페이지의 url 정보 확인 및 이동, 새로고침</li>
+      <button onclick="showLocation()">현재 url 정보</button>
+      <button onclick="movePage()">다른 페이지 이동</button>
+      <button onclick="location.reload()">새로고침</button>
+      <div id="locationInfo"></div>
+      <p>
+        showLocation() : 화살표 href(전체주소), host(호스트, 도메인명) <br />
+        pathname(경로명) movePage() : 화살표 location.href = "주소" <br />
+        location.reload() 페이지 새로고침 <br />
+      </p>
+      <script>
+        const showLocation = () => {
+          locationInfo.innerHTML = `
+         <ul>
+            <li>href: ${location.href}
+            <li>host: ${location.host}
+            <li>pathname: ${location.pathname}
+         </ul>`;
+        };
+        const movePage = () => {
+          location.href = "https://www.naver.com";
+        };
+      </script>
+      <li>Navigator : 브라우저와 운영체제 정보 제공</li>
+      <button onclick="showNavigator()">브라우저 정보</button>
+      <div id="naviInfo"></div>
+      <script>
+        const showNavigator = () => {
+          naviInfo.innerHTML = `
+          <ul>
+            <li>userAgent : ${navigator.userAgent} </li>
+            <li>platform : ${navigator.platform}</li>
+            <li>language : ${navigator.language}</li>
+          </ul>
+          `;
+        };
+      </script>
+      <p>
+        ShowNavigator : 화살표 브라우저 정보(userAgent), 운영체제
+        정보(platform), 브라우저 언어(language)
+      </p>
+      <li>History : 방문 기록 앞뒤로 이동 가능</li>
+      <button onclick="history.back()">뒤로</button>
+      <button onclick="history.forward()">앞으로</button>
+      <li>Screen : 사용자의 화면 해상도와 색상 정보 제공</li>
+      <button onclick="showScreen()">화면정보 확인</button>
+      <div id="screenInfo"></div>
+      <script>
+        const showScreen = () => {
+          screenInfo.innerHTML = `
+          <ul>
+            <li> width : ${screen.width} </li>
+            <li> height : ${screen.height} </li>
+            <li> colorDepth : ${screen.colorDepth}</li> 
+          </ul>`;
+        };
+      </script>
+      <p>
+        showScreen() : 화살표 화면너비(screen.width) 화면높이(screen.height)
+        색상깊이(screen.coloDepth)
+      </p>
+    </ol>
+    <h2>정규표현식(Regular Expression)</h2>
+    <p>정의 : 문자열에서 특정 패턴을 찾거나 대체하거나 나누는 도구</p>
+    <ol type="1">
+      <li>기본 메타 문자</li>
+      A : 문자열의 시작 $ : 문자열의 끝 . : 임의의 한 문자 * : 앞 문자가 0회
+      이상 반복(반복없어도 됨)
+      <br />
+      + : 앞문자가 1회 이상 반복 ? : 앞문자가 0회, 1회 반복 허용 {m, n} : 최소
+      m부터 최대 n까지 반복 가능<br />
+      [ ]: 문자세트 a-z 알파벳(소) A-Z 알파벳(대) 0-9 숫자 가-힣 한글 !-~
+      특수문자 및 알파벳(소)(대), 숫자 모두 포함 ( | ) : 그룹화<br />
+      \d : 숫자 0-9 (\D 숫자 제외) \w : 문자, 숫자, _ 포함가능 (\W 문자, 숫자, _
+      제외), \s : 공백여부 확인 (\S 공백 제외)
+      <li>
+        Match : console.log(test.match(/찾으려는문자열/)); <br />
+        Replace : console.log(test.replace(/바꾸려는문자열/, "변경 문자열"));
+        <br />
+        Split : console.log(test.split(/바꾸려는문자열/g, "변경 문자열")); /g
+        (global:전체)
+      </li>
+      <li>주민등록번호 정규표현식</li>
+      <input type="text" id="rrn" placeholder="-포함해서 입력해주세요" />
+      <p id="result"></p>
+      <script>
+        rrn.addEventListener("input", (e) => {
+          let regExp =
+            /^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])-[1-4][0-9]{6}$/;
+          if (regExp.test(e.target.value)) {
+            console.log("주민등록번호 맞음");
+            result.innerHTML = "yes!";
+            result.style.color = "green";
+          } else {
+            console.log("주민등록번혹 틀림");
+            result.innerHTML = "no!";
+            result.style.color = "red";
+          }
+        });
+      </script>
+    </ol>
+    <h2>WebStorageAPI</h2>
+    <p>정의 : 브라우저에 데이터를 저장하고 읽어오는 방법</p>
+    <ol type="1">
+      <li>sessionStorage</li>
+      <button onclick="setSession()">데이터 저장</button>
+      <button onclick="getSession()">데이터 읽기</button>
+      <button onclick="removeSession()">데이터 삭제</button>
+      <button onclick="clearSession()">전체 삭제</button>
+      <script>
+        const setSession = () => {
+          sessionStorage.setItem("sessionName", "이환희");
+          sessionStroage.setItem("sessionAge", 10);
+        };
+        const getSession = () => {
+          const name = sessionStorage.getItem("sessionName");
+          console.log(name);
+        };
+        const removeSession = () => {
+          sessionStorage.removeItem("sessionName");
+        };
+        const clearSession = () => {
+          sessionStorage.clear();
+        };
+      </script>
+      <p>
+        데이터 저장 : sessionStorage.setItem / 데이터 읽기 : const 변수명 =
+        sessionStorage.getItem <br />
+        데이터 삭제 : sessionStorage.removeItem / 전체 삭제 :
+        sessionStorage.clear();
+      </p>
+      <li>localStorage</li>
+      <button onclick="setLocal()">데이터 저장</button>
+      <button onclick="getLocal()">데이터 읽기</button>
+      <button onclick="removeLocal()">데이터 삭제</button>
+      <button onclick="clearLocal()">전체 삭제</button>
+      <script>
+        const setLocal = () => {
+          localStorage.setItem("name", "이환희");
+          localStorage.setItem("age", 10);
+        };
+        const getLocal = () => {
+          const name = localStorage.getItem("name");
+          console.log(name);
+        };
+        const removeLocal = () => {
+          localStorage.removeItem("name");
+        };
+        const clearLocal = () => {
+          localStorage.clear();
+        };
+      </script>
+    </ol>
+  </body>
+</html>

@@ -1,7 +1,7 @@
-package com.kh.array.practice2;
+package com.kh.practice2;
 
 import java.util.Scanner;
-import com.kh.array.practice2.model.Member;
+import com.kh.practice2.model.Member;
 
 public class Application {
 
@@ -29,7 +29,6 @@ public class Application {
       switch(order) {
       case 1: Member m = new Member();
       
-         
          boolean idCheck = true;
          for(Member member : members) {
          if(member!=null && member.getId().equals(m.getId())){
