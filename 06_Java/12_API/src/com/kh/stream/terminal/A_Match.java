@@ -34,12 +34,17 @@ public class A_Match {
 				new Student("이상엽", 20, "남자", 100, 60),
 				new Student("성예찬", 19, "남자", 70, 95)
 			);
+
 		// 나이가 18살 이하인 학생들이 모두 남자인지 확인
-	      students.stream()
-	      .filter(age -> age <= 18);
-	      
+		boolean check = students.stream()
+					.filter(student -> student.getAge() <= 18)
+					.allMatch(student -> student.getGender().equals("남자"));
+		System.out.println("모두 남자인가? " + check);
 		
-		// 남학생들 중에 평균이 90점 이상이 한명이라도 존재하는지 확인
+		// 남학생들 중에 두 과목에 대한 평균이 90점 이상이 한 명이라도 존재하는지 확인
+		check = students.stream().filter(student -> student.getGender().equals("남자"))
+						.anyMatch(student -> (student.getMath() + student.getEnglish()) / 2 >= 90);
+		System.out.println("한 명이라도 있는지? " + check);	
 		
 	}
 	public static void main(String[] args) {
