@@ -13,4 +13,7 @@ public class Rent {
 	private String id; //foreign key(Client)
 	private int bookNo; //foreign key(Book)
 	private LocalDate rentDate;
+	
+	//private Member member;
+	private Book book;
 }

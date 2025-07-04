@@ -7,6 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/lombok.jar"/>
+	<classpathentry kind="lib" path="D:/junit-platform-console-standalone-1.13.2.jar"/>
 	<classpathentry kind="lib" path="D:/mysql-connector-j-9.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
