@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+  </head>
+  <body>
+    <h1>Form Data</h1>
+    <form action="form" method="post">
+      <div>
+        <label for="userId">ID: </label>
+        <input type="text" id="userId" name="userId" />
+      </div>
+      <div>
+        <label for="userPwd">PASSWORD : </label>
+        <input type="password" id="userPwd" name="userPwd" />
+      </div>
+      <div>
+        <input type="radio" name="gender" value="M" id="gender1" />
+        <label for="gender1">남자</label>
+        <input type="radio" name="gender" value="F" id="gender2" />
+        <label for="gender2">여자</label>
+      </div>
+      <div>
+        <h2>좋아하는 메뉴</h2>
+        <input type="checkbox" name="menu" value="짜장면" id="menu1" />
+        <label for="meun1">짜장면</label>
+        <input type="checkbox" name="menu" value="짬뽕" id="menu2" />
+        <label for="meun1">짬뽕</label>
+        <input type="checkbox" name="menu" value="탕수육" id="menu3" />
+        <label for="meun1">탕수육 </label>
+      </div>
+      <input type="submit" value="전송" />
+    </form>
+  </body>
+</html>

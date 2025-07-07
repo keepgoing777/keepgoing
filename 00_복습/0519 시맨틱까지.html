@@ -12,24 +12,39 @@
     </style>
   </head>
   <h3>폼태그</h3>
-  <p>기본구조 form action = "" method = "post or get"</p>
+  <p>기본구조 form action = "" method = "post or get(공개적)"</p>
+  <p>form name = "지정명" / form aciton = "서버 프로그램 지정" + target</p>
+  <p>form action = "" autocomplete="off" : 자동완성기능 off</p>
   <p>
-    input type 대부분 사용 (text, submit, reset, button, file, hidden,
-    datetime-local, week, month, email, range, color 등)
+    input type 대부분 사용 (text, submit, reset, button, file, hidden, password,
+    search, url, datetime-local, week, month, email, range, color 등)
   </p>
+  <p>
+    input text, password : size(maxlenghth 이상은 안보여짐),
+    value(텍스트필드부분에 보여지는 내용), maxlength(최대문자수)
+  </p>
+  <p>input 태그 + autofocus : 해당 입력피드에 입력커서</p>
+  <p>input 태그 + readonly(또는 readonly=true) : 읽기 전용 필드로 변경</p>
   <p>
     라디오 버튼(fieldset - legend - input type = raido) label for = "값" (=
     input id "값")
   </p>
   <p>
     체크박스(fieldset - legend - input type = checkbox) label for = "값" (=
-    input id "값")
+    input id "값") / checked를 기본값으로 둘 수 있음
   </p>
-  <p>선택박스 : select name - optgroup label - option value 구조</p>
+  <p>
+    선택박스 : select name - optgroup label - option value 구조 / selected를
+    기본값으로 둘 수 있음
+  </p>
+  <p>
+    데이터 목록 태그 : input 태그(text) list="리스트명" / datalist id =
+    "리스트명" / option value 구조
+  </p>
 
   <body>
     <form action="" method="POST">
-      검색 : <input type="text" name="keyword" />
+      검색 : <input type="text" name="keyword" autofocus />
       <input type="submit" value="검색" />
     </form>
     <br />
@@ -43,7 +58,8 @@
       <input type="button" value="확인" onclick="alert('버튼클릭!')" />
     </form>
     <br />
-    <form ation="">
+    <p></p>
+    <form action="">
       <fieldset>
         <legend>카페최애메뉴</legend>
         <input
@@ -104,6 +120,7 @@
           <option value="fr">프랑스</option>
         </optgroup>
       </select>
+      <p>textarea : 여러줄 입력가능한 텍스트 영역(cols, rows 지정가능)</p>
       <textarea style="resize: none"></textarea>
     </form>
     <br />
