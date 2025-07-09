@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%-- ViewServlet : 전체 회원 보기 관련 비지니스 로직 구현
+                   결과 페이지는 view.jsp --%>
+                   
+  <a href = "/view">전체 회원 보기</a>   
+
   <h1>회원가입</h1>
     <form method = "post" action ="register">
       <label>아이디 : <input type = "text" name = "id"> </label>
