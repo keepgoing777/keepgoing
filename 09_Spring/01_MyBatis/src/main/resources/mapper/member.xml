@@ -1,0 +1,103 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mybatis.mapper.MemberMapper">
+
+  <insert id ="register" parameterType = "Member">
+   INSERT INTO member
+   VALUES(#{id}, #{name}, #{pwd}, #{age})
+  </insert>
+  
+  <select id = "login" parameterType = "Member" resultType="Member">
+   SELECT * FROM member
+   WHERE id = #{id} AND pwd = #{pwd}
+  </select>
+  
+  <select id = "allMember" resultType = "Member">
+   SELECT * FROM member
+  </select>
+  
+  <!--
+	* if
+	 - 동적 쿼리를 구현할 때 기본적으로 사용되는 구문
+	 - 특정 조건을 만족할 경우 안의 구문을 쿼리에 포함
+	* tirm : 쿼리 구분의 특정 부분을 없앨 때 사용 
+	 - prefix로 처음 시작할 단어와 prefixOverrides로 시작 시 제거해야할 단어 명시 
+	 - surffixOverrides 로 끝날시 제거해야할 단어 명시 
+	 - where 또는 set을 더 많이 사용 
+	* set : <trim prefix = "SET" suffixOverrides = ",">
+	 - 기존의 UPDATE SET절을 동적으로 구현할 때 사용
+	 - SET 키워드를 붙이고 불필요한 콤마(,)를 제거
+	* where : <trim prefix = "WHERE" prefixOverrides = "AND|OR">
+	 - 기존 쿼리의 WHERE 절을 동적으로 구현할 때 사용
+	 - 만약 태그 안의 내용이 'AND'나 'OR'로 시작할 경우 'AND'나 'OR'을 제거
+  -->
+  
+  <update id = "update" parameterType="Member">
+   UPDATE member 
+   <set>
+    <if test = "pwd != null">
+      pwd = #{pwd},
+    </if>
+    <if test = "name != null">
+      name = #{name},
+    </if>
+    <if test = "age != 0">
+      age = #{age}
+    </if>
+   </set>
+    WHERE id = #{id}
+  <!--  
+	UPDATE member SET pwd = #{pwd}, name = #{name}, age = #{age}
+   WEHRE id = #{id}
+   
+   UPDATE member SET pwd = #{pwd} WHERE id = #{id}	
+  -->
+  </update>
+  
+  <delete id = "delete" parameterType="String">
+   DELETE FROM member WEHRE id = #{id}
+  </delete>
+  
+  <!--foreach : 동적 쿼리를 구현할 때 컬렉션에 대한 반복처리 제공-->
+  <delete id = "selectDelete" parameterType = "ArrayList">
+   DELETE FROM member WHERE id IN 
+   <foreach collection = "idList" item = "id" open = "(" close = ")" separator = ",">
+    #{id}
+   </foreach>
+  </delete>
+  
+  <select id = "search" parameterMap="SearchDTO" resultType ="Member">
+   SELECT * FROM member
+   <where>
+   
+  <!-- <if test = "select == 'all'">
+       id LIKE CONCAT('%', #{keyword}, '%')
+       OR name LIKE CONCAT('%', #{keyword}, '%')
+    </if>
+    <if test = "select == 'id'">
+       id LIKE CONCAT('%', #{keyword}, '%')
+    </if>
+    <if test = "select == 'name'">
+       name LIKE CONCAT('%', #{keyword}, '%')
+    </if>
+   -->  
+    <choose>
+      <when test = "select == 'all'">
+      id LIKE CONCAT('%', #{keyword}, '%')
+      OR name LIKE CONCAT('%', #{keyword}, '%')
+      </when>
+      <when test = "select == 'id'">
+      id LIKE CONCAT('%', #{keyword}, '%')
+      </when>
+      <when test = "select == 'name'">
+      name LIKE CONCAT('%', #{keyword}, '%')
+      </when>               
+    </choose>
+   </where>
+  </select> 
+  
+ 
+  </mapper>
+
+
+
+
