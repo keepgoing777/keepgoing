@@ -20,4 +20,6 @@ $(function () {
   $(".wrap").children().css({ color: "deeppink", border: "2px solid" });
   $(".wrap").find("h1").css({ color: "orange" });
   $("h1").siblings("p").css("background-color", "navy");
+
+  //
 });
