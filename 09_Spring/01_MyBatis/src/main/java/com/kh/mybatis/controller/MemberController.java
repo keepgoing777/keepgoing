@@ -74,11 +74,11 @@ public class MemberController {
     }
     	
     
-	@GetMapping("/search")
-	public String search(SearchDTO dto, Model model) {
-		model.addAttribute("list", service.search(dto));
-		return "index";
-	}
+	//@GetMapping("/search")
+	//public String search(SearchDTO dto, Model model) {
+	//	model.addAttribute("list", service.search(dto));
+	//	return "index";
+	//}
 	
 	@PostMapping("/delete/multiple")
 	public String deleteMultiple(@RequestParam(name="idList", required = false) List<String> idList) {

@@ -1,0 +1,57 @@
+CREATE TABLE project (
+	project_id     INT AUTO_INCREMENT PRIMARY KEY, -- 프로젝트 고유번호
+	project_name   VARCHAR(100) NOT NULL,          -- 프로젝트명 (예: 일본 봄맞이 여행 기획)
+	project_type   VARCHAR(50),                    -- 유형 (패키지, 자유여행 등)
+	status         VARCHAR(30),                    -- 상태 (기획중, 진행중, 완료 등)
+	start_date     DATE,                           -- 프로젝트 시작일
+	end_date       DATE,                           -- 종료일
+	created_by     INT,                            -- 등록한 직원 ID
+	created_at     DATETIME DEFAULT CURRENT_TIMESTAMP -- 등록일시
+);
+
+
+CREATE TABLE project_member (
+	project_id   INT NOT NULL,         -- 프로젝트 ID
+	employee_id  INT NOT NULL,         -- 참여 직원 ID
+	role         VARCHAR(50),          -- 역할 (PM, 가이드 등)
+	join_date    DATE,                 -- 참여 시작일
+);
+
+CREATE TABLE project_task (
+task_id      INT AUTO_INCREMENT PRIMARY KEY,  -- 작업 고유번호
+project_id   INT NOT NULL,                    -- 연결된 프로젝트 ID
+task_name    VARCHAR(100),                    -- 작업 이름 (예: 일정표 작성)
+assigned_to  INT,                             -- 담당자 ID
+status       VARCHAR(30),                     -- 상태 (대기, 진행, 완료 등)
+start_date   DATE,                            -- 작업 시작일
+due_date     DATE,                            -- 마감일
+priority     VARCHAR(20),                     -- 우선순위 (낮음, 보통, 높음)
+);
+
+CREATE TABLE travel_package (
+	package_id   INT AUTO_INCREMENT PRIMARY KEY, -- 여행 상품 ID
+	project_id   INT NOT NULL,                   -- 연결된 프로젝트 ID
+	title        VARCHAR(100),                   -- 여행 상품명
+	destination  VARCHAR(100),                   -- 목적지
+	duration     INT,                            -- 여행 기간 (일 수)
+	price        INT,                  -- 여행 가격
+);
+
+CREATE TABLE itinerary_plan (
+itinerary_id   INT AUTO_INCREMENT PRIMARY KEY, -- 일정 계획 ID
+project_id     INT NOT NULL,                   -- 프로젝트 ID
+day_number     INT,                            -- 여행 며칠째인지 (1일차, 2일차...)
+location       VARCHAR(100),                   -- 장소
+activity       VARCHAR(255),                   -- 활동 내용
+transportation VARCHAR(100),                   -- 이동 수단
+note           TEXT,                           -- 비고/특이사항
+);
+
+CREATE TABLE project_expense (
+expense_id   INT AUTO_INCREMENT PRIMARY KEY, -- 지출 ID
+project_id   INT NOT NULL,                   -- 프로젝트 ID
+category     VARCHAR(50),                    -- 항목 (항공, 숙소, 가이드비 등)
+amount       INT,                  -- 금액
+date         DATE,                           -- 지출일
+paid_to      VARCHAR(100),                   -- 지급 대상자
+);

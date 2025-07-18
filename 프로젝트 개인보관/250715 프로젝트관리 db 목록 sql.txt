@@ -1,0 +1,91 @@
+// 1. UserInfo
+public class UserInfo {
+    private int userNo;
+    private String id;
+    private String password;
+    private String name;
+    private String phone;
+    private String email;
+    private String deptName;
+    private String position;
+}
+// 2. Project
+public class Project {
+    private int proNo;
+    private String proName;
+    private String destination;
+    private java.sql.Date startDate;
+    private java.sql.Date endDate;
+    private String status;
+    private int managerNo;
+}
+// 3. Package
+public class Package {
+    private int packageNo;
+    private String packageName;
+    private String destination;
+    private int durationDays;
+    private int priceAdult;
+    private int priceChild;
+    private int priceInfant;
+    private int minParticipants;
+    private int maxParticipants;
+    private boolean includeFlight;
+    private boolean includeHotel;
+    private boolean includeMeal;
+    private String packageDesc;
+    private String status;
+    private java.sql.Timestamp createDate;
+    private int proNo;
+}
+// 4. ProjectTasks
+public class ProjectTasks {
+    private int taskNo;
+    private int proNo;
+    private String taskName;
+    private String status;
+    private java.sql.Date startDate;
+    private java.sql.Date endDate;
+    private int assignedUserNo;
+}
+// 5. Schedule
+public class Schedule {
+    private int scheduleNo;
+    private String title;
+    private java.sql.Timestamp startDate;
+    private java.sql.Timestamp endDate;
+    private String location;
+    private String scheduleType;
+    private int userNo;
+}
+// 6. Customer
+public class Customer {
+    private int customerNo;
+    private String name;
+    private String phone;
+    private String email;
+    private String vipLevel;
+    private int managerNo;
+}
+// 7. Booking
+public class Booking {
+    private int bookingNo;
+    private int customerNo;
+    private int adultCount;
+    private int childCount;
+    private int infantCount;
+    private int totalAmount;
+    private String paymentStatus;
+    private String bookingStatus;
+    private java.sql.Timestamp createDate;
+}
+// 8. CustomerInquiry
+public class CustomerInquiry {
+    private int inquiryNo;
+    private int customerNo;
+    private String title;
+    private String content;
+    private String status;
+    private java.sql.Timestamp createDate;
+    private int assignedUserNo;
+}

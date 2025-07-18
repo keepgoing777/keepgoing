@@ -1,0 +1,24 @@
+-- 고객관리 DB 외래키 제약조건
+
+-- customer 테이블 외래키
+ALTER TABLE customer ADD FOREIGN KEY (manager_no) REFERENCES employee(employee_id);
+
+-- booking 테이블 외래키
+ALTER TABLE booking ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
+ALTER TABLE booking ADD FOREIGN KEY (package_no) REFERENCES travel_package(package_id);
+ALTER TABLE booking ADD FOREIGN KEY (created_by) REFERENCES employee(employee_id);
+
+-- reservation_passenger 테이블 외래키
+ALTER TABLE reservation_passenger ADD FOREIGN KEY (booking_no) REFERENCES booking(booking_no);
+
+-- reservation_payment 테이블 외래키
+ALTER TABLE reservation_payment ADD FOREIGN KEY (booking_no) REFERENCES booking(booking_no);
+
+-- customer_inquiry 테이블 외래키
+ALTER TABLE customer_inquiry ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
+ALTER TABLE customer_inquiry ADD FOREIGN KEY (assigned_user_no) REFERENCES employee(employee_id);
+
+-- customer_feedback 테이블 외래키
+ALTER TABLE customer_feedback ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
+ALTER TABLE customer_feedback ADD FOREIGN KEY (booking_no) REFERENCES booking(booking_no);
+ALTER TABLE customer_feedback ADD FOREIGN KEY (project_id) REFERENCES project(project_id);

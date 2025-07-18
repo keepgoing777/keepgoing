@@ -1,0 +1,73 @@
+public class Project { // 여행 프로젝트 기본 정보
+    private int projectId;       // 프로젝트 ID
+    private String projectName;  // 프로젝트 이름
+    private String projectType;  // 프로젝트 유형
+    private String status;       // 상태 (기획중/완료 등)
+    private LocalDate startDate; // 시작일
+    private LocalDate endDate;   // 종료일
+    private int createdBy;       // 생성자 ID
+    private LocalDateTime createdAt; // 생성 일시
+}
+
+public class ProjectMember { // 참여 인력
+    private int projectId;     // 프로젝트 ID
+    private int employeeId;    // 직원 ID
+    private String role;       // 역할
+    private LocalDate joinDate; // 참여일
+}
+
+
+public class ProjectTask { // 작업 단위
+
+    private int taskId;          // 작업 ID
+    private int projectId;       // 연결된 프로젝트 ID
+    private String taskName;     // 작업 이름
+    private int assignedTo;      // 담당자 ID
+    private String status;       // 상태
+    private LocalDate startDate; // 시작일
+    private LocalDate dueDate;   // 마감일
+    private String priority;     // 우선순위
+    
+}
+
+public class TravelPackage { // 연결된 여행 상품
+	private int packageId; // 상품 ID.
+	private int projectId; // 프로젝트 ID
+	private String title; // 상품명
+	private String destination; // 목적지
+	private int duration; // 여행 일수
+	private int price; // 가격
+}
+
+public class ItineraryPlan { // 일정 계획
+	private int itineraryId; // 일정 ID
+	private int projectId; // 프로젝트 ID
+	private int dayNumber; // 며칠째
+	private String location; // 장소
+	private String activity; // 활동
+	private String transportation; // 교통수단
+	private String note; // 비고
+}
+
+public class ProjectExpense { // 프로젝트 비용
+	private int expenseId; // 비용 ID
+	private int projectId; // 프로젝트 ID
+	private String category; // 비용 항목
+	private int amount; // 금액
+	private LocalDate date; // 날짜
+	private String paidTo; // 지급처
+}
+
+
+
+public class ProjectRisk {
+	private int riskId; // 리스크 ID
+	private int projectId; // 프로젝트 ID
+	private String riskDescription; // 리스크 내용
+	private String impactLevel; // 영향도
+	private String mitigationPlan; // 대응 방안
+	private String status; // 상태
+}
+
+
+

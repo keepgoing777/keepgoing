@@ -473,3 +473,122 @@ GRANT CONNECT, RESOURCE TO test;
 GRANT SELECT ON kh.DEPARTMENT TO test;
 
 SELECT * FROM DEPT;
+
+/*
+  커서(CURSOR)
+   - SQL 쿼리의 결과가 여러 행일 때 처리 결과를 한 행씩 처리하는 객체
+  1. 묵시적(implicit) 커서 
+   - 오라클에서 자동으로 생성되어 사용하는 커서
+   - PL/SQL에서 SQL문 실행시 자동으로 만들어져서 사용
+  2. 명시적(ecplicit) 커서
+   - 사용자가 직접 선언해서 사용할 수 있는 커서
+   
+   CURSOR 커서명 IS SELECT 문
+   
+   OPEN 커서명
+   FETCH 커서명 INTO 변수, ...
+   ...
+   CLOSE 커서명;
+*/
+
+DROP TABLE EMP_COPY;
+CREATE TABLE EMP_COPY
+AS SELECT * FROM EMPLOYEE;
+
+SELECT * FROM EMP_COPY;
+
+-- 1. 묵시적 커서
+-- PL/SQL에서 EMP_COPY 테이블에 BONUS가 NULL인 사원의 BONUS를 0으로 수정
+BEGIN 
+ UPDATE EMP_COPY
+ SET BONUS = 0
+ WHERE BONUS IS NULL;
+ 
+ DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || '행 수정됨');
+END;
+/
+
+-- PL/SQL에서 급여가 300만원 이상인 사원들 출력(사번, 사원, 급여)
+DECLARE
+ EID EMPLOYEE.EMP_ID%TYPE;
+ ENAME EMPLOYEE.EMP_NAME%TYPE;
+ SAL EMPLOYEE.SALARY%TYPE;
+ 
+ CURSOR C1 IS SELECT EMP_ID, EMP_NAME, SALARY
+    FROM EMPLOYEE
+    WHERE SALARY >= 3000000;
+BEGIN 
+ OPEN C1;
+ LOOP
+  FETCH C1 INTO EID, ENAME, SAL;
+  EXIT WHEN C1%NOTFOUND;
+  DBMS_OUTPUT.PUT_LINE(EID || ' ' || ENAME || ' ' || SAL);
+ END LOOP;
+ CLOSE C1;
+END;
+
+-- FOR LOOP를 이용한 커서 사용
+-- 1. LOOP 시작 시 자동으로 커서 OPEN(즉, OPEN 필요없음)
+-- 2. 반복할 때마다 FETCH도 자동
+-- 3. LOOP 종료시 자동으로 커서 CLOSE
+DECLARE
+ EMP EMPLOYEE%ROWTYPE;
+BEGIN 
+ FOR EMP IN (SELECT * FROM EMPLOYYE WHERE SALARY >=3000000)
+ LOOP
+  DBMS_OUTPUT.PUT_LINE(EMP.EMP_ID || ' ' || EMP.EMP_NAME || ' ' || EMP.SALARY);
+ END LOOP;
+END;
+/
+
+/*
+   프로시저(PROCEDURE)
+     - PL/SQL 문을 저장하여 필요할때마다 복잡한 구문을 다시 입력할 필요없이 간단하게 호출
+     
+    CREATE OR REPLACE PROCEDURE 프로시저명(
+      매개변수 (IN|OUT) 데이터타입, ...
+       - IN : 사용자로부터 값을 입력받아 PROCEDURE로 전달해주는 역할 (기본값)
+       - OUT : PROCEDURE에서 호출 환경으로 값을 전달하는 역할
+      )
+      IS 선언부
+      BEGIN 실행부
+      EXCEPTION 예외처리부
+      END 프로시저명;
+      /
+      
+      호출 시 
+      EXECUTE(또는 EXEC) 프로시저명 (매개값, ... );
+      
+      삭제
+      DROP PROCEDURE 프로시저명;      
+*/
+
+CREATE OR REPLACE PROCEDURE DEL_ALL_EMP
+IS 
+BEGIN
+  DELETE FROM EMP_COPY;
+END;
+/
+
+-- 프로시저 실행
+EXEC DEL_ALL_EMP;
+
+-- 매개변수가 있는 프로시저
+-- 사번을 입력받아서 사원을 삭제하는 프로시저 생성
+-- 프로시저명 : DEL_EMP_ID, 변수명 : EID
+
+CREATE OR REPLACE PROCEDURE DEL_EMP_ID(
+ EID EMP_COPY.EMP_ID%TYPE
+)
+IS 
+BEGIN
+    DELETE FROM EMP_COPY
+    WHERE EMP_ID = EID;
+    COMMIT;
+END DEL_EMP_ID;
+
+EXEC DEL_EMP_ID('&사번');
+/
+
+SELECT * FROM EMP_COPY;
+ROLLBACK;

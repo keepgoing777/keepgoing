@@ -65,9 +65,11 @@
    </foreach>
   </delete>
   
+  <!--
   <select id = "search" parameterMap="SearchDTO" resultType ="Member">
    SELECT * FROM member
    <where>
+   -->
    
   <!-- <if test = "select == 'all'">
        id LIKE CONCAT('%', #{keyword}, '%')
@@ -80,6 +82,7 @@
        name LIKE CONCAT('%', #{keyword}, '%')
     </if>
    -->  
+   <!--
     <choose>
       <when test = "select == 'all'">
       id LIKE CONCAT('%', #{keyword}, '%')
@@ -94,6 +97,7 @@
     </choose>
    </where>
   </select> 
+  -->
   
  
   </mapper>

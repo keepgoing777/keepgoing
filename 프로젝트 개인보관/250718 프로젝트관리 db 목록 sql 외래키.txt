@@ -1,0 +1,23 @@
+-- project 테이블 외래키
+ALTER TABLE project ADD FOREIGN KEY (created_by) REFERENCES employee(employee_id);
+
+-- project_member 테이블 외래키
+ALTER TABLE project_member ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+ALTER TABLE project_member ADD FOREIGN KEY (employee_id) REFERENCES employee(employee_id);
+
+-- project_task 테이블 외래키
+ALTER TABLE project_task ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+ALTER TABLE project_task ADD FOREIGN KEY (assigned_to) REFERENCES employee(employee_id);
+
+-- travel_package 테이블 외래키
+ALTER TABLE travel_package ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+
+-- itinerary_plan 테이블 외래키
+ALTER TABLE itinerary_plan ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+
+-- project_expense 테이블 외래키
+ALTER TABLE project_expense ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+
+-- Java 클래스에 정의된 추가 테이블들의 외래키 (테이블 생성 후 적용)
+ALTER TABLE project_risk ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+ALTER TABLE project_feedback ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
