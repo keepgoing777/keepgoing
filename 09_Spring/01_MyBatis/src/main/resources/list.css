@@ -1,0 +1,77 @@
+body {
+	font-family: 'Segoe UI', sans-serif;
+	background-color: #f7f8fa;
+	margin: 0;
+	padding: 40px;
+}
+
+.container {
+	max-width: 960px;
+	margin: auto;
+	background-color: #fff;
+	padding: 30px 40px;
+	border-radius: 8px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 25px;
+	color: #333;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 30px;
+	min-height: 500px; /* ← 추가 */
+}
+
+th,
+td {
+	padding: 12px 16px;
+	border-bottom: 1px solid #e0e0e0;
+	text-align: center;
+}
+
+th {
+	background-color: #3f51b5;
+	color: white;
+}
+
+td {
+	color: #333;
+}
+.pagination {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	list-style: none;
+	padding: 0;
+}
+
+.pagination li a {
+	display: block;
+	padding: 8px 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	text-decoration: none;
+	transition: 0.2s;
+}
+
+.pagination li a:hover {
+	background-color: #eee;
+}
+
+.pagination .active a {
+	background-color: #3f51b5;
+	color: white;
+	font-weight: bold;
+	border-color: #3f51b5;
+}
+
+.pagination .disabled a {
+	pointer-events: none;
+	opacity: 0.4;
+}
