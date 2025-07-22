@@ -66,7 +66,7 @@
   </delete>
   
   
-  <select id = "search" parameterMap="SearchDTO" resultType ="Member">
+  <select id = "search" parameterType="SearchDTO" resultType ="Member">
    SELECT * FROM member
    <where>
   

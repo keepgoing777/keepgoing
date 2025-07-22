@@ -25,7 +25,8 @@ public class FilmController {
 		List<Film> list = service.showFilm(dto);
 		System.out.println(list);
 		model.addAttribute("list", list);
-		model.addAttribute("paging", new PagingDTO(paging.getPage(), ));
+		model.addAttribute("paging", new PagingDTO(paging.getPage(), paging.getEndPage()));
+		// paging.getEndPage() 확인
 	    return "list";
 	}
 	

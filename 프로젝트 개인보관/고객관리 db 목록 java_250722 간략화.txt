@@ -1,0 +1,54 @@
+// 1. 고객 기본 정보 클래스
+public class Customer { // 고객 기본 정보
+    private int customerNo;         // 고객 고유번호
+    private String customerName;    // 고객명 (name -> customerName)
+    private int companyNumber;      // 동반자 수 (새로 추가)
+    private String phone;           // 연락처
+    private String email;           // 이메일
+    private String address;         // 주소
+    private LocalDate birthDate;    // 생년월일
+    private String gender;          // 성별
+    private String passportNo;      // 여권번호
+    private String nationality;     // 국적
+    private String grade;           // 고객 등급(신규, 실버, 골드, 플래티넘)
+    private int usedAmount;         // 총 사용금액 (totalAmount -> usedAmount)
+    private int userNo;             // 담당자 번호
+    private LocalDateTime createdAt; // 등록일시
+    private LocalDateTime updatedAt; // 수정일시
+}
+
+// 2. 예약정보 클래스
+public class Booking { // 예약 정보
+    private int bookingNo;          // 예약 고유번호
+    private int customerNo;         // 고객 번호
+    private int productNo;          // 상품 번호 (packageNo -> productNo)
+    private LocalDate travelDate;   // 여행 시작일
+    private LocalDate returnDate;   // 여행 종료일
+    private int adultCount;         // 성인 인원
+    private int childCount;         // 아동 인원
+    private int infantCount;        // 유아 인원
+    private int totalAmount;        // 총 금액
+    private int discountAmount;     // 할인 금액 (새로 추가)
+    private int paymentAmount;      // 총 결제 금액 (새로 추가)
+    private String bookingStatus;   // 예약 상태 (예약대기, 결제완료, 예약확정, 예약취소)
+    private String paymentMethod;   // 결제 방법 (새로 추가)
+    private LocalDateTime bookingDate; // 예약일 (createDate -> bookingDate)
+    private LocalDateTime paymentDate; // 결제일 (새로 추가)
+    private int userNo;             // 예약 담당자 번호
+}
+
+// 3. 고객 클레임 클래스 (문의/피드백 통합)
+public class Claim { // 고객 클레임 (문의/피드백 통합)
+    private int claimNo;            // 클레임 고유번호
+    private String claimType;       // 클레임 종류 (단순문의/피드백)
+    private int customerNo;         // 고객 번호
+    private int projectId;          // 프로젝트 ID (피드백인 경우만)
+    private int productNo;          // 상품 번호 (단순문의인 경우만)
+    private String source;          // 출처 (고객, 가이드, 내부)
+    private int score;              // 평점 (피드백인 경우만)
+    private String comment;         // 문의내용 (단순문의인 경우만)
+    private LocalDateTime claimDate; // 클레임 생성일
+    private String claimStatus;     // 클레임 처리 상태
+    private LocalDateTime checkedDate; // 처리 완료일
+    private int userNo;             // 담당자 번호
+}

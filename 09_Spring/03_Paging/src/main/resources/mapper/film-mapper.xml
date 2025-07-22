@@ -5,11 +5,14 @@
     <result column="title" property="title"/>
     <result column="description" property="desc"/>
   </resultMap>
+  
   <select id="showFilm" parameterType="PagingDTO" resultMap="filmMap">
     SELECT * FROM film_text LIMIT #{offset}, #{limit}
   </select>
   
-  <select id=""
+  <select id="total" resultType="int">
+    SELECT count(*) FROM film_text
+  </select>
    
 </mapper>
 
