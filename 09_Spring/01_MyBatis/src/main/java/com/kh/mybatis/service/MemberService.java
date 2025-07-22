@@ -52,11 +52,12 @@ public class MemberService {
 		mapper.delete(id);
 	}
 	
-	//public List<Member> search (SearchDTO dto) {
-	//	return mapper.search(dto);
-	//}
+	public List<Member> search(SearchDTO dto) {
+		return mapper.search(dto);
+	}
 	
-	public void selectDelete(List<String> idList){
+	public void selectDelete(List<String> idList) {
 		mapper.selectDelete(idList);
 	}
+
 }

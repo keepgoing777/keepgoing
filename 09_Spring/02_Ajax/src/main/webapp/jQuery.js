@@ -14,6 +14,7 @@ $(function () {
     color: "white",
     "background-color": "tomato",
   });
+  
   $("p").first().css("font-size", "4rem");
   $("p").last().css("color", "yellow");
   $("p:eq(2)").text("eq로 다시 글 작성합니다");

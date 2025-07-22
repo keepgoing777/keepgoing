@@ -1,0 +1,115 @@
+-- 1. 고객기본정보 테이블 
+CREATE TABLE customer (
+    customer_no     INT AUTO_INCREMENT PRIMARY KEY, -- 고객 고유번호
+    name            VARCHAR(50) NOT NULL,           -- 고객명
+    phone           VARCHAR(20),                    -- 연락처
+    email           VARCHAR(100),                   -- 이메일
+    address         VARCHAR(200),                   -- 주소
+    birth_date      DATE,                      -- 생년월일
+    gender          VARCHAR(10),                    -- 성별
+    passport_no     VARCHAR(20),                    -- 여권번호
+    nationality     VARCHAR(50),                    -- 국적
+    grade           VARCHAR(20),                    -- 고객 등급(신규, 실버, 골드, 플래티넘)
+    total_bookings  INT DEFAULT 0,                  -- 예약건수
+    total_amount    INT DEFAULT 0,                  -- 예약금액
+    user_no         INT,                            -- 담당자 번호
+    created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 2. 예약정보 테이블 
+CREATE TABLE booking (
+    booking_no      INT AUTO_INCREMENT PRIMARY KEY, -- 예약 고유번호
+    customer_no     INT NOT NULL,                   -- 고객 번호
+    package_no      INT,                            -- 패키지 번호 
+    travel_date     DATE,                           -- 여행 시작일
+    return_date     DATE,                           -- 여행 종료일
+    adult_count     INT DEFAULT 1,                  -- 성인 인원
+    child_count     INT DEFAULT 0,                  -- 아동 인원
+    infant_count    INT DEFAULT 0,                  -- 유아 인원 
+    total_amount    INT,                            -- 총 금액
+    payment_status  VARCHAR(20),                    -- 결제 상태 
+    booking_status  VARCHAR(30),                    -- 예약 상태 
+    create_date     TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 예약일
+    user_no      INT                             -- 예약 담당자 ID
+);
+
+-- 3. 예약 동반자 정보 테이블
+CREATE TABLE reservation_passenger (
+    passenger_id    INT AUTO_INCREMENT PRIMARY KEY,
+    booking_no      INT NOT NULL,                  
+    passenger_name  VARCHAR(50) NOT NULL,
+    phone           VARCHAR(20),
+    passport_no     VARCHAR(20),
+    birth_date      DATE,
+    gender          VARCHAR(10)
+);
+
+-- 4. 결제 정보 테이블 
+CREATE TABLE reservation_payment (
+    payment_id      INT AUTO_INCREMENT PRIMARY KEY,
+    booking_no      INT NOT NULL,                  
+    payment_method  VARCHAR(30),
+    payment_amount  INT,
+    payment_date    DATETIME DEFAULT CURRENT_TIMESTAMP,
+    payment_status  VARCHAR(20)
+);
+
+-- 5. 고객 문의 테이블 
+CREATE TABLE customer_inquiry (
+    inquiry_no      INT AUTO_INCREMENT PRIMARY KEY,
+    customer_no     INT NOT NULL,                   
+    title           VARCHAR(100),                   -- 문의 제목
+    content         TEXT,                           -- 문의 내용
+    answer          TEXT,                           -- 답변 내용
+    status          VARCHAR(20),                    -- 처리 상태
+    user_no INT,                           -- 담당자 번호
+    create_date     TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    answered_at     DATETIME                        -- 답변 완료일시
+);
+
+-- 6. 고객 피드백 테이블 
+CREATE TABLE customer_feedback (
+    feedback_id     INT AUTO_INCREMENT PRIMARY KEY,
+    customer_no     INT NOT NULL,                 
+    booking_no      INT,
+    project_id      INT,                           
+    rating          INT CHECK (rating >= 1 AND rating <= 5),
+    review_content  TEXT,
+    service_rating  INT CHECK (service_rating >= 1 AND service_rating <= 5),
+    guide_rating    INT CHECK (guide_rating >= 1 AND guide_rating <= 5),
+    created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,
+    checked_at      DATETIME,                        -- 답변 완료일시
+    user_no         INT                -- 담당자 번호
+);
+
+
+-- 고객관리 DB 외래키 제약조건
+-- customer 테이블 외래키
+ALTER TABLE customer ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no);
+
+-- booking 테이블 외래키
+ALTER TABLE booking ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
+ALTER TABLE booking ADD FOREIGN KEY (package_no) REFERENCES package(package_no); 
+ALTER TABLE booking ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no);
+
+SELECT * FROM Package;
+SELECT * FROM project_task;
+
+-- reservation_passenger 테이블 외래키
+ALTER TABLE reservation_passenger ADD FOREIGN KEY (booking_no) REFERENCES booking(booking_no);
+
+-- reservation_payment 테이블 외래키
+ALTER TABLE reservation_payment ADD FOREIGN KEY (booking_no) REFERENCES booking(booking_no);
+
+-- customer_inquiry 테이블 외래키
+ALTER TABLE customer_inquiry ADD FOREIGN KEY (user_no) REFERENCES customer(customer_no);
+ALTER TABLE customer_inquiry ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no);
+
+-- customer_feedback 테이블 외래키
+ALTER TABLE customer_feedback ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
+ALTER TABLE customer_feedback ADD FOREIGN KEY (booking_no) REFERENCES booking(booking_no);
+ALTER TABLE customer_feedback ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1; 

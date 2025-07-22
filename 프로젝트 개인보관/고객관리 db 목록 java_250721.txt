@@ -1,0 +1,84 @@
+// 1. 고객 기본 정보 클래스
+public class Customer { // 고객 기본 정보
+    private int customerNo;         // 고객 고유번호
+    private String name;            // 고객명
+    private String phone;           // 연락처
+    private String email;           // 이메일
+    private String address;         // 주소
+    private LocalDate birthDate;    // 생년월일
+    private String gender;          // 성별
+    private String passportNo;      // 여권번호
+    private String nationality;     // 국적
+    private String grade;           // 고객 등급(신규, 실버, 골드, 플래티넘)
+    private int totalBookings;      // 예약건수
+    private int totalAmount;        // 예약금액
+    private int userNo;             // 담당자 번호
+    private LocalDateTime createdAt; // 등록일시
+    private LocalDateTime updatedAt; // 수정일시
+}
+
+// 2. 예약정보 클래스
+public class Booking { // 예약 정보
+    private int bookingNo;          // 예약 고유번호
+    private int customerNo;         // 고객 번호
+    private int packageNo;          // 패키지 번호
+    private LocalDate travelDate;   // 여행 시작일
+    private LocalDate returnDate;   // 여행 종료일
+    private int adultCount;         // 성인 인원
+    private int childCount;         // 아동 인원
+    private int infantCount;        // 유아 인원
+    private int totalAmount;        // 총 금액
+    private String paymentStatus;   // 결제 상태
+    private String bookingStatus;   // 예약 상태
+    private LocalDateTime createDate; // 예약일
+    private int userNo;             // 예약 담당자 번호
+}
+
+// 3. 예약 동반자 정보 클래스
+public class ReservationPassenger { // 예약 동반자 정보
+    private int passengerId;        // 동반자 ID
+    private int bookingNo;          // 예약 번호
+    private String passengerName;   // 동반자명
+    private String phone;           // 연락처
+    private String passportNo;      // 여권번호
+    private LocalDate birthDate;    // 생년월일
+    private String gender;          // 성별
+}
+
+// 4. 결제 정보 클래스
+public class ReservationPayment { // 결제 정보
+    private int paymentId;          // 결제 ID
+    private int bookingNo;          // 예약 번호
+    private String paymentMethod;   // 결제 방법
+    private int paymentAmount;      // 결제 금액
+    private LocalDateTime paymentDate; // 결제일시
+    private String paymentStatus;   // 결제 상태
+}
+
+// 5. 고객 문의 클래스
+public class CustomerInquiry { // 고객 문의
+    private int inquiryNo;          // 문의 번호
+    private int customerNo;         // 고객 번호
+    private String title;           // 문의 제목
+    private String content;         // 문의 내용
+    private String answer;          // 답변 내용
+    private String status;          // 처리 상태
+    private int userNo;             // 담당자 번호
+    private LocalDateTime createDate; // 문의 등록일시
+    private LocalDateTime answeredAt; // 답변 완료일시
+}
+
+// 6. 고객 피드백 클래스
+public class CustomerFeedback { // 고객 피드백
+    private int feedbackId;         // 피드백 ID
+    private int customerNo;         // 고객 번호
+    private int bookingNo;          // 예약 번호
+    private int projectId;          // 프로젝트 ID
+    private int rating;             // 평점 (1~5)
+    private String reviewContent;   // 후기 내용
+    private int serviceRating;      // 서비스 평점 (1~5)
+    private int guideRating;        // 가이드 평점 (1~5)
+    private LocalDateTime createdAt; // 작성일시
+    private LocalDateTime checkedAt; // 답변 완료일시
+    private int userNo;             // 담당자 번호
+}

@@ -21,7 +21,7 @@
 	 - 특정 조건을 만족할 경우 안의 구문을 쿼리에 포함
 	* trim : 쿼리 구분의 특정 부분을 없앨 때 사용 
 	 - prefix로 처음 시작할 단어와 prefixOverrides로 시작 시 제거해야할 단어 명시 
-	 - surffixOverrides 로 끝날시 제거해야할 단어 명시 
+	 - surffixOverrides 로 끝날 시 제거해야할 단어 명시 
 	 - where 또는 set을 더 많이 사용 
 	* set : <trim prefix = "SET" suffixOverrides = ",">
 	 - 기존의 UPDATE SET절을 동적으로 구현할 때 사용
@@ -65,11 +65,11 @@
    </foreach>
   </delete>
   
-  <!--
+  
   <select id = "search" parameterMap="SearchDTO" resultType ="Member">
    SELECT * FROM member
    <where>
-   -->
+  
    
   <!-- <if test = "select == 'all'">
        id LIKE CONCAT('%', #{keyword}, '%')
@@ -82,7 +82,7 @@
        name LIKE CONCAT('%', #{keyword}, '%')
     </if>
    -->  
-   <!--
+ 
     <choose>
       <when test = "select == 'all'">
       id LIKE CONCAT('%', #{keyword}, '%')
@@ -97,7 +97,6 @@
     </choose>
    </where>
   </select> 
-  -->
   
  
   </mapper>

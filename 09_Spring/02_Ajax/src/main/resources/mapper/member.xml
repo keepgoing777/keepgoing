@@ -1,0 +1,15 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.ajax.mapper.MemberMapper">
+  <select id="idCheck" parameterType="String" resultType="Member">
+     SELECT * FROM member WHERE id=#{id}
+  </select>
+
+  <select id="idBoolCheck" parameterType="String" resultType="Boolean">
+     SELECT EXISTS(SELECT * FROM member WHERE id=#{id})
+  </select>
+  
+  <insert id="register" parameterType="Member">
+     INSERT INTO member
+     VALUES(#{id}, #{name}, #{pwd}, #{age})
+  </insert>
+</mapper>

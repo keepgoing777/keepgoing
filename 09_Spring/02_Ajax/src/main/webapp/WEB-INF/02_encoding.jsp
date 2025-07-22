@@ -13,7 +13,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <input type="button" id="btn" value="닉네임 보내기" />
     <p id="result"></p>
     <!--get / encoding-->
-    <!--	<script>
+    <!--	
+	 <script>
 	  let xhr;
 	  function startRequest(){ //요청에 해당하는 로직을 담는 메서드
 	    const nickname = document.querySelector("#nick").value;
@@ -34,6 +35,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 	  btn.addEventListener("click", startRequest);
 	</script>
   -->
+  
+ <!-- jQuery-->
     <script>
        $("#btn").clikc(()=>{
       const nickname = ${"#nick"}.val();
@@ -46,7 +49,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       	success : function(result){
       		$("#result").text(result);
       	}
-
       });
        });
     </script>

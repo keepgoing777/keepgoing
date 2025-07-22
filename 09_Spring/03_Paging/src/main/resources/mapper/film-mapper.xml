@@ -1,8 +1,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kh.mybatis.mapper.FilmMapper">
-<select id="showFilm" resultType="Film">
- SELECT * FROM film_text;
-</select>
+<mapper namespace="com.kh.paging.mapper.FilmMapper">
+  <resultMap id="filmMap" type="Film">
+    <id column="film_id" property="id"/>
+    <result column="title" property="title"/>
+    <result column="description" property="desc"/>
+  </resultMap>
+  <select id="showFilm" parameterType="PagingDTO" resultMap="filmMap">
+    SELECT * FROM film_text LIMIT #{offset}, #{limit}
+  </select>
+  
+  <select id=""
+   
 </mapper>
 
 
