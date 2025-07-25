@@ -11,5 +11,5 @@ import com.kh.paging.vo.Film;
 public interface FilmMapper {
   // void showFilm();
 	 List<Film> showFilm(PagingDTO paging);
-	
+	 int total();
 }

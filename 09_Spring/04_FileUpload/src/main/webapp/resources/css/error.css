@@ -1,0 +1,55 @@
+/* 전체 배경과 폰트 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+}
+
+/* 중앙 정렬 컨테이너 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* 큰 에러 코드 숫자 */
+.display-1 {
+    font-size: 10rem;
+    font-weight: 900;
+    color: navy; /* Bootstrap danger 색상 */
+    margin-bottom: 20px;
+}
+
+/* 부제목 */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* 설명 텍스트 */
+p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* 메인으로 돌아가기 버튼 */
+a.btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+a.btn:hover {
+    background-color: #0056b3;
+}

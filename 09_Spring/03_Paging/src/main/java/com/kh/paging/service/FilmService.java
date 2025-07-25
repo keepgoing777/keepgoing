@@ -29,4 +29,8 @@ public class FilmService implements FilmMapper{
 	 return mapper.showFilm(paging);
  }
 
+ @Override
+ public int total() {
+	 return mapper.total();
+ }
 }
