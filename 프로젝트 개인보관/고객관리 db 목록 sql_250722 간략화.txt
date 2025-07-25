@@ -74,12 +74,11 @@ ALTER TABLE booking ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_n
 ALTER TABLE booking ADD FOREIGN KEY (product_no) REFERENCES product(product_no); 
 ALTER TABLE booking ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no);
 
-SELECT * FROM product;
-SELECT * FROM project;
-
 -- claim 테이블 외래키
 ALTER TABLE claim ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
-ALTER TABLE booking ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no);
+ALTER TABLE claim ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no); //추가 
+ALTER TABLE claim ADD FOREIGN KEY (project_id) REFERENCES project(project_id); //추가 
+ALTER TABLE claim ADD FOREIGN KEY (product_no) REFERENCES product(product_no); //추가 
 
 SET FOREIGN_KEY_CHECKS=0;
 SET FOREIGN_KEY_CHECKS=1; 
