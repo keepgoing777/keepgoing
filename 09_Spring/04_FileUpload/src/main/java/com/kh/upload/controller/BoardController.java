@@ -5,13 +5,22 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+import com.kh.upload.model.dto.BoardDTO;
+import com.kh.upload.model.vo.Board;
+import com.kh.upload.service.BoardService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class BoardController {
+
+    @Autowired
+    private BoardService service;
 
 	@GetMapping("/")
 	public String index() {
@@ -23,6 +32,7 @@ public class BoardController {
 		UUID uuid = UUID.randomUUID();
 		String fileName = uuid.toString() + "_" + file.getOriginalFilename();
 		System.out.println(fileName);
+		
 		File copyFile = new File("\\\\192.168.0.35\\upload\\" + fileName);
 
 		try {
@@ -30,7 +40,9 @@ public class BoardController {
 		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
 		}
+		
 		return fileName;
+		
 	}
 
 	@PostMapping("/upload")
@@ -45,23 +57,57 @@ public class BoardController {
 	}
 
 	// List<MultipartFile>
+	
 	@PostMapping("/multiUpload")
 	public String multiUpload(List<MultipartFile> files) {
 		for (MultipartFile file : files) {
-			String fileName = fileUpload(file);
+			UUID uuid = UUID.randomUUID();
+			String fileName = uuid.toString() + "," + file.getOriginalFilename();
 		}
 
 		return "redirect:/";
 	}
 	
 	@GetMapping("/list")
-	public String list() {
+	public String list(Model model) {
+		List<BoardDTO> list = service.selectAll();
+		model.addAttribute("list", list);
 		return "list";
 	}
 	
+	//list.jsp name 맞추기
+	@PostMapping("/write")
+	public String write(BoardDTO dto) {
+		System.out.println(dto.getTitle());
+		System.out.println(dto.getContent());
+		System.out.println(dto.getFile());
+		
+		//이미지 업로드 추가 
+		String fileName = fileUpload(dto.getFile());
+		
+		
+		//board 테이블에 데이터 추가
+		Board vo = new Board();
+		vo.setTitle(dto.getTitle());
+		vo.setContent(dto.getContent());
+		vo.setUrl(fileName);
+		service.insert(vo);
+		
+		System.out.println(vo);
+		
+		return "redirect:/view?no=" + vo.getNo();
+	}
 	
+
+// /view?no=${board.no} -> view.jsp 데이터 보여주기
 	
-	
+    @GetMapping("/view")
+     public String view(int no, Model model) {
+    	//System.out.println(no);
+    	Board board = service.select(no);
+    	model.addAttribute("board", board);
+    	return "view";
+    }
 	
 	
 	

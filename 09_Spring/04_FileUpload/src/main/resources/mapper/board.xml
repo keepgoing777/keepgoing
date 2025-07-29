@@ -1,12 +1,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.upload.mapper.BoardMapper">
 
-	<insert id="insert" parameterType="Board">
+    <resultMap id="boardMap" type="Board">
+       <id column="no" property="no" />
+       <result column="title" property="title"/>
+       <result column="content" property="content" />
+       <result column="url" property="url" />  
+       <result column="created_at" property="createdAt" /> 
+    </resultMap>
+   
+	<insert id="insert" parameterType="Board" useGeneratedKeys="true" keyProperty="no" keyColumn="no">
 		INSERT INTO board(title, content, url)
 		VALUES(#{title}, #{content}, #{url})
 	</insert>
 	
-	<select id="selectAll" resultType="Board">
+	<select id="selectAll" resultMap="boardMap">
 		SELECT * FROM board
 	</select>
 	
