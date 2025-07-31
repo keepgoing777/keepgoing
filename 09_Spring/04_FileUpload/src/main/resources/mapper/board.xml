@@ -14,15 +14,25 @@
 		VALUES(#{title}, #{content}, #{url})
 	</insert>
 	
-	<select id="selectAll" resultMap="boardMap">
-		SELECT * FROM board
+	<select id="selectAll" parameterType="PagingDTO" resultMap="boardMap">
+		SELECT * FROM board 
+		<where>
+		 <if test="keyword != null">
+		   title LIKE CONCAT('%', #{keyword}, '%')
+		 </if>
+		</where>
+		LIMIT #{offset}, ${limit}
+	</select>
+
+	<select id="total" parameterType="String" resultType="int">
+		SELECT count(*) FROM board
 	</select>
 	
 	<select id="select" parameterType="int" resultType="Board">
 		SELECT * FROM board WHERE no = #{no}
 	</select>
 	
-	<update id="update" parameterType="Board">
+	<update id="update" parameterType="BoardDTO">
 		UPDATE board
 		SET title=#{title}, content=#{content}, url=#{url}
 		WHERE no = #{no}

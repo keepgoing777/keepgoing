@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<!-- list.jsp -->
+	<!-- list.jsp 파일생성 및 이동-->
 	<a href="/list">게시판 글 목록</a>
 	
     <h2>File Upload Test</h2>

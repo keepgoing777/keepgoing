@@ -31,7 +31,7 @@ public class PersonController {
 		}
 	}
 
-	// person 테이블에 있는 데이터 전체 보여주기 - SELECT -> id로!
+	// person 테이블에 있는 데이터 전체 보여주기
 	public List<Person> searchAllPerson() {
 		try {
 			return dao.searchAllPerson();

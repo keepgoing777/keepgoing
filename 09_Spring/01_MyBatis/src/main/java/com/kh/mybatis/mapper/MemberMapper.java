@@ -13,7 +13,7 @@ public interface MemberMapper {
 	Member login(Member vo);
 	List<Member> allMember();
 	void update(Member vo);
-	void delete(String id);
 	List<Member> search(SearchDTO dto);
+	void delete(String id);
 	void selectDelete(List<String> idList);
 }

@@ -15,10 +15,14 @@
 <body>
 	<div class="container">
 		<h1>List Page</h1>
+		<form action="/list">
+			<input type="text" name="keyword" value="${param.keyword}">
+			<input type="submit" value="검색">
+		</form>
 		<table class="table">
 			<thead>
 			  <tr>
-				<th>번호</th>
+				<th>번호</th>	
 				<th>제목</th>
 				<th>작성시간</th>
 			  </tr>
@@ -36,6 +40,16 @@
 			</tbody>
 		</table>
 				
+		<nav>
+		   <ul class="pagination">
+			 <li class="page-item ${paging.prev ? '' : 'disabled'}"><a class="page-link" href="/list?page=${paging.startPage - 1}&keyword=${param.keyword}">Previous</a></li>
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="page">
+		     <li class="page-item"><a class="page-link ${paging.page == page ? 'active' : ''}" href="/list?page=${page}&keyword=${param.keyword}">${page}</a></li>
+			   	</c:forEach>								
+			 <li class="page-item ${paging.next ? '' : 'disabled'}"><a class="page-link" href="/list?page=${paging.endPage + 1}&keyword=${param.keyword}">Next</a></li>
+		   </ul>
+	    </nav>
+					
 		<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#writeModal">글 추가</button>
 
 				<!-- Modal -->
@@ -46,7 +60,8 @@
 				        <h1 class="modal-title fs-5" id="exampleModalLabel">게시글 등록</h1>
 				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				      </div>
-					  <form action="/write" method="post" enctype="multipart/form-data">
+					 
+					   <form action="/write" method="post" enctype="multipart/form-data">
 					  <div class="modal-body">
 						<div class="mb-3">
 						<label class="form-label">Title</label>

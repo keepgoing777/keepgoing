@@ -41,6 +41,7 @@ public class TransactionTest2 {
 			ps3.setString(1, send);
 			
 			ResultSet rs = ps3.executeQuery();
+			
 			if(rs.next()) {
 				if(rs.getInt("balance") < 0) {
 					// 잔액이 없음! -> 이체 취소!

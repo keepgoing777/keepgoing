@@ -41,7 +41,7 @@ public class FormServlet extends HttpServlet {
 		out.println("<h4>" + "아이디 : " + id + "</h4>");
 		out.println("<h4>" + "비밀번호 : " + pwd + "</h4>");
 		out.println("<h4>" + "성별 : " + gender + "</h4>");
-		// 1. 배열 out.println("<h4>" + "좋아하는 메뉴 : " + String.join(", ", menu) +"</h1>");
+		// 1. 배열 out.println("<h4>" + "좋아하는 메뉴 : " + String.join(", ", menu) +"</h4>");
 
 		// 2. for 반복문, if절 (null 제외)
 		if (menu != null) {

@@ -13,7 +13,7 @@ public class PersonView {
 	public static void main(String[] args) {
 		PersonView view = new PersonView();
 		view.menu();
-		view.addPerson();
+		view.addPerson(); 
 		view.searchAllPerson();
 		view.searchPerson();
 		view.updatePerson();
@@ -91,8 +91,8 @@ public class PersonView {
 		
 		System.out.println("아이디 >");
 		int id = Integer.parseInt(sc.nextLine());
-		
 		Person person = pc.searchPerson(id);
+		
 		//아이디가 없는 경우 내보내기!
 		if(person == null) return "조회된 아이디가 없습니다";
 		

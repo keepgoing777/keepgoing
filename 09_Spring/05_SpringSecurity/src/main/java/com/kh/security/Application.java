@@ -1,10 +1,10 @@
- 	package com.kh.upload;
+package com.kh.security;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan("com.kh.upload.mapper")
+@MapperScan("com.kh.security.mapper")
 @SpringBootApplication
 public class Application {
 

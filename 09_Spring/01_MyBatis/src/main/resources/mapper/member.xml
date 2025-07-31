@@ -32,44 +32,31 @@
   -->
   
   <update id = "update" parameterType="Member">
-   UPDATE member 
-   <set>
-    <if test = "pwd != null">
-      pwd = #{pwd},
-    </if>
-    <if test = "name != null">
-      name = #{name},
-    </if>
-    <if test = "age != 0">
-      age = #{age}
-    </if>
-   </set>
-    WHERE id = #{id}
-  <!--  
+   UPDATE member
+		<set>
+			<if test="pwd != null">
+				pwd = #{pwd},
+			</if>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="age != 0">
+				age = #{age}
+			</if>
+		</set>
+	WHERE id = #{id}
+	<!-- 1. 정적쿼리
 	UPDATE member SET pwd = #{pwd}, name = #{name}, age = #{age}
-   WEHRE id = #{id}
-   
-   UPDATE member SET pwd = #{pwd} WHERE id = #{id}	
+	WEHRE id = #{id}
+    
+    UPDATE member SET pwd = #{pwd} 
+    WHERE id = #{id}
   -->
   </update>
   
-  <delete id = "delete" parameterType="String">
-   DELETE FROM member WEHRE id = #{id}
-  </delete>
-  
-  <!--foreach : 동적 쿼리를 구현할 때 컬렉션에 대한 반복처리 제공-->
-  <delete id = "selectDelete" parameterType = "ArrayList">
-   DELETE FROM member WHERE id IN 
-   <foreach collection = "idList" item = "id" open = "(" close = ")" separator = ",">
-    #{id}
-   </foreach>
-  </delete>
-  
-  
-  <select id = "search" parameterType="SearchDTO" resultType ="Member">
+   <select id = "search" parameterType="SearchDTO" resultType ="Member">
    SELECT * FROM member
-   <where>
-  
+   <where>  
    
   <!-- <if test = "select == 'all'">
        id LIKE CONCAT('%', #{keyword}, '%')
@@ -96,9 +83,19 @@
       </when>               
     </choose>
    </where>
-  </select> 
+   </select>
   
- 
+  <delete id = "delete" parameterType="String">
+   DELETE FROM member WEHRE id = #{id}
+  </delete>
+  
+  <!--foreach : 동적 쿼리를 구현할 때 컬렉션에 대한 반복처리 제공-->
+  <delete id = "selectDelete" parameterType = "ArrayList">
+   DELETE FROM member WHERE id IN 
+   <foreach collection = "idList" item = "id" open = "(" close = ")" separator = ",">
+    #{id}
+   </foreach>
+  </delete>
   </mapper>
 
 

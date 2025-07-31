@@ -12,6 +12,7 @@
 	<c:choose>
 	<c:when test = "${not empty member}">
 	  <h1>${member.name}님 로그인 하셨습니다. </h1>
+	  
 	<!-- 로그인한 사람의 정보 수정-->			
 	<form action="/update" method ="post">
 	  비밀번호 : <input type="password" name="pwd" value="${member.pwd}"><br> 
@@ -28,6 +29,8 @@
 	 <!-- primarykey가 id-->
 	    <a href="/delete">회원탈퇴</a>	
     </c:when>
+	
+	
 	<c:otherwise>
      	<a href="/register">회원가입</a>
     	<a href="/login">로그인</a>
@@ -45,6 +48,8 @@
 	
 		<input type="submit" value="검색">
 	</form>
+	
+	<!--회원삭제-->
 	<form action="/delete" method="post">
 		
 	<!-- 회원목록-->
