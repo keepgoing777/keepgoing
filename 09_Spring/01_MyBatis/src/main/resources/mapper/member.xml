@@ -45,10 +45,11 @@
 			</if>
 		</set>
 	WHERE id = #{id}
-	<!-- 1. 정적쿼리
+	<!-- 1. 정적쿼리 모든정보 수정
 	UPDATE member SET pwd = #{pwd}, name = #{name}, age = #{age}
 	WEHRE id = #{id}
     
+    비밀번호만 수정
     UPDATE member SET pwd = #{pwd} 
     WHERE id = #{id}
   -->
@@ -57,8 +58,8 @@
    <select id = "search" parameterType="SearchDTO" resultType ="Member">
    SELECT * FROM member
    <where>  
-   
-  <!-- <if test = "select == 'all'">
+   <!-- 전체/아이디로/이름으로 조회 선택 
+	<if test = "select == 'all'">
        id LIKE CONCAT('%', #{keyword}, '%')
        OR name LIKE CONCAT('%', #{keyword}, '%')
     </if>
@@ -68,7 +69,7 @@
     <if test = "select == 'name'">
        name LIKE CONCAT('%', #{keyword}, '%')
     </if>
-   -->  
+  -->  
  
     <choose>
       <when test = "select == 'all'">
