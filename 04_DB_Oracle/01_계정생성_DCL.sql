@@ -3,8 +3,12 @@
 -- PDB (Pluggable Database) : CDB 안에 존재하는 독립된 데이터 베이스 (논리적 DB)
 -- CDB에 접속하려면 공용 사용자를 만들수 있는데 계정 이름에 C## 접두사가 필요
 -- PDB에 접속하면 PDB 전용 사용자를 만들수 있으며 C## 접두사가 필요 없음
+
+-- 쿼리문 실행 ctrl + enter 
+-- DBA(database administrator용, CDB내 뷰 역할)에서 PDB_NAME 검색/system만 가능
 SELECT PDB_NAME FROM DBA_PDBS;
--- 쿼리문 실행 : ctrl + enter 
+
+--사용자 생성할 컨테이너를 해당 PDB_NAME으로 변경
 ALTER SESSION SET CONTAINER = XEPDB1;
 
 -- 사용자 계정 생성하는 구문 : 관리자 계정만 할 수 있는 역할 

@@ -115,6 +115,9 @@ INSERT ALL
 SELECT * 
 FROM EMP_DEPT;
 
+SELECT * 
+FROM EMP_MANAGER;
+
 -- EMPLOYEE에서 입사일 기준으로 2000년 1월 1일 이전 입사한 사원과 
 -- 이후 입사한 사원의 테이블을 분리
 CREATE TABLE EMP_OLD

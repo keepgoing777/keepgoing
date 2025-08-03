@@ -39,6 +39,7 @@ BEGIN
 END;
 /
 
+SELECT * FROM EMPLOYEE;
 -- 레퍼런스 타입 변수 : 변수명 테이블명.컬럼명%TYPE; 
 -- 박나라 사원의 사번, 사원명, 급여정보를 조회해서 출력
 DECLARE
@@ -60,7 +61,6 @@ EMPLOYEE, DEPARTMENT 테이블
 컬럼 : EMP_ID, EMP_NAME, DEPT_TITLE
 조회 : EMP_ID로 해당 부서가 어디인지 확인
 */
-
 
 DECLARE
    EID EMPLOYEE.EMP_ID%TYPE;

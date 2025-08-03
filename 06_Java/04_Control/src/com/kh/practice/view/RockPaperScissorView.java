@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 import com.kh.practice.controller.RockPaperScissorController;
 
-public class RockPaperScissorView {
+
+	public class RockPaperScissorView {
 
 	RockPaperScissorController controller = new RockPaperScissorController();
 	Scanner sc = new Scanner(System.in);

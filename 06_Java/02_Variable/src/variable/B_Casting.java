@@ -4,7 +4,7 @@ public class B_Casting {
 
 	public static void main(String[] args) {
       B_Casting casting = new B_Casting();
-    //  casting.autoCasting();
+      casting.autoCasting();
       casting.casting();
 	}
     

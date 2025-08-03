@@ -9,10 +9,10 @@ public class A_variable {
 		A_variable variable = new A_variable();
 		//실생할 메서드가 있는 클래스 생성 (new)
 		
-		//variable.printValue();
+		variable.printValue();
 		//생성한 클래스로 메서드 실행 (출력)
-	    //variable.variableTest();
-	   	 variable.constant();
+	    variable.variableTest();
+	   	variable.constant();
 	}
 	
 	public void printValue() {

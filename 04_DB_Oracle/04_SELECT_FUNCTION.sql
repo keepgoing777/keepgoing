@@ -196,7 +196,6 @@ FROM DUAL;
 /*
     날짜 처리 함수 
     SYSDATE : 시스템의 날짜를 반환 (현재 날짜)
-    
 */
 
 SELECT SYSDATE FROM DUAL;
@@ -414,7 +413,7 @@ FROM EMPLOYEE;
 
 /*
     그룹함수 -> 결과값 1개(단일행 함수와의 차이, 함께 사용하지 못하는 이유)
-      - 대량의 데이터들로 집꼐나 통계 같은 작업을 처리해야하는 경우
+      - 대량의 데이터들로 집계나 통계 같은 작업을 처리해야하는 경우
       - 모든 그룹 함수는 NULL값을 자동으로 제외하고 값이 있는 것들만 계산
 */
 
@@ -573,6 +572,7 @@ GROUP BY CUBE(JOB_CODE, DEPT_CODE);
 
 --부서코드가 D5인 사원들의 사번 사원명 부서코드 급여 조회
 SELECT * FROM EMPLOYEE;
+
 --1. UNION : 부서코드가 D5이거나 급여가 300만원 초과인 사원들 조회
 SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
 FROM EMPLOYEE
@@ -596,6 +596,16 @@ UNION ALL
 SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
 FROM EMPLOYEE
 WHERE SALARY > 3000000;
+
+
+--부서별, 직급별 사원수(UNION ALL)
+SELECT DEPT_CODE, COUNT(*)
+FROM EMPLOYEE
+GROUP BY DEPT_CODE
+UNION ALL
+SELECT JOB_CODE, COUNT(*)
+FROM EMPLOYEE
+GROUP BY JOB_CODE;
 
 --3. INTERSECT 
 SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
@@ -630,14 +640,6 @@ WHERE DEPT_CODE = 'D5' AND SALARY <= 3000000;
       - 그룹별로 처리된 여러개의 SELECT문을 하나로 합친 결과를 원할 때 사용
 */
 
---부서별, 직급별 사원수(UNION ALL)
-SELECT DEPT_CODE, COUNT(*)
-FROM EMPLOYEE
-GROUP BY DEPT_CODE
-UNION ALL
-SELECT JOB_CODE, COUNT(*)
-FROM EMPLOYEE
-GROUP BY JOB_CODE;
 
 --부서별, 직급별 사원수(GROUP BY 뒤에)
 SELECT DEPT_CODE, JOB_CODE, COUNT(*)

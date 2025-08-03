@@ -53,7 +53,7 @@ FROM EMPLOYEE
   
 --사번(EMP_ID) 사원명(EMP_NAME), 직급코드(JOB_CODE), 직급명(JOB_NAME)
 --테이블 : EMPLOYEE, JOB
---연결할 두 컬럼이 같은 경우 : 테이블명 이용 또는 테이블에 별치 부여해서 이용
+--연결할 두 컬럼이 같은 경우 : 테이블명 이용 또는 테이블에 별칭 부여해서 이용
 
 SELECT *
 FROM JOB;
@@ -66,7 +66,7 @@ SELECT JOB_CODE, JOB_NAME FROM JOB;
 
 SELECT EMP_ID, EMP_NAME, JOB.JOB_CODE, JOB_NAME
 FROM EMPLOYEE, JOB
-WHERE JOB.JOB_CODE = JOB_CODE;
+WHERE JOB.JOB_CODE = EMPLOYEE.JOB_CODE;
 
 SELECT EMP_ID, EMP_NAME, E.JOB_CODE, JOB_NAME
 FROM EMPLOYEE E
@@ -76,6 +76,7 @@ FROM EMPLOYEE E
 SELECT EMP_ID, EMP_NAME, JOB_CODE, JOB_NAME
 FROM EMPLOYEE
   JOIN JOB USING (JOB_CODE);
+  
 --자연 조인(NATURAL JOIM) : 각 테이블마다 동일한 컬럼이 한개만 존재할 경우
 SELECT EMP_ID, EMP_NAME, JOB_CODE, JOB_NAME
 FROM EMPLOYEE
@@ -130,7 +131,7 @@ LEFT JOIN DEPARTMENT ON (DEPT_ID = DEPT_CODE);
 -- LEFT 추가함으로서 DEPARTMENT 에서 DEPT_TITLE이 없는 2명 나타남
 
 SELECT EMP_NAME, DEPT_TITLE
-FROM EMPLOYEE , DEPARTMENT
+FROM EMPLOYEE, DEPARTMENT
 WHERE DEPT_ID(+) = DEPT_CODE;
 -- 기준 삼는 테이블의 반대 테이블의 컬럼뒤에 (+)
 -- 한쪽에만 쓸수 있어서 다소 불편, JOIN 많이 씀
@@ -169,7 +170,7 @@ FROM EMPLOYEE
 
 /*
       자체 조인(SELF JOIN) 
-       - 같은 테이블을 다시 한번 조인하는 경우(자기 자신과 조인) -> 대댓글 기능\
+       - 같은 테이블을 다시 한번 조인하는 경우(자기 자신과 조인) -> 대댓글 기능
 */
 
 --사원사번, 사원명, 사원부서코드, 사수사번, 사수명, 사수부서코드 조회

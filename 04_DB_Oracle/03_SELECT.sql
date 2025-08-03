@@ -39,6 +39,7 @@ SELECT NAME FROM USER_INFO;
 SELECT AGE FROM USER_INFO;
 SELECT HOBBY FROM USER_INFO;
 SELECT NAME, AGE, HOBBY FROM USER_INFO; 
+
 -- select name, age, hobby from user_info;
 -- SELECT name, age, hobby from user_info;  MySQL
 -- SELECT NAME, AGE, HOBBY FROM USER_INRO; 오라클 관행
@@ -56,12 +57,13 @@ SELECT NAME 이름,
          AGE 나이,
          AGE+10 AS "10년 후" 
          FROM USER_INFO;
+         
 -- EMPLOYEE 에서 직원명(EMP_NAME), 월급(SALARY), 연봉 조회
 SELECT EMP_NAME, SALARY, SALARY*12 AS 연봉 FROM EMPLOYEE;
  
 -- 리터럴(문자열) 
 -- - SELECT 절에 리터럴을 사용하면 테이블에 존재하는 데이터처럼 조회가능
---  - 즉, 리터럴은 RESULT SET의 모든행에 반복적으로 출력
+-- - 즉, 리터럴은 RESULT SET의 모든행에 반복적으로 출력
 SELECT NAME, AGE || '살' AS "나이" FROM USER_INFO;
 
 /*
@@ -165,7 +167,7 @@ SELECT * FROM EMPLOYEE WHERE BONUS IS NULL;
 SELECT * FROM EMPLOYEE WHERE DEPT_CODE IS NULL AND BONUS IS NOT NULL;
 --USER_INFO에서 MBTI가 INFP 또는 INTJ인 사용자 조회
 SELECT * FROM USER_INFO WHERE MBTI = 'INFP' OR MBTI = 'INTJ';
-SELECT * FROM USER_INFO WHERE MBTI IN ('INFP', 'INTJ');
+
 
 /* IN(A,B) A 또는 B 
    - 컬럼값이 내가 제시한 목록 중에 일치하는 값이 있는지 
@@ -173,6 +175,7 @@ SELECT * FROM USER_INFO WHERE MBTI IN ('INFP', 'INTJ');
 */
 -- EMPLOYEE에서 부서코드 DEPT_CODE D5, D6, D8 사원들 조회
 SELECT * FROM EMPLOYEE WHERE DEPT_CODE IN ('D5', 'D6', 'D8');
+SELECT * FROM USER_INFO WHERE MBTI IN ('INFP', 'INTJ');
 
 -- 직급 코드(JOB_CODE) 가 J7이거나 J2인 사원들 중 급여가 200만원인 사원들 조회
 SELECT * FROM EMPLOYEE WHERE JOB_CODE = 'J7' AND SALARY >= '2000000'
@@ -204,14 +207,17 @@ SELECT *FROM EMPLOYEE WHERE JOB_CODE IN('J7', 'J2') AND SALARY >= '2000000';
 */
 -- USER_INFO에서 나이를 오름차순 정렬
 SELECT * FROM USER_INFO ORDER BY AGE ASC;
+
 -- MBTI 오름차순, AGE 내림차순 정렬 
 -- 조건은 MBTI가 I인 분들 조회
 SELECT NAME, AGE, GENDER, MBTI FROM USER_INFO ORDER BY MBTI ASC, AGE DESC;
 SELECT NAME, AGE, GENDER, MBTI FROM USER_INFO ORDER BY 4 ASC, 2 DESC;
--- SELECT 컬럼이 여러개인 경우, 그 중 하나로 정렬 시 숫자차례로 대체 가능 
+-- SELECT 컬럼이 여러개인 경우, 그 중 하나로 정렬 시 숫자차례로 대체 가능
+
 SELECT NAME, AGE, GENDER, MBTI FROM USER_INFO ORDER BY MBTI DESC NULLS LAST;
 -- 오라클에서만 제공되는 예, NULL 값만 마지막으로 보내기 NULLS LAST 
 -- 내림차순에서는 NULL이 가장 먼저 나오므로 강제적으로 명령어 입력해야함 
+
 -- EMPLOYEE 에서 전체 사원의 사원명, 보너스 조회 (보너스 기준으로 오름차순 정렬)
 SELECT EMP_NAME, BONUS FROM EMPLOYEE ORDER BY BONUS NULLS FIRST;
 -- 오라클에서만 제공되는 예, NULL 값만 맨 위로 보내기 NULLS FIRST 
@@ -220,8 +226,9 @@ SELECT EMP_NAME, BONUS FROM EMPLOYEE ORDER BY BONUS DESC NULLS LAST;
 
 /*
     GROUP BY
-     - 그룹 기준을 제시할 수 있는 구문
+     - 그룹 기준을 제시할 수 있는 구문 
      - 여러 개의 값들을 하나의 그룹으로 묶어서 처리할 목적으로 사용
+     - 집계 함수를 사용할 때 사용 (COUNT, SUM, AVG 등)
 */
 --MBTI별 평균 나이, 나이 합계, 명 수 모두 기재 가능
 SELECT MBTI, AVG(AGE), SUM(AGE), COUNT(*)
@@ -233,9 +240,10 @@ SELECT GENDER, COUNT(*)
 FROM USER_INFO
 GROUP BY GENDER;
 
+--04chapter 공부하고 다시 오기
 -- EMPLOYEE 성별 사원 수 조회
 SELECT DECODE(SUBSTR(EMP_NO, 8, 1), 1, '남', 2, '여'), COUNT(*)
-FROM EMPLOYEEVD
+FROM EMPLOYEE
 GROUP BY SUBSTR(EMP_NO, 8, 1);
 
 /*

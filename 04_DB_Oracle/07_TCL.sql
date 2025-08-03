@@ -56,27 +56,3 @@ ROLLBACK;
 
 SELECT * 
 FROM USER_03;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

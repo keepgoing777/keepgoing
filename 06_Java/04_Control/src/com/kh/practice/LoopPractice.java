@@ -64,7 +64,8 @@ class LoopPractice {
 	 * 
 	 */
 	/*
-	 * public void method3() { System.out.println("문자열을 입력하세요"); String word =
+	 * public void method3() {
+      System.out.println("문자열을 입력하세요"); String word =
 	 * sc.nextLine(); System.out.println("문자를 입력하세요"); String spell = sc.nextLine();
 	 * 
 	 * int count = 0; for (int i = 0; i < word.length(); i++) { if (word.charAt(i)
