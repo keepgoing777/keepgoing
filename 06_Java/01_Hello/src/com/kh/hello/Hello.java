@@ -61,6 +61,7 @@ public class Hello { //클래스명은 클래스 파일명과 동일해야한다
 		// TODO Auto-generated method stub
 
 		System.out.println("Hello, World!");
+		
 /*
  * 네이밍 규칙
  *  - 패키지명 : 소문자로 작성, 회사들 간에 패키지가 서로 중복되지 않도록 회사의 도메인 이름으로 패키지를 만든다.
