@@ -14,7 +14,7 @@ import com.kh.security.mapper.UserMapper;
 import com.kh.security.model.vo.User;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
 
 	@Autowired
 	private UserMapper mapper;
@@ -36,14 +36,26 @@ public class UserService implements UserDetailsService {
 		}
 		mapper.register(vo);
 	}
+	
+	public User login(User vo) {
+		User user = mapper.login(vo.getId());
+	
+		if(user!=null && bcpe.matches(vo.getPwd(), user.getPwd())) {
+			System.out.println("로그인 성공!");
+			return user;
+		}
+			
+		return null;
+	}
 
-
-	@Override
+/*	Token방식에서 필요없음 implenment Dedatils와 함께 삭제 
+ * @Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = mapper.login(username);
 		return user;
 	} 
-
+*/
+	
 /* Userdetail 쓰면서 삭제(session 방법)
 	@Override
 	public User login(String id) {
