@@ -23,6 +23,7 @@ public class FilmController {
 		
 		PagingDTO dto = new PagingDTO();
 		List<Film> list = service.showFilm(dto);
+		
 		System.out.println(list);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", new PagingDTO(paging.getPage(), service.total()));

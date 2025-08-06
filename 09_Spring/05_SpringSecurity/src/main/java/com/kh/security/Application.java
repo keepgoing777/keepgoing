@@ -33,7 +33,8 @@ public class Application {
  * 5. TokenProvider class 생성 - 토큰 생성 및 유저정보가져오기 (vo에 @builder 추가)
  * 6. Jwt 클래스에 TokenProvider @autowired 및 user 정보에 validate된 정보 가져오기
  * 7. usercontroller login PostMapping(service.login 가져오기 및 tokenprovider 관련정리 / service login 메서드 수정 
- * 
+ * 8. login.jsp 수정(로그인 토큰 생성)-> index.jsp 수정 (화면 ajax-check, logout jquery- 토큰 삭제)
+ * 9. 관리자/마이페이지(403error) AwtAuthentication.java 수정 
  *
  * */
  

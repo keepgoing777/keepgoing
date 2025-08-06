@@ -21,7 +21,7 @@ public class UserContoroller {
 	
 	@PostMapping("/register")
 	public String register(User vo) {
-		System.out.println(vo);
+		//System.out.println(vo);
 		userService.register(vo);
 		return "redirect:/login";
 	}
@@ -29,7 +29,7 @@ public class UserContoroller {
 	@ResponseBody
 	@PostMapping("/login")
 	public String login(User vo) {
-		System.out.println(vo);
+		//System.out.println(vo);
 	    User user = userService.login(vo);
 		if(user!=null) {
 			//로그인 성공 -> 서버는 토큰 생성만, 가지고 있는 클라이언트
@@ -38,5 +38,14 @@ public class UserContoroller {
 		}
 		return null;
 	}
+	
+	@ResponseBody
+	@GetMapping("/check")
+	public User checck(String token) {
+		return tokenProvider.validate(token);
+		//System.out.println(token);
+	}
+	
+	
 	
 }

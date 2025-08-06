@@ -41,12 +41,14 @@ public class UserService {
 		User user = mapper.login(vo.getId());
 	
 		if(user!=null && bcpe.matches(vo.getPwd(), user.getPwd())) {
-			System.out.println("로그인 성공!");
+		System.out.println("로그인 성공!");
 			return user;
 		}
 			
 		return null;
 	}
+	
+	
 
 /*	Token방식에서 필요없음 implenment Dedatils와 함께 삭제 
  * @Override
