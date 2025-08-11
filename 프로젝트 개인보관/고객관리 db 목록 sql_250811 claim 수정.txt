@@ -1,0 +1,86 @@
+DROP TABLE customer;
+DROP TABLE booking;
+DROP TABLE reservation_passenger;
+DROP TABLE reservation_payment;
+DROP TABLE customer_inquiry;
+DROP TABLE customer_feedback;
+DROP TABLE reservation_payment;
+
+SELECT * FROM customer;
+SELECT * FROM booking;
+SELECT * FROM claim;
+
+-- 1. 고객기본정보 테이블 
+CREATE TABLE customer (
+    customer_no     INT AUTO_INCREMENT PRIMARY KEY, -- 고객 고유번호
+    customer_name   VARCHAR(50) NOT NULL,           -- 고객명
+    phone           VARCHAR(20),                    -- 연락처
+    email           VARCHAR(100),                   -- 이메일
+    address         VARCHAR(200),                   -- 주소
+    birth_date      DATE,                           -- 생년월일
+    gender          VARCHAR(10),                    -- 성별
+    passport_no     VARCHAR(20),                    -- 여권번호
+    grade           VARCHAR(20) DEFAULT '신규',      -- 고객 등급(신규/실버/골드/VIP)
+    used_amount     INT DEFAULT 0,                  -- 총 사용금액 (고객등급에 사용)
+    user_no         INT,                            -- 담당자 번호
+    created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,  -- 고객정보 생성일
+    updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- 고객정보 수정일
+);
+
+-- 2. 예약/결제정보 테이블 
+CREATE TABLE booking (
+    booking_no      INT AUTO_INCREMENT PRIMARY KEY, -- 예약 고유번호
+    customer_no     INT NOT NULL,                   -- 고객 고유번호
+    customer_name   VARCHAR(50) NOT NULL,           -- 고객명 
+    product_no      INT,                            -- 상품 고유번호 
+    product_name   VARCHAR(100),                    -- 상품명
+    passport_no     VARCHAR(20),                    -- 여권번호
+    nationality     VARCHAR(50),                    -- 국적
+    travel_date     DATE,                           -- 여행 시작일
+    return_date     DATE,                           -- 여행 종료일
+    adult_count     INT DEFAULT 1,                  -- 성인 인원
+    child_count     INT DEFAULT 0,                  -- 아동 인원
+    infant_count    INT DEFAULT 0,                  -- 유아 인원 
+    total_amount    INT,                            -- 총 금액 
+    discount_amount INT,                            -- 할인 금액 (고객등급에 따라)
+    payment_amount  INT,                            -- 총 결제 금액(총 금액 - 할인금액)
+    booking_status  VARCHAR(30),                    -- 예약 상태 (예약대기, 결제완료, 예약확정, 예약취소)
+    payment_method  VARCHAR(30),                    -- 결제 방법(계좌이체, 카드)
+    booking_date    DATETIME DEFAULT CURRENT_TIMESTAMP,   -- 예약일
+    payment_date    DATETIME,                             -- 결제일
+    user_no         INT                             -- 담당자 번호
+);
+
+-- 3. 고객 클레임 테이블 (프로젝트 번호, 프로젝트명, 출처 삭제) 
+CREATE TABLE claim (
+claim_no           INT AUTO_INCREMENT PRIMARY KEY,  -- 클레임 고유번호
+claim_type         VARCHAR(50),                     -- 클레임 종류(단순문의/피드백)
+customer_no        INT,                             -- 고객 고유번호
+customer_name      VARCHAR(50) NOT NULL,            -- 고객명
+product_no         INT,                             -- 상품 고유번호(단순문의인 경우만)
+product_name       VARCHAR(100),                    -- 상품명
+score              INT,                             -- 평점(피드백인 경우만)
+comment            TEXT,                            -- 문의내용(단순문의인 경우만)
+claim_date         DATETIME DEFAULT CURRENT_TIMESTAMP, -- 클레임 생성일
+claim_status       VARCHAR(20),                        -- 클레임 처리 상태
+checked_date       DATETIME,                           -- 처리 완료일
+user_no            INT                                 -- 담당자 번호
+);
+
+-- 고객관리 DB 외래키 제약조건
+-- customer 테이블 외래키
+ALTER TABLE customer ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no);
+
+-- booking 테이블 외래키
+ALTER TABLE booking ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
+ALTER TABLE booking ADD FOREIGN KEY (product_no) REFERENCES product(product_no); 
+ALTER TABLE booking ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no);
+
+-- claim 테이블 외래키
+ALTER TABLE claim ADD FOREIGN KEY (customer_no) REFERENCES customer(customer_no);
+ALTER TABLE claim ADD FOREIGN KEY (user_no) REFERENCES user_info(user_no); //추가 
+ALTER TABLE claim ADD FOREIGN KEY (project_id) REFERENCES project(project_id); //추가 
+ALTER TABLE claim ADD FOREIGN KEY (product_no) REFERENCES product(product_no); //추가 
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1; 
