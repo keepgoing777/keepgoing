@@ -88,19 +88,6 @@ public class A_Array {
 	 double result = sum/arr.length;
 */	
 	
-/*	public void method3() {
-	System.out.println("키를 입력하세요");
-	double num1 = sc.nextDouble();
-	System.out.println("키를 입력하세요");
-	double num2 = sc.nextDouble();
-	System.out.println("키를 입력하세요");
-	double num3 = sc.nextDouble();
-	
-	double result = (num1 + num2 + num3 ) / 3;
-	System.out.println("3명 키 평균 " + result);
-	
-	}
-*/	
 	//얕은 복사(copy에서 배열 수정이 일어나면 원본배열에서도 똑같이 수정이 일어남)
 	  public void method4() {
 	  int[] number = {1, 2, 3, 4, 5};

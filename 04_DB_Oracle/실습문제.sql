@@ -1,4 +1,4 @@
--- 1. 직급이 대리이면서 ASIA 지역에서 근무하는 직원들의 사번, 직원명, 직급명, 부서명, 근무지역, 급여 조회
+ -- 1. 직급이 대리이면서 ASIA 지역에서 근무하는 직원들의 사번, 직원명, 직급명, 부서명, 근무지역, 급여 조회
 SELECT * FROM EMPLOYEE; // DEPT_CODE, JOB_CODE, SALARY
 SELECT * FROM LOCATION; //LOCAL_CODE, LOCAL_NAME
 SELECT * FROM JOB; // JOB_CODE, JOB_NAME
