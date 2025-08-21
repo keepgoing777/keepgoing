@@ -73,6 +73,11 @@ public class MemberController {
     	return "redirect:/";
     }
     	
+	@PostMapping("/delete")
+	public String delete(@RequestParam(name="idList", required = false) List<String> idList) {
+		if(idList!= null) service.selectDelete(idList);
+		return "redirect:/";
+	}
     
 	@GetMapping("/search")
 	public String search(SearchDTO dto, Model model) {
@@ -80,11 +85,7 @@ public class MemberController {
 		return "index";
 	}
 	
-	@PostMapping("/delete")
-	public String delete(@RequestParam(name="idList", required = false) List<String> idList) {
-		if(idList!= null) service.selectDelete(idList);
-		return "redirect:/";
-	}
+
 		
 	
     

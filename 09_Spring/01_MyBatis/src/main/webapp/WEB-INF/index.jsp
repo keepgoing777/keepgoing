@@ -30,7 +30,6 @@
 	    <a href="/delete">회원탈퇴</a>	
     </c:when>
 	
-	
 	<c:otherwise>
      	<a href="/register">회원가입</a>
     	<a href="/login">로그인</a>
