@@ -75,10 +75,10 @@ BEGIN
    DBMS_OUTPUT.PUT_LINE('사번이 ' || EID || '인 사람의 부서는 ' || DEP || '입니다');
  END;
 /
-
+SELECT * FROM EMPLOYEE;
 -- ROW 타입 변수
 DECLARE
- EMP EPLOYEE%ROWTYPE;
+ EMP EMPLOYEE%ROWTYPE;
 BEGIN
   SELECT * 
   INTO EMP
@@ -86,7 +86,7 @@ BEGIN
   WHERE EMP_ID = '&사번';
   
   DBMS_OUTPUT.PUT_LINE('이름 : ' || EMP.EMP_NAME);
-  DBMS_OUTPUT.PUT_LINE('입사일 : ' || EMP.EMP_DATE);
+  DBMS_OUTPUT.PUT_LINE('입사일 : ' || EMP.HIRE_DATE);
 END;
 /
 /*
@@ -99,7 +99,7 @@ END;
 -- 사번을 입력받은 후 해당 사원의 사번, 보너스 출력
 -- 단, 보너스를 받지 못한 사원은 보너스 출력 전에 '보너스를 지급받지 않는 사원입니다'
 DECLARE
-  EMP MEPOLOYEE%ROWTYPE;
+ EMP EMPLOYEE%ROWTYPE;
 BEGIN
  SELECT *
  INTO EMP
@@ -108,12 +108,13 @@ BEGIN
  
  DBMS_OUTPUT.PUT_LINE('이름은' || EMP.EMP_NAME);
  
- IF BONUS IS NULL 
-    THEN DBMS.OUTPUT.PUT_LINE('보너스를 지급받지 않는 사원입니다.');
+ IF EMP.BONUS IS NULL 
+    THEN DBMS_OUTPUT.PUT_LINE('보너스를 지급받지 않는 사원입니다.');
  END IF;
  
  DBMS_OUTPUT.PUT_LINE('보너스는' || EMP.BONUS);
  END;
+ /
  
  /*
    IF 조건식 THEN 실행내용
