@@ -38,6 +38,7 @@ public class D_Scanner {
 	    String gender = sc.nextLine();
 	    // 다른 답변 char gender = sc.nextLine().charAt(0);
 	    // 다른 답변 String input = sc.nextLine(); char gender = input.charAt(0);
+	   
 	    System.out.println("당신의 이름은 " + name + "이고, 나이는 " + age
 	    		+ "살이고, 사는 곳은" + addr + "이고, 키는" + height + "cm이고, 성별은 "
 	    		 + gender+ "자야");

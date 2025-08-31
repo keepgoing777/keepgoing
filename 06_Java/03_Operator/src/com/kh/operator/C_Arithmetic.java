@@ -35,8 +35,9 @@ public class C_Arithmetic {
 	 int e = c % a; // 16%6 = 4
 	 int f = e++; // 4 (f값 5)
 	 int g = (--b) + (d--); // 10(b)+2(d 값1) = 12
-	 int h = c-- * b;  //16(c값 15) / 10 = 160
+	 int h = c-- * b;  //16(c값 15) * 10 = 160
 	 int i = (a++) + b / (--c / f) * (g-- -d) % (++e + h);
+	 System.out.println(i);
 			 // 6 + 10 / (14/4) * (12-1) % (6+160)
 	 // i값은 얼마일까요? 
 	}

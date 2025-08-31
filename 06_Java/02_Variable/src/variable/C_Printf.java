@@ -4,10 +4,10 @@ public class C_Printf {
 
 	public static void main(String[] args) {
 		//print : 출력만 함(줄바꿈 X) 
-		//System.out.print("hello\n");
 		System.out.print("hello");
 		//println : 출력 후 줄바꿈
 		System.out.println("hello");
+		System.out.print("hello\n");
 	
 		//printf(출력하고자하는형식(포맷), 출력하고자하는 값, 값, ...)
 		int iNum1 = 10; 

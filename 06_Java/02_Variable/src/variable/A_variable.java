@@ -7,12 +7,12 @@ public class A_variable {
 	public static void main(String[] args) {
 
 		A_variable variable = new A_variable();
-		//실생할 메서드가 있는 클래스 생성 (new)
+		//실행할 메서드가 있는 클래스 생성 (new)
 		
 		variable.printValue();
 		//생성한 클래스로 메서드 실행 (출력)
-	    variable.variableTest();
-	   	variable.constant();
+	    //variable.variableTest();
+	    //variable.constant();
 	}
 	
 	public void printValue() {
@@ -62,8 +62,8 @@ public class A_variable {
     	 long lNum = 922337283458L; //8byte - 숫자뒤에 L(l)을 입력해야함
         	 System.out.println(lNum);
        	 //4. 실수형
-    	 float fNum = 1.2F; // 4bite 숫자 뒤에 F(f)입력
-    	 double dNum = 1.2; // 8bite (기본)
+    	 float fNum = 1.2F; // 4byte 숫자 뒤에 F(f)입력
+    	 double dNum = 1.2; // 8byte (기본)
     	     System.out.println(fNum);
     	 //5. 참조 자료형(클래스) : 4byte, 기본형을 제외한 나머지, 주소값 저장
     	 //실제 데이터 값은 힙 메모리에 저장하고, 스택메모리의 변수공간에는 실제 변수값이 저장된 힙 메모리의 위치값 저장
