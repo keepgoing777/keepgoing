@@ -14,7 +14,7 @@
      - [예외처리부(EXCEPTION SECTION)] : EXCEPTION 시작, 예외 발생 시 해결하기 위한
        구문을 미리 기술
 */
-SET SERVEROUTPUT ON; --한번만 처음에 입력하면 됨
+SET SERVEROUTPUT ON --한번만 처음에 입력하면 됨
 BEGIN
    DBMS_OUTPUT.PUT_LINE('HELLO ORACLE');
 END;
@@ -75,10 +75,10 @@ BEGIN
    DBMS_OUTPUT.PUT_LINE('사번이 ' || EID || '인 사람의 부서는 ' || DEP || '입니다');
  END;
 /
-
+SELECT * FROM EMPLOYEE;
 -- ROW 타입 변수
 DECLARE
- EMP EPLOYEE%ROWTYPE;
+ EMP EMPLOYEE%ROWTYPE;
 BEGIN
   SELECT * 
   INTO EMP
@@ -86,7 +86,7 @@ BEGIN
   WHERE EMP_ID = '&사번';
   
   DBMS_OUTPUT.PUT_LINE('이름 : ' || EMP.EMP_NAME);
-  DBMS_OUTPUT.PUT_LINE('입사일 : ' || EMP.EMP_DATE);
+  DBMS_OUTPUT.PUT_LINE('입사일 : ' || EMP.HIRE_DATE);
 END;
 /
 /*
@@ -98,8 +98,10 @@ END;
 */
 -- 사번을 입력받은 후 해당 사원의 사번, 보너스 출력
 -- 단, 보너스를 받지 못한 사원은 보너스 출력 전에 '보너스를 지급받지 않는 사원입니다'
+SELECT * FROM EMPLOYEE;
+
 DECLARE
-  EMP MEPOLOYEE%ROWTYPE;
+ EMP EMPLOYEE%ROWTYPE;
 BEGIN
  SELECT *
  INTO EMP
@@ -108,12 +110,13 @@ BEGIN
  
  DBMS_OUTPUT.PUT_LINE('이름은' || EMP.EMP_NAME);
  
- IF BONUS IS NULL 
-    THEN DBMS.OUTPUT.PUT_LINE('보너스를 지급받지 않는 사원입니다.');
+ IF EMP.BONUS IS NULL 
+    THEN DBMS_OUTPUT.PUT_LINE('보너스를 지급받지 않는 사원입니다.');
  END IF;
  
  DBMS_OUTPUT.PUT_LINE('보너스는' || EMP.BONUS);
  END;
+ /
  
  /*
    IF 조건식 THEN 실행내용
@@ -123,7 +126,7 @@ BEGIN
 -- 보너스가 있는 경우만 보너스 출력, 없으면 해당 문구 출력
  
 DECLARE
-  EMP MEPOLOYEE%ROWTYPE;
+  EMP EMPLOYEE%ROWTYPE;
 BEGIN
  SELECT *
  INTO EMP
@@ -132,12 +135,13 @@ BEGIN
  
  DBMS_OUTPUT.PUT_LINE('이름은' || EMP.EMP_NAME);
  
- IF BONUS IS NULL 
-    THEN DBMS.OUTPUT.PUT_LINE('보너스를 지급받지 않는 사원입니다.');
- END IF;
- 
+ IF EMP.BONUS IS NULL 
+    THEN DBMS_OUTPUT.PUT_LINE('보너스를 지급받지 않는 사원입니다.');
+ ELSE
  DBMS_OUTPUT.PUT_LINE('보너스는' || EMP.BONUS);
- END;
+ END IF;
+ END; 
+ /
  
  /*
     IF ~ ELSIF ~ ELSE
@@ -168,13 +172,15 @@ BEGIN
  
  DBMS_OUTPUT.PUT_LINE('당신의 점수는' || SCORE || '점 이고, 학점은 ' || GRADE || '학점입니다.');
 END; 
+/
 /*
    테이블은 EMPLOYEE, 컬럼은 SALARY
    500만원 이상이면 '고급'. 300만원 이상이면 '중급', 300만원 미만이면 '초급'
    사원의 사번을 입력받아서 '해당 사원의 급여등급은 고급입니다.
 */
 DECLARE
- EMP MPLOYEE%ROWTYPE;
+ EMP EMPLOYEE%ROWTYPE;
+ GRADE CHAR(6);
 BEGIN 
  SELECT * 
  INTO EMP 
@@ -185,9 +191,9 @@ BEGIN
  ELSIF EMP.SALARY >= 3000000 THEN GRADE := '중급';
  ELSE GRADE := '초급';
  END IF;
-
  DBMS_OUTPUT.PUT_LINE('해당 사원의 급여 등급은' || GRADE || '입니다.');
 END;
+/
 /*
    CASE 비교 대상자
      WHEN 비교값 1 THEN 결과값 1
@@ -200,8 +206,10 @@ END;
 -- 출력 : 해당 사원 이름 'ooo는 개발팀입니다'
 DECLARE
  EMP EMPLOYEE%ROWTYPE;
+ DNAME VARCHAR2(20);
 BEGIN 
  SELECT *
+ INTO EMP
  FROM EMPLOYEE
  WHERE EMP_ID = '&사번';
  
@@ -211,8 +219,9 @@ BEGIN
     WHEN 'D3' THEN '기획팀'
     ELSE '서비스팀'
     END;
- DBMS_OUTPUT.PUTLINE(EMP.EMP_NAME || '는' || DNAME || '입니다.');
+ DBMS_OUTPUT.PUT_LINE(EMP.EMP_NAME || '는' || DNAME || '입니다.');
 END;
+/
 
 /*
     반복문
@@ -228,7 +237,7 @@ DECLARE
  NUM NUMBER := 1;
 BEGIN 
  LOOP 
-   DBMS_OUTPUT.PUTLINE(NUM);
+   DBMS_OUTPUT.PUT_LINE(NUM);
    NUM := NUM + 1;
    IF NUM>5 THEN EXIT; END IF; 
    --EXIT WHEN NUM > 5; 같은 실행
@@ -239,7 +248,7 @@ END;
 BEGIN 
  FOR NUM IN REVERSE 1..5
  LOOP 
-   DBMS_OUTPUT.PUTLINE(NUM);
+   DBMS_OUTPUT.PUT_LINE(NUM);
  END LOOP;
 END;
 /
@@ -272,7 +281,7 @@ BEGIN
   LOOP
     WHILE NUM <= 9
       LOOP 
-      DBMS_OUPPUT.PUT_LINE(DAN || 'X' || NUM || '=' || DAN * NUM);
+      DBMS_OUTPUT.PUT_LINE(DAN || 'X' || NUM || '=' || DAN * NUM);
       NUM := NUM + 1;
     END LOOP;
     DAN := DAN + 1;
@@ -286,7 +295,7 @@ BEGIN
   LOOP
    FOR NUM IN 1..9
       LOOP  
-      DBMS_OUPPUT.PUT_LINE(DAN || 'X' || NUM || '=' || DAN * NUM);
+      DBMS_OUTPUT.PUT_LINE(DAN || 'X' || NUM || '=' || DAN * NUM);
     END LOOP;
  END LOOP;
 END;
@@ -321,10 +330,11 @@ DECLARE
  EMP EMPLOYEE%ROWTYPE;
 BEGIN
  SELECT * 
+ INTO EMP
  FROM EMPLOYEE
  WHERE DEPT_CODE = '&부서코드';
  EXCEPTION 
-  WHEN NO_DATA_FOUND THEN DBMS_OUTPUT.PUTLINE('조회 결과가 없습니다');
-  WHEN TOO_MANY_ROWS THEN DBMS_OUTPUT.PUTLINE('너무 많은 행이 조회되었습니다.');
+  WHEN NO_DATA_FOUND THEN DBMS_OUTPUT.PUT_LINE('조회 결과가 없습니다');
+  WHEN TOO_MANY_ROWS THEN DBMS_OUTPUT.PUT_LINE('너무 많은 행이 조회되었습니다.');
 END;
 /

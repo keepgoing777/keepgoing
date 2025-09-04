@@ -6,15 +6,16 @@ public class VariablePractice {
 
 	// 코드 정렬 : ctrl + shift + F
 	Scanner sc = new Scanner(System.in);
-
+	
+	
 	public static void main(String[] args) {
 		VariablePractice v = new VariablePractice();
-	//	v.method1();
-	//	v.method2();
-	//	v.method3();
-	//	v.method4();
-	//	v.method5();
-	//	v.method6();
+		//v.method1();
+		//v.method2();
+		//v.method3();
+		//v.method4();
+		//v.method5();
+		v.method6();
 		v.method7();
 	}
 
@@ -71,7 +72,7 @@ public class VariablePractice {
 		 int first = Integer.parseInt(sc.nextLine());
 	  
 		System.out.print("두번째 정수 : ");
-	    int second = Integer.parseInt(sc.nextLine());
+	     int second = Integer.parseInt(sc.nextLine());
 	
 	   
 	    System.out.println("더하기 : "+ first+second);
@@ -129,9 +130,9 @@ public class VariablePractice {
 		System.out.println("문자 : ");
 		char ch = sc.nextLine().charAt(0);
 		
-		int num = 'A';
-		System.out.println("A unicode : " + num);
-		System.out.println("B unicode : " + (char)(num+1));
+		System.out.println(ch + " unicode : " + (int) ch);
+		System.out.println((char)((int) ch + 1) + " unicode : " + ((int) ch + 1));
+	
 		
 	}
 

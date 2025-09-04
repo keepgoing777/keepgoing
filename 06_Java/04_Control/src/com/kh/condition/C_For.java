@@ -11,9 +11,10 @@ public class C_For {
 	 * 
 	 * for (초기식; 조건식; 증감식 { 실행코드 }
 	 * 
-	 * - 주어진 횟수만큼 코드를 반복 실행하는 구문 - 초기식 : 반복문이 수행될 때 단 한번만 실행, 반복문 안에서 사용할 변수를 선언하고
-	 * 초기값 대입 - 조건식 : 결과가 true이면 실행 코드를 실행, false 이면 실행하지 않고 반복문을 빠져나감 - 증감식 : 반복문에서
-	 * 사용하는 변수의 값을 증감, 주로 증감 연산자 사용
+	 * - 주어진 횟수만큼 코드를 반복 실행하는 구문 
+	 * - 초기식 : 반복문이 수행될 때 단 한번만 실행, 반복문 안에서 사용할 변수를 선언하고 초기값 대입 
+	 * - 조건식 : 결과가 true이면 실행 코드를 실행, false 이면 실행하지 않고 반복문을 빠져나감 
+	 * - 증감식 : 반복문에서 사용하는 변수의 값을 증감, 주로 증감 연산자 사용
 	 * 
 	 * continue 문 - continue문은 반복문 안에서 사용 - 반복문 안에서 continue를 만나면 "현재 구문" 종료 - 반복문을
 	 * 빠져나가는 것
@@ -26,13 +27,13 @@ public class C_For {
 		// c.method3();
 	    // c.method4();
 		// c.method5();
-		// c.method6();
+		 c.method6();
 		// c.method7();
 		// c.method8();
 	    // c.method8();
 		// c.method9();
-		 c.method10();
-		 c.method11();
+		 //c.method10();
+		 //c.method11();
 
 	}
 
@@ -96,6 +97,7 @@ public class C_For {
 		for (int i = 1; i <= random; i++) {
 			 sum += i;
 		} System.out.println(sum);
+		  System.out.println(random); 
 	}
 	
 	//영문자 쪼개기 tomato = t o m a t o

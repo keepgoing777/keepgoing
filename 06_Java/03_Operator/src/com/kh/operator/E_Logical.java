@@ -15,8 +15,8 @@ public class E_Logical {
 	
 	public static void main(String[] args) {
       E_Logical e = new E_Logical();
-     // e.method1();
-     // e.method2();
+        //e.method1();
+        //e.method2();
         e.practice();
 	}
  

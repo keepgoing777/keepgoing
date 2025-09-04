@@ -9,13 +9,13 @@ public class OperatorPractice {
 	public static void main(String[] args) {
 
 		OperatorPractice o = new OperatorPractice();
-		o.method1();
-		o.method2();
-		o.method3();
-		o.method4();
-		o.method5();
-		o.method6();
-		o.method7();
+		//o.method1();
+		//o.method2();
+		//o.method3();
+		//o.method4();
+		//o.method5();
+		//o.method6();
+		//o.method7();
 		o.method8();
 		
 	}
@@ -103,14 +103,14 @@ public class OperatorPractice {
 	//초 단위 시간을 입력받아 1시간 1분 1초 형식으로 출력
 	public void method8() {
 		System.out.println("초를 입력해주세요 > ");
+		int t = Integer.parseInt(sc.nextLine());
 		
-		int second = 3660;
-		int hour = second / 3600;
-		second -= hour*3600;
-		int minute = second / 60;
-		second -= minute*60;
+		int hour = t / 3600;
+		t -= hour*3600;
+		int minute = t / 60;
+		t -= minute*60;
 		
-		System.out.println(hour + "시간" + minute + "분" + second + "초");
+		System.out.println(hour + "시간" + minute + "분" + t + "초");
 	 
 	}
 	

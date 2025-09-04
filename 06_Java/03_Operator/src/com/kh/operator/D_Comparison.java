@@ -17,7 +17,7 @@ public class D_Comparison {
 
 	public static void main(String[] args) {
 		D_Comparison d = new D_Comparison();
-		//d.method1();
+		 d.method1();
          d.method2();
 	}
 
