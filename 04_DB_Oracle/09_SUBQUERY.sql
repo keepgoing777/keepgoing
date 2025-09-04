@@ -49,7 +49,7 @@ FROM EMPLOYEE
 GROUP BY DEPT_CODE
 HAVING SUM(SALARY) = (SELECT MAX(SUM(SALARY))
                       FROM EMPLOYEE
-                      GROUP BY DEPT_CODE); 
+                      GROUP BY DEPT_CODE); // D9
 
 --전지연 사원이 속해있는 부서원들 조회(단, 전지연 제외)
 SELECT *
@@ -81,33 +81,34 @@ WHERE SALARY = (SELECT MAX(SALARY)
                 FROM EMPLOYEE
                 WHERE DEPT_CODE IS NULL);
 
---사원에 대해 사번, 이름, 부서코드, 구분(사수/사원)조회
---MANAGER_ID가 있으면 사수가 있음(사원임), 없다면 본인이 사수
-
---NVL2 구문
-SELECT EMP_ID, EMP_NAME, DEPT_CODE, NVL2(MANAGER_ID, '사원', '사수')AS 구분
-FROM EMPLOYEE;
-
---CASE WHEN 구문
-SELECT EMP_ID, EMP_NAME, DEPT_CODE,
- CASE WHEN MANAGER_ID IS NULL THEN '사수'
-      WHEN MANAGER_ID IS NOT NULL THEN '사원'
--- ELSE '사원'으로도 대체 가능(바로 윗 문장)
- END AS 구분
-FROM EMPLOYEE;
-
---서브쿼리문 (CASE WHEN 응용)
-SELECT DISTINCT MANAGER_ID
-FROM EMPLOYEE
-WHERE MANAGER_ID IS NOT NULL; -- 누군가의 사수인분들
-
-SELECT EMP_ID, EMP_NAME, DEPT_CODE,
- CASE WHEN EMP_ID IN (SELECT DISTINCT MANAGER_ID
-                      FROM EMPLOYEE
-                      WHERE MANAGER_ID IS NOT NULL) THEN '사수'
- ELSE '사원'
- END AS 구분
-FROM EMPLOYEE;
+    --사원에 대해 사번, 이름, 부서코드, 구분(사수/사원)조회
+    --MANAGER_ID가 있으면 사수가 있음(사원임), 없다면 본인이 사수
+    
+    SELECT * FROM EMPLOYEE;
+    --NVL2 구문
+    SELECT EMP_ID, EMP_NAME, DEPT_CODE, NVL2(MANAGER_ID, '사원', '사수')AS 구분
+    FROM EMPLOYEE;
+    
+    --CASE WHEN 구문
+    SELECT EMP_ID, EMP_NAME, DEPT_CODE,
+     CASE WHEN MANAGER_ID IS NULL THEN '사수'
+          WHEN MANAGER_ID IS NOT NULL THEN '사원'
+    -- ELSE '사원'으로도 대체 가능(바로 윗 문장)
+     END AS 구분
+    FROM EMPLOYEE;
+    
+    --서브쿼리문 (CASE WHEN 응용)
+    SELECT DISTINCT MANAGER_ID
+    FROM EMPLOYEE
+    WHERE MANAGER_ID IS NOT NULL; -- 사원
+    
+    SELECT EMP_ID, EMP_NAME, DEPT_CODE,
+     CASE WHEN EMP_ID IN (SELECT DISTINCT MANAGER_ID
+                          FROM EMPLOYEE
+                          WHERE MANAGER_ID IS NOT NULL) THEN '사수'
+     ELSE '사원'
+     END AS 구분
+    FROM EMPLOYEE;
 
 /*
      비교대상 > ANY (서브쿼리) : 여러개의 결과값 중에서 '한개라도' 클 경우
