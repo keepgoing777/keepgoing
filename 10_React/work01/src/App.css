@@ -1,0 +1,7 @@
+#exam_div {
+  width: 200px;
+  height: 200px;
+  padding: 90px 0; /* 쉼표 제거, 공백으로 구분 */
+  text-align: center;
+  background-color: black;
+}
