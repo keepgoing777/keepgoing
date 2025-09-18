@@ -30,9 +30,29 @@ function App() {
         <input type="text" name="myname" placeholder="이름을 입력하세요" />
         <input type="submit" value="인사하기" /> <br />
       </form>
+
       <p>{greet}</p>
 
-      {/*기분을 선택하는 select 태그 */}
+      <MyMood mood={moodChange}></MyMood>
+      <p>{msg}</p>
+    </div>
+  );
+}
+
+function MyMood({ mood }) {
+  return (
+    <div>
+      <select onChange={mood}>
+        <option value=""> 기분을 선택하세요 </option>
+        <option value="행복">행복</option>
+        <option value="슬픔">슬픔</option>
+        <option value="화남">화남</option>
+      </select>
+    </div>
+  );
+}
+{
+  /*기분을 선택하는 select 태그 
       <div>
         <select onChange={moodChange}>
           <option value="">기분을 선택해주세요</option>
@@ -42,9 +62,7 @@ function App() {
         </select>
         <br />
         <p>{msg}</p>
-      </div>
-    </div>
-  );
+      </div>*/
 }
 
 export default App;
